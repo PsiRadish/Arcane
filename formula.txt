@@ -1,0 +1,20 @@
+a + (1-a) × (a + (1-a) × (a + (1-a) × (a)))
+
+a + (1-a) × (3a - 3a^2 + a^3)
+
+
+blend(alpha) = 4*alpha - 6*alpha^2 + 4*alpha^3 - alpha^4
+
+b = 4a − 6a² + 4a³ − a⁴
+
+If someone could solve this for _a_ for me that'd be really great.
+
+
+4*a - 6*a^2 + 4*a^3 - a^4
+
+
+SOLVED FOR a
+
+a = (1-b)^(1/4)+1
+
+http://www.wolframalpha.com/input/?i=solve+for+a%3A+b+%3D+4a+%E2%88%92+6a%C2%B2+%2B+4a%C2%B3+%E2%88%92+a%E2%81%B4

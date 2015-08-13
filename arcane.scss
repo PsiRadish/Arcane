@@ -1,0 +1,279 @@
+// Kyle Fiegener
+// ©LOL copyright
+
+$text-color:            white;
+$link-color:            #FFFF40;
+$bttn-color:            blue;
+$form-color:            #DDD;
+
+$error-color:           red;
+
+$font-family-monospace:      DejaVu Sans Mono, Bitstream Vera Sans Mono, Consolas, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
+
+// h1-h3
+$font-family-top-level:      $font-family-monospace;
+// h4+
+$font-family-mid-level:      Corbel, Gill Sans MT, Gill Sans, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lato, Tahoma, sans-serif;
+// non-heading text
+$font-family-bottom-level:   Segoe UI, Frutiger, Dejavu Sans Condensed, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+$glow-idle-text-opacity:     0.6;
+$glow-idle-text-blur:        1px;
+
+$glow-mild-white-percent:    40%;
+
+$glow-mild-text-opacity:     0.8;
+$glow-mild-text-blur:        2px;
+
+$glow-mild-border-opacity:   0.4;
+$glow-mild-border-blur:      2px;
+
+$glow-strong-white-percent:  60%;
+
+$glow-strong-text-opacity:   1.0;
+$glow-strong-text-blur:      3px;
+
+$glow-strong-border-opacity: 0.6;
+$glow-strong-border-blur:    3px;
+
+@mixin text-shadow-uniform()
+{
+    
+}
+
+@mixin Im-just-a-box($color)
+{
+    background: none;
+    border: 1px solid $color;
+    border-radius: 2px;
+}
+
+@mixin glow-idle-text($color)
+{
+    color: $color;
+    text-shadow: 0 0 $glow-idle-text-blur rgba($color, $glow-idle-text-opacity);
+    // text-shadow: 1px 1px 1px  rgba($color, 0.3),
+    //             -1px -1px 1px rgba($color, 0.3);
+}
+@mixin glow-mild-text($color, $white-percent: $glow-mild-white-percent)
+{
+    color: mix(white, $color, $white-percent);
+    text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
+    // text-shadow: 1px  1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity),
+    //             -1px -1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
+}
+@mixin glow-strong-text($color, $white-percent: $glow-strong-white-percent)
+{
+    color: mix(white, $color, $white-percent);
+    text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
+    // text-shadow: 1px  1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity),
+    //             -1px -1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
+}
+
+@mixin glow-mild-border($color, $white-percent: $glow-mild-white-percent)
+{
+    border-color: mix(white, $color, $white-percent);
+    box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
+             /*outset*/ 0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity);
+}
+@mixin glow-strong-border($color, $white-percent: $glow-strong-white-percent)
+{
+    border-color: mix(white, $color, $white-percent);
+    box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),
+             /*outset*/ 0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity);
+}
+
+html { width: 100%; }
+
+body
+{
+    background-color: black;
+    
+    //color: $text-color;
+    @include glow-idle-text($text-color);
+    
+    font-family: $font-family-bottom-level;
+    
+    width: 100%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+{
+    font-weight: 500;
+    line-height: 1.1;
+}
+.h1, .h2, .h3, h1, h2, h3
+{
+    font-family: $font-family-top-level;
+}
+.h4, .h5, .h6, h4, h5, h6
+{
+    font-family: $font-family-mid-level;
+}
+.h1, h1
+{
+    font-size: 36px;
+}
+.h2, h2
+{
+    font-size: 30px;
+}
+.h3, h3
+{
+    font-size: 24x;
+}
+.h4, h4
+{
+    font-size: 18px;
+}
+.h5, h5
+{
+    font-size: 14px;
+    font-weight: 600;
+}
+.h6, h6
+{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+a
+{
+    //color: $link-color;
+    @include glow-idle-text($link-color);
+    
+    &:hover, &:focus
+    {
+        @include glow-mild-text($link-color);
+        text-decoration: none;
+    }
+    &:active
+    {
+        @include glow-strong-text($link-color);
+    }
+}
+
+button, .button-ish
+{
+    @include Im-just-a-box($bttn-color);
+    border-width: 2px;
+    
+    padding: 3px 6px;
+    
+    span
+    {
+        //color: $bttn-color;
+        @include glow-idle-text($bttn-color);
+        display: inline-block;
+    }
+    
+    &:hover //, &:focus
+    {
+        @include glow-mild-border($bttn-color);
+        
+        span
+        {
+            @include glow-mild-text($bttn-color);
+            // transform: scale(1.05, 1.05);
+        }
+    }
+    
+    &:active
+    {
+        @include glow-strong-border($bttn-color);
+        
+        padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
+        
+        span
+        {
+            @include glow-strong-text($bttn-color);
+            // transform: scale(1.1, 1.1);
+        }
+    }
+    
+    &.selected
+    {
+        span
+        {
+            @include glow-strong-text($bttn-color);
+            // transform: scale(1.1, 1.1);
+        }
+    }
+}
+
+label
+{
+    //color: $form-color;
+    @include glow-idle-text($form-color);
+}
+label.label-focus
+{
+    @include glow-mild-text($form-color);
+}
+input[type="text"]
+{
+    //color: $form-color;
+    @include glow-idle-text($form-color);
+    // background: none;
+    // border: 1px solid $form-color;
+    // border-radius: 2px;
+    @include Im-just-a-box($form-color);
+    
+    padding: 3px;
+    
+    //@include glow-mild-border($form-color);
+    
+    &:focus:not([readonly])
+    {
+        @include glow-mild-border($form-color);
+        @include glow-mild-text($form-color);
+    }
+    &[readonly]
+    {
+        @include Im-just-a-box($text-color);
+        @include glow-mild-border($text-color);
+    }
+}
+
+// .flavor-error
+// {
+//     color: $error-color;
+//     @include glow-idle-text($error-color);
+// }
+.box.flavor-error
+{
+    @include Im-just-a-box($error-color);
+    border-style: double;
+    border-width: 3px;
+    @include glow-strong-border($error-color, 0%);
+    
+    color: $error-color;
+    @include glow-strong-text($error-color, 0%);
+    
+    padding: 6px;
+    width: 100%;
+}
+
+.box.flavor-blue
+{
+    //color: blue;
+    @include Im-just-a-box(blue);
+    
+    @include glow-idle-text(blue);
+}
+
+.form-widget
+{
+    width: 100%;
+}
+
+//// Bootstrap-specific fixes
+// .form-control
+// {
+//     color: $form-color;
+// }
+
+.center-text
+{
+    text-align: center;
+}
