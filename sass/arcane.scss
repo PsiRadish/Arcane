@@ -8,33 +8,81 @@ $form-color:            #DDD;
 
 $error-color:           red;
 
-$font-family-monospace:      DejaVu Sans Mono, Bitstream Vera Sans Mono, Consolas, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
+// FONT STACKS
+                            // TODO: Find out which of these monospace fonts are in any way "fancy"
+$font-stack-consolas        : Consolas, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
+$font-stack-corbel          : Corbel, Gill Sans, Lato, Gill Sans MT, Lucida Grande, Lucida Sans, Trebuchet MS, sans-serif;
+$font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Arial, sans-serif;
+$font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
+                            // + Average Sans? https://www.google.com/fonts/specimen/Average+Sans  NO BUILT-IN BOLD OR ITALIC
+                            // + <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  NO BUILT-IN BOLD OR ITALIC
+$font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
 
-// h1-h3
-$font-family-top-level:      $font-family-monospace;
-// h4+
-$font-family-mid-level:      Corbel, Gill Sans MT, Gill Sans, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lato, Tahoma, sans-serif;
+$font-stack-arcane-body     : $font-stack-candara; // TODO: one killer google font?
+$font-stack-arcane-hmid     : Port Lligat Sans, Port Lligat Serif, Constantia, Times New Roman, serif; // TODO: More nice serif fonts / one killer google font
+$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
+
+$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
+/* Good-ish:
+ * Actor 15px / Port Lligat Sans 17px, line-height 18px
+ * Actor 15px / Port Lligat Sans 17px, line-height 20px
+ * Actor 15px / Oldenburg 15px, line-height 20(18?)px
+ * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
+ */
+
+// FONT FAMILIES (where font stacks are put to use)
+// • "Nerd" Theme
+// h1–h3
+$font-family-top-level      : $font-stack-consolas;
+// h4–h6
+$font-family-mid-level      : $font-stack-corbel;
 // non-heading text
-$font-family-bottom-level:   Segoe UI, Frutiger, Dejavu Sans Condensed, Helvetica Neue, Helvetica, Arial, sans-serif;
+$font-family-bottom-level   : $font-stack-segoe;
+//*/
 
-$glow-idle-text-opacity:     0.6;
-$glow-idle-text-blur:        1px;
+/* • Arcane Theme
+// h1–h3
+$font-family-top-level      : $font-stack-arcane-htop;
+// h4–h6
+$font-family-mid-level      : $font-stack-arcane-hmid;
+// non-heading text
+$font-family-bottom-level   : $font-stack-arcane-body;
+//*/
 
-$glow-mild-white-percent:    40%;
+$font-size-base             : 14px;
 
-$glow-mild-text-opacity:     0.8;
-$glow-mild-text-blur:        2px;
+// HEADING SIZES
+// • Bootstrap-ish
+$font-size-h6               : $font-size-base;      // 14px
+$font-size-h5               : $font-size-base + 2;  // 16px
+$font-size-h4               : $font-size-base + 4;  // 18px
+$font-size-h3               : $font-size-base + 10; // 24px
+$font-size-h2               : $font-size-base + 16; // 30px
+$font-size-h1               : $font-size-base + 22; // 36px
+//*/
 
-$glow-mild-border-opacity:   0.4;
-$glow-mild-border-blur:      2px;
+/* • Golden Ratio
+    TODO: Golden ratio heading sizes
+//*/
 
-$glow-strong-white-percent:  60%;
+$glow-idle-text-opacity     : 0.6;
+$glow-idle-text-blur        : 1px;
 
-$glow-strong-text-opacity:   1.0;
-$glow-strong-text-blur:      3px;
+$glow-mild-white-percent    : 40%;
 
-$glow-strong-border-opacity: 0.6;
-$glow-strong-border-blur:    3px;
+$glow-mild-text-opacity     : 0.8;
+$glow-mild-text-blur        : 2px;
+
+$glow-mild-border-opacity   : 0.4;
+$glow-mild-border-blur      : 2px;
+
+$glow-strong-white-percent  : 60%;
+
+$glow-strong-text-opacity   : 1.0;
+$glow-strong-text-blur      : 3px;
+
+$glow-strong-border-opacity : 0.6;
+$glow-strong-border-blur    : 3px;
 
 @mixin text-shadow-uniform()
 {
@@ -112,28 +160,28 @@ body
 }
 .h1, h1
 {
-    font-size: 36px;
+    font-size: $font-size-h1;
 }
 .h2, h2
 {
-    font-size: 30px;
+    font-size: $font-size-h2;
 }
 .h3, h3
 {
-    font-size: 24x;
+    font-size: $font-size-h3;
 }
 .h4, h4
 {
-    font-size: 18px;
+    font-size: $font-size-h4;
 }
 .h5, h5
 {
-    font-size: 14px;
+    font-size: $font-size-h5;
     font-weight: 600;
 }
 .h6, h6
 {
-    font-size: 12px;
+    font-size: $font-size-h6;
     font-weight: 700;
 }
 
