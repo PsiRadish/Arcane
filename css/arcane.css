@@ -1,0 +1,355 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+/* Good-ish:
+ * Actor 15px / Port Lligat Sans 17px, line-height 18px
+ * Actor 15px / Port Lligat Sans 17px, line-height 20px
+ * Actor 15px / Oldenburg 15px, line-height 20(18?)px
+ * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
+ */
+/* ΓÇó "Nerd" Theme
+// h1ΓÇôh3
+$font-family-top-level      : $font-stack-consolas;
+// h4ΓÇôh6
+$font-family-mid-level      : $font-stack-corbel;
+// non-heading text
+$font-family-bottom-level   : $font-stack-segoe;
+//*/
+/*// ΓÇó Bootstrap-ish
+$font-size-h6               : $font-size-base;      // 14px
+$font-size-h5               : $font-size-base + 2;  // 16px
+$font-size-h4               : $font-size-base + 4;  // 18px
+$font-size-h3               : $font-size-base + 10; // 24px
+$font-size-h2               : $font-size-base + 16; // 30px
+$font-size-h1               : $font-size-base + 22; // 36px
+//*/
+/*// ΓÇó Golden Ratio
+       TODO?: Golden ratio heading sizes
+//*/
+html {
+  width: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+input, select, textarea,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+*::-moz-focus-inner {
+  border: none !important;
+  padding: 0 !important;
+}
+
+small {
+  font-size: 70%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+*, *::before, *::after {
+  transition: all 0.25s;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  font-family: Actor, Candara, Optima, Optima Regular, Optima Roman, Optima LT W10 Roman, Gill Sans, Lato, Gill Sans MT, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  width: 100%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+  font-family: Avdira, Nogard, Dragon Text;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+  font-family: Port Lligat Sans, Constantia, Liberation Serif, Times New Roman, serif;
+}
+
+.h1, h1 {
+  font-size: 30.8px;
+}
+
+.h2, h2 {
+  font-size: 24.5px;
+}
+
+.h3, h3 {
+  font-size: 21px;
+}
+
+.h4, h4 {
+  font-size: 17.5px;
+}
+
+.h5, h5 {
+  font-size: 15.4px;
+  font-weight: 600;
+}
+
+.h6, h6 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+a {
+  color: #FFD700;
+  text-shadow: 0 0 2px rgba(255, 215, 0, 0.6);
+  text-decoration: none;
+  position: relative;
+}
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  border: 1px solid #FFD700;
+  border-radius: 2px;
+  opacity: 0;
+}
+a:hover, a:focus {
+  color: #ffef99;
+  text-shadow: 0px 0px 3px gold;
+}
+a:focus::after {
+  content: "";
+  border-color: #ffef99;
+  box-shadow: inset 0 0 3px 1px rgba(255, 215, 0, 0.6), 0 0 3px 1px rgba(255, 215, 0, 0.6);
+  opacity: 1;
+}
+a:active {
+  color: white;
+  text-shadow: 0px 0px 4px gold, 0px 0px 4px rgba(255, 215, 0, 0.7);
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button {
+  background: none;
+  border: 1px solid #2040FF;
+  border-radius: 2px;
+  border-width: 2px;
+  padding: 3px 6px;
+}
+button span, button i,
+input[type="button"] span,
+input[type="button"] i,
+input[type="reset"] span,
+input[type="reset"] i,
+input[type="submit"] span,
+input[type="submit"] i,
+.button span,
+.button i {
+  color: #2040FF;
+  text-shadow: 0 0 2px rgba(32, 64, 255, 0.6);
+  display: inline-block;
+}
+button:hover, button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+.button:hover,
+.button:focus {
+  border-color: #a6b3ff;
+  box-shadow: inset 0 0 3px 1px rgba(32, 64, 255, 0.6), 0 0 3px 1px rgba(32, 64, 255, 0.6);
+}
+button:hover span, button:hover i, button:focus span, button:focus i,
+input[type="button"]:hover span,
+input[type="button"]:hover i,
+input[type="button"]:focus span,
+input[type="button"]:focus i,
+input[type="reset"]:hover span,
+input[type="reset"]:hover i,
+input[type="reset"]:focus span,
+input[type="reset"]:focus i,
+input[type="submit"]:hover span,
+input[type="submit"]:hover i,
+input[type="submit"]:focus span,
+input[type="submit"]:focus i,
+.button:hover span,
+.button:hover i,
+.button:focus span,
+.button:focus i {
+  color: #a6b3ff;
+  text-shadow: 0px 0px 3px #2040ff;
+  transform: scale(1.15, 1.15);
+}
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+.button:active {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #2040ff, 0 0 4px 1px #2040ff;
+  padding: 3px 6px;
+}
+button:active span, button:active i,
+input[type="button"]:active span,
+input[type="button"]:active i,
+input[type="reset"]:active span,
+input[type="reset"]:active i,
+input[type="submit"]:active span,
+input[type="submit"]:active i,
+.button:active span,
+.button:active i {
+  color: white;
+  text-shadow: 0px 0px 4px #2040ff, 0px 0px 4px rgba(32, 64, 255, 0.7);
+  transform: scale(1.25, 1.25);
+}
+button.selected span, button.selected i,
+input[type="button"].selected span,
+input[type="button"].selected i,
+input[type="reset"].selected span,
+input[type="reset"].selected i,
+input[type="submit"].selected span,
+input[type="submit"].selected i,
+.button.selected span,
+.button.selected i {
+  color: white;
+  text-shadow: 0px 0px 4px #2040ff, 0px 0px 4px rgba(32, 64, 255, 0.7);
+  transform: scale(1.25, 1.25);
+}
+
+label {
+  color: #DDD;
+  text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
+}
+
+label.label-focus {
+  color: #f1f1f1;
+  text-shadow: 0px 0px 3px #dddddd;
+}
+
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]) {
+  color: #DDD;
+  text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
+  background: none;
+  border: 1px solid #DDD;
+  border-radius: 2px;
+  padding: 3px;
+}
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):focus:not([readonly]) {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #dddddd, 0 0 4px 1px #dddddd;
+  color: #f1f1f1;
+  text-shadow: 0px 0px 3px #dddddd;
+}
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"])[readonly] {
+  background: none;
+  border: 1px solid white;
+  border-radius: 2px;
+  border-color: white;
+  box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
+}
+
+input[type="number"] {
+  padding-right: 18px !important;
+}
+
+button.spin, .spin.button {
+  border: none;
+  color: #DDD;
+  text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  cursor: default;
+}
+button.spin:first-child, .spin.button:first-child {
+  padding-bottom: 5px;
+}
+button.spin:last-child, .spin.button:last-child {
+  padding-top: 5px;
+}
+button.spin i, .spin.button i {
+  color: #DDD;
+  text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
+  line-height: 0;
+}
+
+.spin-block {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  left: -20px;
+}
+
+.box.flavor-error {
+  background: none;
+  border: 1px solid red;
+  border-radius: 2px;
+  border-style: double;
+  border-width: 3px;
+  border-color: red;
+  box-shadow: inset 0 0 4px 1px red, 0 0 4px 1px red;
+  color: red;
+  color: red;
+  text-shadow: 0px 0px 4px red, 0px 0px 4px rgba(255, 0, 0, 0.7);
+  padding: 6px;
+  width: 100%;
+}
+
+.box.flavor-blue {
+  background: none;
+  border: 1px solid blue;
+  border-radius: 2px;
+  color: blue;
+  text-shadow: 0 0 2px rgba(0, 0, 255, 0.6);
+}
+
+.form-widget {
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}

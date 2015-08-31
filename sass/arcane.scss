@@ -1,9 +1,11 @@
 // Kyle Fiegener
 // ©LOL copyright
 
+@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+
 $text-color:            white;
-$link-color:            #FFFF40;
-$bttn-color:            blue;
+$link-color:            #FFD700;
+$bttn-color:            #2040FF; //blue;
 $form-color:            #DDD;
 
 $error-color:           red;
@@ -18,29 +20,21 @@ $font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Op
                             // + <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  NO BUILT-IN BOLD OR ITALIC
 $font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
 
-$font-stack-arcane-body     : $font-stack-candara; // TODO: one killer google font?
-$font-stack-arcane-hmid     : Port Lligat Sans, Port Lligat Serif, Constantia, Times New Roman, serif; // TODO: More nice serif fonts / one killer google font
-$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
-
-$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
 /* Good-ish:
  * Actor 15px / Port Lligat Sans 17px, line-height 18px
  * Actor 15px / Port Lligat Sans 17px, line-height 20px
  * Actor 15px / Oldenburg 15px, line-height 20(18?)px
  * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
  */
+$font-stack-arcane-body     : Actor, (#{$font-stack-candara});
+$font-stack-arcane-hmid     : Port Lligat Sans, Constantia, Liberation Serif, Times New Roman, serif; // TODO: More nice serif fonts
+$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
+
+$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
+
 
 // FONT FAMILIES (where font stacks are put to use)
-// • "Nerd" Theme
-// h1–h3
-$font-family-top-level      : $font-stack-consolas;
-// h4–h6
-$font-family-mid-level      : $font-stack-corbel;
-// non-heading text
-$font-family-bottom-level   : $font-stack-segoe;
-//*/
-
-/* • Arcane Theme
+// • Arcane Theme
 // h1–h3
 $font-family-top-level      : $font-stack-arcane-htop;
 // h4–h6
@@ -49,10 +43,19 @@ $font-family-mid-level      : $font-stack-arcane-hmid;
 $font-family-bottom-level   : $font-stack-arcane-body;
 //*/
 
+/* • "Nerd" Theme
+// h1–h3
+$font-family-top-level      : $font-stack-consolas;
+// h4–h6
+$font-family-mid-level      : $font-stack-corbel;
+// non-heading text
+$font-family-bottom-level   : $font-stack-segoe;
+//*/
+
 $font-size-base             : 14px;
 
 // HEADING SIZES
-// • Bootstrap-ish
+/*// • Bootstrap-ish
 $font-size-h6               : $font-size-base;      // 14px
 $font-size-h5               : $font-size-base + 2;  // 16px
 $font-size-h4               : $font-size-base + 4;  // 18px
@@ -61,28 +64,40 @@ $font-size-h2               : $font-size-base + 16; // 30px
 $font-size-h1               : $font-size-base + 22; // 36px
 //*/
 
-/* • Golden Ratio
-    TODO: Golden ratio heading sizes
+//// • Ink-ish
+$font-size-h6               :  $font-size-base;
+$font-size-h5               : ($font-size-base * 1.1);
+$font-size-h4               : ($font-size-base * 1.25);
+$font-size-h3               : ($font-size-base * 1.50);
+$font-size-h2               : ($font-size-base * 1.75);
+$font-size-h1               : ($font-size-base * 2.2);
+//*/
+
+$line-height-computed       : 20px / $font-size-base;
+
+/*// • Golden Ratio
+       TODO?: Golden ratio heading sizes
 //*/
 
 $glow-idle-text-opacity     : 0.6;
-$glow-idle-text-blur        : 1px;
+$glow-idle-text-blur        : 2px;
 
-$glow-mild-white-percent    : 40%;
+$glow-mild-white-percent    : 60%;
 
-$glow-mild-text-opacity     : 0.8;
-$glow-mild-text-blur        : 2px;
+$glow-mild-text-opacity     : 1.0;
+$glow-mild-text-blur        : 3px;
 
-$glow-mild-border-opacity   : 0.4;
-$glow-mild-border-blur      : 2px;
+$glow-mild-border-opacity   : 0.6;
+$glow-mild-border-blur      : 3px;
 
-$glow-strong-white-percent  : 60%;
+$glow-strong-white-percent  : 100%;
 
-$glow-strong-text-opacity   : 1.0;
-$glow-strong-text-blur      : 3px;
+$glow-strong-text-opacity1  : 1.0;
+$glow-strong-text-opacity2  : 0.7;
+$glow-strong-text-blur      : 4px;
 
-$glow-strong-border-opacity : 0.6;
-$glow-strong-border-blur    : 3px;
+$glow-strong-border-opacity : 1.0;
+$glow-strong-border-blur    : 4px;
 
 @mixin text-shadow-uniform()
 {
@@ -106,14 +121,20 @@ $glow-strong-border-blur    : 3px;
 @mixin glow-mild-text($color, $white-percent: $glow-mild-white-percent)
 {
     color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
+    text-shadow: 0px 0px $glow-mild-text-blur rgba($color, $glow-mild-text-opacity);
+    // text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
+    
     // text-shadow: 1px  1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity),
     //             -1px -1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
 }
 @mixin glow-strong-text($color, $white-percent: $glow-strong-white-percent)
 {
     color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
+    text-shadow: 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1),
+                 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2);
+    // text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity1),
+    //              0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity2);
+                 
     // text-shadow: 1px  1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity),
     //             -1px -1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
 }
@@ -121,17 +142,107 @@ $glow-strong-border-blur    : 3px;
 @mixin glow-mild-border($color, $white-percent: $glow-mild-white-percent)
 {
     border-color: mix(white, $color, $white-percent);
-    box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
-             /*outset*/ 0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity);
+    box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity),
+             /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity);
+    // box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
+    //          /*outset*/ 0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity);
 }
 @mixin glow-strong-border($color, $white-percent: $glow-strong-white-percent)
 {
     border-color: mix(white, $color, $white-percent);
-    box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),
-             /*outset*/ 0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity);
+    box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity),
+             /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity);
+    // box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),
+    //          /*outset*/ 0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity);
 }
 
-html { width: 100%; }
+// FIXY THINGS
+html
+{
+    width: 100%;
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+*, *::before, *::after
+{
+    box-sizing: border-box;
+    // -webkit-appearance: none;  // I want to so hard -_-
+};
+
+// Remove hideous webkit defaults
+input, select, textarea,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration 
+{
+    -webkit-appearance: none !important;
+    // -webkit-border-radius: 0;
+}
+*:focus
+{
+    outline: none;
+}
+
+// No (default) spin buttons in number fields (TODO?: make my own?)
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type=number]
+{
+    -moz-appearance: textfield;
+}
+// input[type=number]::shadow
+// {
+//     // *
+//     // {
+//         background: none;
+//         border: none;
+//         @include glow-idle-text($form-color);
+        
+//         &:focus
+//         {
+//             @include glow-mild-text($form-color);
+//         }
+//     // }
+// }
+
+// No dotted outlines on focused stuff in Firefox
+*::-moz-focus-inner
+{
+    border: none !important;
+    padding: 0 !important;
+}
+
+small 
+{
+    font-size: 70%;
+}
+sub,
+sup 
+{
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup 
+{
+    top: -0.5em;
+}
+sub 
+{
+    bottom: -0.25em;
+}
+
+// STYLEY THINGS
+*, *::before, *::after
+{
+    transition: all 0.25s;
+}
 
 body
 {
@@ -141,6 +252,8 @@ body
     @include glow-idle-text($text-color);
     
     font-family: $font-family-bottom-level;
+    font-size:   $font-size-base;
+    line-height: $line-height-computed;
     
     width: 100%;
 }
@@ -189,40 +302,85 @@ a
 {
     //color: $link-color;
     @include glow-idle-text($link-color);
+    text-decoration: none;
+    
+    position: relative;
+    
+    &::after
+    {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        @include Im-just-a-box($link-color);
+        
+        opacity: 0;
+    }
     
     &:hover, &:focus
     {
         @include glow-mild-text($link-color);
-        text-decoration: none;
+    }
+    &:focus::after
+    {
+        content: "";
+        // position: absolute;
+        // bottom: 0;
+        // left: 0;
+        // width: 100%;
+        // @include Im-just-a-box($link-color);
+        @include glow-mild-border($link-color);
+        
+        opacity: 1;
     }
     &:active
     {
         @include glow-strong-text($link-color);
     }
+    
+        // // temporary
+        // position: relative;
+        
+        // &::after
+        // {
+        //     content: "";
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     @include Im-just-a-box($link-color);
+        //     @include glow-mild-border($link-color);
+        // }
 }
 
-button, .button-ish
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
 {
     @include Im-just-a-box($bttn-color);
     border-width: 2px;
     
     padding: 3px 6px;
     
-    span
+    span, i
     {
         //color: $bttn-color;
         @include glow-idle-text($bttn-color);
         display: inline-block;
+        //transition: all 0.25s;
     }
     
-    &:hover //, &:focus
+    &:hover, &:focus
     {
         @include glow-mild-border($bttn-color);
         
-        span
+        span, i
         {
             @include glow-mild-text($bttn-color);
-            // transform: scale(1.05, 1.05);
+            transform: scale(1.15, 1.15);
         }
     }
     
@@ -232,19 +390,19 @@ button, .button-ish
         
         padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
         
-        span
+        span, i
         {
             @include glow-strong-text($bttn-color);
-            // transform: scale(1.1, 1.1);
+            transform: scale(1.25, 1.25);
         }
     }
     
     &.selected
     {
-        span
+        span, i
         {
             @include glow-strong-text($bttn-color);
-            // transform: scale(1.1, 1.1);
+            transform: scale(1.25, 1.25);
         }
     }
 }
@@ -258,7 +416,9 @@ label.label-focus
 {
     @include glow-mild-text($form-color);
 }
-input[type="text"]
+// http://www.w3schools.com/html/html_form_input_types.asp
+// input[type="text"], input[type="number"]
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"])
 {
     //color: $form-color;
     @include glow-idle-text($form-color);
@@ -273,7 +433,7 @@ input[type="text"]
     
     &:focus:not([readonly])
     {
-        @include glow-mild-border($form-color);
+        @include glow-strong-border($form-color);
         @include glow-mild-text($form-color);
     }
     &[readonly]
@@ -281,6 +441,45 @@ input[type="text"]
         @include Im-just-a-box($text-color);
         @include glow-mild-border($text-color);
     }
+}
+
+// Spin buttons via external DOM elements
+input[type="number"]
+{
+    padding-right: 18px !important;
+}
+button.spin, .spin.button
+{
+    border: none;
+    @include glow-idle-text($form-color);
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    
+    cursor: default;
+    
+    &:first-child
+    {
+        padding-bottom: 5px;
+    }
+    &:last-child
+    {
+        padding-top: 5px;
+    }
+    
+    i
+    {
+        @include glow-idle-text($form-color);
+        line-height: 0;
+    }
+}
+.spin-block
+{
+    // margin-left: -10px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: -20px;
 }
 
 // .flavor-error

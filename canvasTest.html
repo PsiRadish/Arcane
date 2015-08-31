@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="//code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/arcane.css">
+  <style>
+    button.canvas-button
+    {
+        postion: relative;
+        background: none;
+        
+        /*z-index: 3;*/
+    }
+    
+    button canvas
+    {
+        /*display: block;*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        
+        z-index: -1;
+    }
+  </style>
+</head>
+<html>
+<body>
+
+<button class="canvas-button" style="margin: 100px;">
+  Button!
+  <canvas class="widget-canvas"></canvas>
+</button>
+
+<script>
+    var widgetCanvii = document.querySelectorAll('.widget-canvas');
+    
+    // resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', resizeWidgetCanvii, false);
+    
+    function resizeWidgetCanvii()
+    {
+        for (var i = 0; i < widgetCanvii.length; i++)
+        {
+            var canvas  = widgetCanvii[i],
+                context = canvas.getContext('2d');
+            
+            var widgetDimensions = canvas.parentElement.getBoundingClientRect();
+            
+            canvas.width = widgetDimensions.width;
+            canvas.height = widgetDimensions.height;
+            canvas.style.left = widgetDimensions.left+'px';
+            canvas.style.top = widgetDimensions.top+'px';
+            
+            /**
+             * Drawing needs to be inside this function
+             */
+            drawStuff(context, canvas.width, canvas.height);
+        };        
+    }
+    resizeWidgetCanvii();
+
+    function drawStuff(context, canvassWidth, canvassHeight)
+    {
+        // Create gradient
+        var gradient = context.createRadialGradient(75,50,5,90,60,100);
+        gradient.addColorStop(0, "red");
+        gradient.addColorStop(1, "white");
+        
+        // Fill with gradient
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, canvassWidth, canvassHeight);
+    }
+</script>
+
+</body>
+</html>
