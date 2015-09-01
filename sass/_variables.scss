@@ -1,0 +1,101 @@
+// Kyle Fiegener
+// ©LOL copyright
+
+@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+
+$text-color:            white;
+$link-color:            #FFD700;
+$bttn-color:            #2040FF; //blue;
+$form-color:            #DDD;
+
+$error-color:           red;
+
+// FONT STACKS
+                            // TODO: Find out which of these monospace fonts are in any way "fancy"
+$font-stack-consolas        : Consolas, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
+$font-stack-corbel          : Corbel, Gill Sans, Lato, Gill Sans MT, Lucida Grande, Lucida Sans, Trebuchet MS, sans-serif;
+$font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Arial, sans-serif;
+$font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
+                            // + Average Sans? https://www.google.com/fonts/specimen/Average+Sans  NO BUILT-IN BOLD OR ITALIC
+                            // + <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  NO BUILT-IN BOLD OR ITALIC
+$font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
+
+/* Good-ish:
+ * Actor 15px / Port Lligat Sans 17px, line-height 18px
+ * Actor 15px / Port Lligat Sans 17px, line-height 20px
+ * Actor 15px / Oldenburg 15px, line-height 20(18?)px
+ * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
+ */
+$font-stack-arcane-body     : Actor, (#{$font-stack-candara});
+$font-stack-arcane-hmid     : Port Lligat Sans, Constantia, Liberation Serif, Times New Roman, serif; // TODO: More nice serif fonts
+$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
+
+$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
+
+
+// FONT FAMILIES (where font stacks are put to use)
+// • Arcane Theme
+// h1–h3
+$font-family-top-level      : $font-stack-arcane-htop;
+// h4–h6
+$font-family-mid-level      : $font-stack-arcane-hmid;
+// non-heading text
+$font-family-bottom-level   : $font-stack-arcane-body;
+//*/
+
+/* • "Nerd" Theme
+// h1–h3
+$font-family-top-level      : $font-stack-consolas;
+// h4–h6
+$font-family-mid-level      : $font-stack-corbel;
+// non-heading text
+$font-family-bottom-level   : $font-stack-segoe;
+//*/
+
+$font-size-base             : 14px;
+
+// HEADING SIZES
+/*// • Bootstrap-ish
+$font-size-h6               : $font-size-base;      // 14px
+$font-size-h5               : $font-size-base + 2;  // 16px
+$font-size-h4               : $font-size-base + 4;  // 18px
+$font-size-h3               : $font-size-base + 10; // 24px
+$font-size-h2               : $font-size-base + 16; // 30px
+$font-size-h1               : $font-size-base + 22; // 36px
+//*/
+
+//// • Ink-ish
+$font-size-h6               :  $font-size-base;
+$font-size-h5               : ($font-size-base * 1.1);
+$font-size-h4               : ($font-size-base * 1.25);
+$font-size-h3               : ($font-size-base * 1.50);
+$font-size-h2               : ($font-size-base * 1.75);
+$font-size-h1               : ($font-size-base * 2.2);
+//*/
+
+$line-height-computed       : 20px / $font-size-base;
+
+/*// • Golden Ratio
+       TODO?: Golden ratio heading sizes
+//*/
+
+$glow-idle-text-opacity     : 0.6;
+$glow-idle-text-blur        : 2px;
+
+$glow-mild-white-percent    : 60%;
+
+$glow-mild-text-opacity     : 1.0;
+$glow-mild-text-blur        : 3px;
+
+$glow-mild-border-opacity   : 0.6;
+$glow-mild-border-blur      : 3px;
+
+$glow-strong-white-percent  : 100%;
+
+$glow-strong-text-opacity1  : 1.0;
+$glow-strong-text-opacity2  : 0.7;
+$glow-strong-text-blur      : 4px;
+
+$glow-strong-border-opacity : 1.0;
+$glow-strong-border-blur    : 4px;
+

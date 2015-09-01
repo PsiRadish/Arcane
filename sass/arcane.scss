@@ -1,160 +1,9 @@
 // Kyle Fiegener
 // ©LOL copyright
 
-@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+@import "base";
 
-$text-color:            white;
-$link-color:            #FFD700;
-$bttn-color:            #2040FF; //blue;
-$form-color:            #DDD;
-
-$error-color:           red;
-
-// FONT STACKS
-                            // TODO: Find out which of these monospace fonts are in any way "fancy"
-$font-stack-consolas        : Consolas, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
-$font-stack-corbel          : Corbel, Gill Sans, Lato, Gill Sans MT, Lucida Grande, Lucida Sans, Trebuchet MS, sans-serif;
-$font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Arial, sans-serif;
-$font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
-                            // + Average Sans? https://www.google.com/fonts/specimen/Average+Sans  NO BUILT-IN BOLD OR ITALIC
-                            // + <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  NO BUILT-IN BOLD OR ITALIC
-$font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
-
-/* Good-ish:
- * Actor 15px / Port Lligat Sans 17px, line-height 18px
- * Actor 15px / Port Lligat Sans 17px, line-height 20px
- * Actor 15px / Oldenburg 15px, line-height 20(18?)px
- * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
- */
-$font-stack-arcane-body     : Actor, (#{$font-stack-candara});
-$font-stack-arcane-hmid     : Port Lligat Sans, Constantia, Liberation Serif, Times New Roman, serif; // TODO: More nice serif fonts
-$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
-
-$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
-
-
-// FONT FAMILIES (where font stacks are put to use)
-// • Arcane Theme
-// h1–h3
-$font-family-top-level      : $font-stack-arcane-htop;
-// h4–h6
-$font-family-mid-level      : $font-stack-arcane-hmid;
-// non-heading text
-$font-family-bottom-level   : $font-stack-arcane-body;
-//*/
-
-/* • "Nerd" Theme
-// h1–h3
-$font-family-top-level      : $font-stack-consolas;
-// h4–h6
-$font-family-mid-level      : $font-stack-corbel;
-// non-heading text
-$font-family-bottom-level   : $font-stack-segoe;
-//*/
-
-$font-size-base             : 14px;
-
-// HEADING SIZES
-/*// • Bootstrap-ish
-$font-size-h6               : $font-size-base;      // 14px
-$font-size-h5               : $font-size-base + 2;  // 16px
-$font-size-h4               : $font-size-base + 4;  // 18px
-$font-size-h3               : $font-size-base + 10; // 24px
-$font-size-h2               : $font-size-base + 16; // 30px
-$font-size-h1               : $font-size-base + 22; // 36px
-//*/
-
-//// • Ink-ish
-$font-size-h6               :  $font-size-base;
-$font-size-h5               : ($font-size-base * 1.1);
-$font-size-h4               : ($font-size-base * 1.25);
-$font-size-h3               : ($font-size-base * 1.50);
-$font-size-h2               : ($font-size-base * 1.75);
-$font-size-h1               : ($font-size-base * 2.2);
-//*/
-
-$line-height-computed       : 20px / $font-size-base;
-
-/*// • Golden Ratio
-       TODO?: Golden ratio heading sizes
-//*/
-
-$glow-idle-text-opacity     : 0.6;
-$glow-idle-text-blur        : 2px;
-
-$glow-mild-white-percent    : 60%;
-
-$glow-mild-text-opacity     : 1.0;
-$glow-mild-text-blur        : 3px;
-
-$glow-mild-border-opacity   : 0.6;
-$glow-mild-border-blur      : 3px;
-
-$glow-strong-white-percent  : 100%;
-
-$glow-strong-text-opacity1  : 1.0;
-$glow-strong-text-opacity2  : 0.7;
-$glow-strong-text-blur      : 4px;
-
-$glow-strong-border-opacity : 1.0;
-$glow-strong-border-blur    : 4px;
-
-@mixin text-shadow-uniform()
-{
-    
-}
-
-@mixin Im-just-a-box($color)
-{
-    background: none;
-    border: 1px solid $color;
-    border-radius: 2px;
-}
-
-@mixin glow-idle-text($color)
-{
-    color: $color;
-    text-shadow: 0 0 $glow-idle-text-blur rgba($color, $glow-idle-text-opacity);
-    // text-shadow: 1px 1px 1px  rgba($color, 0.3),
-    //             -1px -1px 1px rgba($color, 0.3);
-}
-@mixin glow-mild-text($color, $white-percent: $glow-mild-white-percent)
-{
-    color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-mild-text-blur rgba($color, $glow-mild-text-opacity);
-    // text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
-    
-    // text-shadow: 1px  1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity),
-    //             -1px -1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
-}
-@mixin glow-strong-text($color, $white-percent: $glow-strong-white-percent)
-{
-    color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1),
-                 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2);
-    // text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity1),
-    //              0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity2);
-                 
-    // text-shadow: 1px  1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity),
-    //             -1px -1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
-}
-
-@mixin glow-mild-border($color, $white-percent: $glow-mild-white-percent)
-{
-    border-color: mix(white, $color, $white-percent);
-    box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity),
-             /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity);
-    // box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
-    //          /*outset*/ 0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity);
-}
-@mixin glow-strong-border($color, $white-percent: $glow-strong-white-percent)
-{
-    border-color: mix(white, $color, $white-percent);
-    box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity),
-             /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity);
-    // box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),
-    //          /*outset*/ 0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity);
-}
+@import "reset";
 
 // FIXY THINGS
 html
@@ -171,7 +20,7 @@ html
     // -webkit-appearance: none;  // I want to so hard -_-
 };
 
-// Remove hideous webkit defaults
+// Remove webkit defaults
 input, select, textarea,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration 
@@ -195,20 +44,6 @@ input[type=number]
 {
     -moz-appearance: textfield;
 }
-// input[type=number]::shadow
-// {
-//     // *
-//     // {
-//         background: none;
-//         border: none;
-//         @include glow-idle-text($form-color);
-        
-//         &:focus
-//         {
-//             @include glow-mild-text($form-color);
-//         }
-//     // }
-// }
 
 // No dotted outlines on focused stuff in Firefox
 *::-moz-focus-inner
@@ -338,20 +173,6 @@ a
     {
         @include glow-strong-text($link-color);
     }
-    
-        // // temporary
-        // position: relative;
-        
-        // &::after
-        // {
-        //     content: "";
-        //     position: absolute;
-        //     bottom: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     @include Im-just-a-box($link-color);
-        //     @include glow-mild-border($link-color);
-        // }
 }
 
 button,
@@ -417,8 +238,8 @@ label.label-focus
     @include glow-mild-text($form-color);
 }
 // http://www.w3schools.com/html/html_form_input_types.asp
-// input[type="text"], input[type="number"]
-input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"])
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"]),
+fieldset.input-type-number
 {
     //color: $form-color;
     @include glow-idle-text($form-color);
@@ -431,7 +252,7 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
     
     //@include glow-mild-border($form-color);
     
-    &:focus:not([readonly])
+    &:focus:not([readonly]), &.focus
     {
         @include glow-strong-border($form-color);
         @include glow-mild-text($form-color);
@@ -444,43 +265,61 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
 }
 
 // Spin buttons via external DOM elements
-input[type="number"]
+fieldset.input-type-number
 {
-    padding-right: 18px !important;
-}
-button.spin, .spin.button
-{
-    border: none;
-    @include glow-idle-text($form-color);
-    padding: 0;
-    margin: 0;
-    line-height: 0;
-    
-    cursor: default;
-    
-    &:first-child
+    input[type="number"]
     {
-        padding-bottom: 5px;
-    }
-    &:last-child
-    {
-        padding-top: 5px;
+        // padding-right: 18px !important;
     }
     
-    i
+    .spin-block
     {
+        // margin-left: -10px;
+        display: inline-block;
+        // position: relative;
+        // top: 5px;
+        // left: -20px;
+    }
+    button.spin, .spin.button
+    {
+        border: none;
         @include glow-idle-text($form-color);
+        padding: 0;
+        margin: 0;
         line-height: 0;
+        
+        cursor: default;
+        
+        &:first-child
+        {
+            padding-bottom: 5px;
+        }
+        &:last-child
+        {
+            padding-top: 5px;
+        }
+        
+        i
+        {
+            @include glow-idle-text($form-color);
+            line-height: 0;
+        }
     }
 }
-.spin-block
-{
-    // margin-left: -10px;
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    left: -20px;
-}
+// input[type=number]::shadow
+// {
+//     // *
+//     // {
+//         background: none;
+//         border: none;
+//         @include glow-idle-text($form-color);
+        
+//         &:focus
+//         {
+//             @include glow-mild-text($form-color);
+//         }
+//     // }
+// }
 
 // .flavor-error
 // {

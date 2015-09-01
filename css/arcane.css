@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
 /* Good-ish:
  * Actor 15px / Port Lligat Sans 17px, line-height 18px
  * Actor 15px / Port Lligat Sans 17px, line-height 20px
@@ -25,6 +26,56 @@ $font-size-h1               : $font-size-base + 22; // 36px
 /*// ΓÇó Golden Ratio
        TODO?: Golden ratio heading sizes
 //*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 html {
   width: 100%;
   font-size: 10px;
@@ -269,7 +320,8 @@ label.label-focus {
   text-shadow: 0px 0px 3px #dddddd;
 }
 
-input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]) {
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"]),
+fieldset.input-type-number {
   color: #DDD;
   text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
   background: none;
@@ -277,13 +329,16 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
   border-radius: 2px;
   padding: 3px;
 }
-input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):focus:not([readonly]) {
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"]):focus:not([readonly]), input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"]).focus,
+fieldset.input-type-number:focus:not([readonly]),
+fieldset.input-type-number.focus {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #dddddd, 0 0 4px 1px #dddddd;
   color: #f1f1f1;
   text-shadow: 0px 0px 3px #dddddd;
 }
-input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"])[readonly] {
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"])[readonly],
+fieldset.input-type-number[readonly] {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
@@ -291,11 +346,10 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
 
-input[type="number"] {
-  padding-right: 18px !important;
+fieldset.input-type-number .spin-block {
+  display: inline-block;
 }
-
-button.spin, .spin.button {
+fieldset.input-type-number button.spin, fieldset.input-type-number .spin.button {
   border: none;
   color: #DDD;
   text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
@@ -304,23 +358,16 @@ button.spin, .spin.button {
   line-height: 0;
   cursor: default;
 }
-button.spin:first-child, .spin.button:first-child {
+fieldset.input-type-number button.spin:first-child, fieldset.input-type-number .spin.button:first-child {
   padding-bottom: 5px;
 }
-button.spin:last-child, .spin.button:last-child {
+fieldset.input-type-number button.spin:last-child, fieldset.input-type-number .spin.button:last-child {
   padding-top: 5px;
 }
-button.spin i, .spin.button i {
+fieldset.input-type-number button.spin i, fieldset.input-type-number .spin.button i {
   color: #DDD;
   text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
   line-height: 0;
-}
-
-.spin-block {
-  display: inline-block;
-  position: relative;
-  top: 5px;
-  left: -20px;
 }
 
 .box.flavor-error {
