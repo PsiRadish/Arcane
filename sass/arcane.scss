@@ -52,9 +52,13 @@ input[type=number]
     padding: 0 !important;
 }
 
+big
+{
+    font-size: $scale-big;
+}
 small 
 {
-    font-size: 70%;
+    font-size: $scale-small;
 }
 sub,
 sup 
@@ -72,6 +76,9 @@ sub
 {
     bottom: -0.25em;
 }
+
+
+@import "theme";
 
 // STYLEY THINGS
 *, *::before, *::after
@@ -97,14 +104,26 @@ body
 {
     font-weight: 500;
     line-height: 1.1;
+    
+    margin-top:     1em;
+    margin-bottom:  0.5em;
+    
+    &:first-child
+    {
+        margin-top: 0.25em;
+    }
 }
 .h1, .h2, .h3, h1, h2, h3
 {
     font-family: $font-family-top-level;
+    // margin-top: 16px;
+    // margin-bottom: 8px;
 }
 .h4, .h5, .h6, h4, h5, h6
 {
     font-family: $font-family-mid-level;
+    // margin-top: 12px;
+    // margin-bottom: 6px;
 }
 .h1, h1
 {
@@ -120,17 +139,20 @@ body
 }
 .h4, h4
 {
-    font-size: $font-size-h4;
+    font-size: $font-size-h4 + 2; // temporary hack for smaller-ness of Port Lligat font
+    // font-size: $font-size-h4;
 }
 .h5, h5
 {
-    font-size: $font-size-h5;
-    font-weight: 600;
+    font-size: $font-size-h5 + 2; // temporary hack for smaller-ness of Port Lligat font
+    // font-size: $font-size-h5;
+    // font-weight: 600;
 }
 .h6, h6
 {
-    font-size: $font-size-h6;
-    font-weight: 700;
+    font-size: $font-size-h6 + 2; // temporary hack for smaller-ness of Port Lligat font
+    // font-size: $font-size-h6;
+    // font-weight: 700;
 }
 
 a
@@ -157,7 +179,7 @@ a
     {
         @include glow-mild-text($link-color);
     }
-    &:focus::after
+    &:focus:not(.button)::after
     {
         content: "";
         // position: absolute;
@@ -179,7 +201,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.button,
+.button
 {
     @include Im-just-a-box($bttn-color);
     border-width: 2px;
@@ -192,6 +214,10 @@ input[type="submit"],
         @include glow-idle-text($bttn-color);
         display: inline-block;
         //transition: all 0.25s;
+    }
+    span
+    {
+        font-family: $font-stack-arcane-mid;
     }
     
     &:hover, &:focus
@@ -228,6 +254,12 @@ input[type="submit"],
     }
 }
 
+.no-border
+{
+    border: none !important;
+    box-shadow: none !important;
+}
+
 label
 {
     //color: $form-color;
@@ -238,15 +270,19 @@ label.label-focus
     @include glow-mild-text($form-color);
 }
 // http://www.w3schools.com/html/html_form_input_types.asp
-input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):not([type="number"]),
-fieldset.input-type-number
+textarea,
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]), //:not([type="number"]),
+div.input-type-number
 {
     //color: $form-color;
     @include glow-idle-text($form-color);
-    // background: none;
-    // border: 1px solid $form-color;
-    // border-radius: 2px;
     @include Im-just-a-box($form-color);
+    
+    &.has-error
+    {
+        // @include glow-idle-text($error-color);
+        @include Im-just-a-box($error-color);
+    }
     
     padding: 3px;
     
@@ -254,8 +290,14 @@ fieldset.input-type-number
     
     &:focus:not([readonly]), &.focus
     {
-        @include glow-strong-border($form-color);
         @include glow-mild-text($form-color);
+        @include glow-strong-border($form-color);
+        
+        &.has-error
+        {
+            // @include glow-mild-text($error-color);
+            @include glow-strong-border($error-color, 0%);
+        }
     }
     &[readonly]
     {
@@ -264,7 +306,7 @@ fieldset.input-type-number
     }
 }
 
-// Spin buttons via external DOM elements
+/* Spin buttons via external DOM elements
 fieldset.input-type-number
 {
     input[type="number"]
@@ -305,7 +347,7 @@ fieldset.input-type-number
             line-height: 0;
         }
     }
-}
+}//*/
 // input[type=number]::shadow
 // {
 //     // *
@@ -326,26 +368,39 @@ fieldset.input-type-number
 //     color: $error-color;
 //     @include glow-idle-text($error-color);
 // }
-.box.flavor-error
-{
-    @include Im-just-a-box($error-color);
-    border-style: double;
-    border-width: 3px;
-    @include glow-strong-border($error-color, 0%);
-    
-    color: $error-color;
-    @include glow-strong-text($error-color, 0%);
-    
-    padding: 6px;
-    width: 100%;
-}
 
-.box.flavor-blue
+.box
 {
-    //color: blue;
-    @include Im-just-a-box(blue);
+    padding: 6px;
     
-    @include glow-idle-text(blue);
+    &.flavor-error
+    {
+        @include Im-just-a-box($error-color);
+        border-style: double;
+        border-width: 3px;
+        @include glow-strong-border($error-color, 0%);
+        
+        color: $error-color;
+        @include glow-strong-text($error-color, 0%);
+        
+        padding: 6px;
+        width: 100%;
+    }
+    
+    &.flavor-blue
+    {
+        //color: blue;
+        @include Im-just-a-box($blue);
+        
+        @include glow-idle-text($blue);
+    }
+    &.flavor-white
+    {
+        //color: blue;
+        @include Im-just-a-box(white);
+        
+        @include glow-idle-text(white);
+    }
 }
 
 .form-widget

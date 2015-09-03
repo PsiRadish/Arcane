@@ -1,46 +1,41 @@
 // Kyle Fiegener
 // ©LOL copyright
 
-@import url(https://fonts.googleapis.com/css?family=Actor|Port+Lligat+Sans);
+$blue:                  #3060FF;
 
 $text-color:            white;
 $link-color:            #FFD700;
-$bttn-color:            #2040FF; //blue;
+$bttn-color:            $blue; //blue;
 $form-color:            #DDD;
 
+$danger-color:          #FF6C00;
 $error-color:           red;
 
 // FONT STACKS
                             // TODO: Find out which of these monospace fonts are in any way "fancy"
-$font-stack-consolas        : Consolas, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
+$font-stack-consolas        : Consolas, Monaco, Monofur, DejaVu Sans Mono, Bitstream Vera Sans Mono, Andale Mono, Liberation Mono, Lucida Console, monospace;
 $font-stack-corbel          : Corbel, Gill Sans, Lato, Gill Sans MT, Lucida Grande, Lucida Sans, Trebuchet MS, sans-serif;
-$font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Arial, sans-serif;
+$font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Calibri, Arial, sans-serif;
 $font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
-                            // + Average Sans? https://www.google.com/fonts/specimen/Average+Sans  NO BUILT-IN BOLD OR ITALIC
-                            // + <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>  NO BUILT-IN BOLD OR ITALIC
+
 $font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
 
-/* Good-ish:
- * Actor 15px / Port Lligat Sans 17px, line-height 18px
- * Actor 15px / Port Lligat Sans 17px, line-height 20px
- * Actor 15px / Oldenburg 15px, line-height 20(18?)px
- * Martel Sans 15px / Oldenburg 16px, line-height: 20(18?)px
- */
-$font-stack-arcane-body     : Actor, (#{$font-stack-candara});
-$font-stack-arcane-hmid     : Port Lligat Sans, Constantia, Liberation Serif, Times New Roman, serif; // TODO: More nice serif fonts
-$font-stack-arcane-htop     : Avdira, Nogard, Dragon Text; // TODO: A decent google font
+// $font-stack-arcane-base     : Actor, (#{$font-stack-candara});
+$font-stack-arcane-top      : Metamorphous, Avdira, Nogard, Dragon Text; // TODO: Add some common built-in fonts in case web fonts don't work
+$font-stack-arcane-mid      : Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif; // TODO: More nice built-in serif fonts
+$font-stack-arcane-base     : $font-stack-candara;
 
-$font-stack-monospace       : DejaVu Sans Mono, Monaco, Consolas, Liberation Mono, Lucida Console, Andale Mono, monospace;
+$font-stack-monospace       : DejaVu Sans Mono, Consolas, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
 
 
 // FONT FAMILIES (where font stacks are put to use)
 // • Arcane Theme
 // h1–h3
-$font-family-top-level      : $font-stack-arcane-htop;
+$font-family-top-level      : $font-stack-arcane-top;
 // h4–h6
-$font-family-mid-level      : $font-stack-arcane-hmid;
+$font-family-mid-level      : $font-stack-arcane-mid;
 // non-heading text
-$font-family-bottom-level   : $font-stack-arcane-body;
+$font-family-bottom-level   : $font-stack-arcane-base;
 //*/
 
 /* • "Nerd" Theme
@@ -55,7 +50,7 @@ $font-family-bottom-level   : $font-stack-segoe;
 $font-size-base             : 14px;
 
 // HEADING SIZES
-/*// • Bootstrap-ish
+//// • Bootstrap-ish
 $font-size-h6               : $font-size-base;      // 14px
 $font-size-h5               : $font-size-base + 2;  // 16px
 $font-size-h4               : $font-size-base + 4;  // 18px
@@ -64,7 +59,7 @@ $font-size-h2               : $font-size-base + 16; // 30px
 $font-size-h1               : $font-size-base + 22; // 36px
 //*/
 
-//// • Ink-ish
+/*// • Ink-ish
 $font-size-h6               :  $font-size-base;
 $font-size-h5               : ($font-size-base * 1.1);
 $font-size-h4               : ($font-size-base * 1.25);
@@ -74,6 +69,9 @@ $font-size-h1               : ($font-size-base * 2.2);
 //*/
 
 $line-height-computed       : 20px / $font-size-base;
+// $big-ratio                  : $line-height-computed * 100;
+$scale-big                  : 142.857%;
+$scale-small                : 70%;
 
 /*// • Golden Ratio
        TODO?: Golden ratio heading sizes

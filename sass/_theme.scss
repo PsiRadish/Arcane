@@ -1,0 +1,62 @@
+
+@mixin define-flavor($color)
+{
+    @at-root button#{&},
+    input[type="button"]#{&},
+    input[type="reset"]#{&},
+    input[type="submit"]#{&},
+    .button#{&}
+    {
+        @include Im-just-a-box($color);
+        border-width: 2px;
+        
+        padding: 3px 6px;
+        
+        span, i
+        {
+            //color: $color;
+            @include glow-idle-text($color);
+            display: inline-block;
+            //transition: all 0.25s;
+        }
+        span
+        {
+            font-family: $font-stack-arcane-mid;
+        }
+        
+        &:hover, &:focus
+        {
+            @include glow-mild-border($color);
+            
+            span, i
+            {
+                @include glow-mild-text($color);
+                transform: scale(1.15, 1.15);
+            }
+        }
+        
+        &:active
+        {
+            @include glow-strong-border($color);
+            
+            padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
+            
+            span, i
+            {
+                @include glow-strong-text($color);
+                transform: scale(1.25, 1.25);
+            }
+        }
+        
+        &.selected
+        {
+            span, i
+            {
+                @include glow-strong-text($color);
+                transform: scale(1.25, 1.25);
+            }
+        }
+    }
+}
+
+.flavor-danger { @include define-flavor($danger-color); }
