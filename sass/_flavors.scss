@@ -24,14 +24,32 @@
             font-family: $font-stack-arcane-mid;
         }
         
-        &:hover, &:focus
+        &[disabled]
         {
-            @include glow-mild-border($color);
-            
             span, i
             {
-                @include glow-mild-text($color);
-                transform: scale(1.15, 1.15);
+                opacity: 0.6
+            }
+        }
+        &:hover, &:focus
+        {
+            &:not([disabled])
+            {
+                @include glow-mild-border($color);
+                
+                span, i
+                {
+                    @include glow-mild-text($color);
+                    transform: scale(1.15, 1.15);
+                }
+            }
+            &[disabled]
+            {
+                span, i
+                {
+                    opacity: 0.3;
+                    transform: scale(0.8, 0.8);
+                }
             }
         }
         
@@ -57,6 +75,30 @@
             }
         }
     }
+    
+    &.box
+    {
+        @include Im-just-a-box($color);
+        
+        @include glow-idle-text($color);
+    }
 }
 
+.flavor-white  { @include define-flavor(white); }
+.flavor-blue   { @include define-flavor($blue); }
 .flavor-danger { @include define-flavor($danger-color); }
+.flavor-error
+{
+    @include define-flavor($error-color);
+    
+    &.box
+    {
+        border-style: double;
+        border-width: 3px;
+        @include glow-strong-border($error-color, 0%);
+        
+        color: $error-color;
+        @include glow-strong-text($error-color, 0%);
+        //width: 100%;
+    }
+}

@@ -78,8 +78,6 @@ sub
 }
 
 
-@import "theme";
-
 // STYLEY THINGS
 *, *::before, *::after
 {
@@ -306,6 +304,21 @@ div.input-type-number
     }
 }
 
+.box
+{
+    padding: 6px;
+}
+
+.form-widget
+{
+    width: 100%;
+}
+
+.center-text
+{
+    text-align: center;
+}
+
 /* Spin buttons via external DOM elements
 fieldset.input-type-number
 {
@@ -369,52 +382,4 @@ fieldset.input-type-number
 //     @include glow-idle-text($error-color);
 // }
 
-.box
-{
-    padding: 6px;
-    
-    &.flavor-error
-    {
-        @include Im-just-a-box($error-color);
-        border-style: double;
-        border-width: 3px;
-        @include glow-strong-border($error-color, 0%);
-        
-        color: $error-color;
-        @include glow-strong-text($error-color, 0%);
-        
-        padding: 6px;
-        width: 100%;
-    }
-    
-    &.flavor-blue
-    {
-        //color: blue;
-        @include Im-just-a-box($blue);
-        
-        @include glow-idle-text($blue);
-    }
-    &.flavor-white
-    {
-        //color: blue;
-        @include Im-just-a-box(white);
-        
-        @include glow-idle-text(white);
-    }
-}
-
-.form-widget
-{
-    width: 100%;
-}
-
-//// Bootstrap-specific fixes
-// .form-control
-// {
-//     color: $form-color;
-// }
-
-.center-text
-{
-    text-align: center;
-}
+@import "flavors";

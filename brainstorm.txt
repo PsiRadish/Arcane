@@ -1,0 +1,4 @@
+Denote font-icons by inner text of <i class="icon-flag-class">THIS TEXT INDICATES WHICH ICON</i> like Materialize.
+
+Assuming there's a JavaScript check for screen readers, this inner text can then be left there for them, and/or be
+used as a key into a hash of SR alt text.
