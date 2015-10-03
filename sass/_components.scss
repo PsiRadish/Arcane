@@ -136,14 +136,32 @@ input[type="submit"],
         font-family: $font-stack-arcane-mid;
     }
     
-    &:hover, &:focus
+    &[disabled]
     {
-        @include glow-mild-border($bttn-color);
-        
         span, i
         {
-            @include glow-mild-text($bttn-color);
-            transform: scale(1.15, 1.15);
+            opacity: 0.6
+        }
+    }
+    &:hover, &:focus
+    {
+        &:not([disabled])
+        {
+            @include glow-mild-border($bttn-color);
+            
+            span, i
+            {
+                @include glow-mild-text($bttn-color);
+                transform: scale(1.15, 1.15);
+            }
+        }
+        &[disabled]
+        {
+            span, i
+            {
+                opacity: 0.3;
+                transform: scale(0.8, 0.8);
+            }
         }
     }
     
@@ -223,9 +241,12 @@ div.input-type-number
 }
 .portal
 {
+    border-color: tint($portal-color, $glow-portal-white-percent);
+    box-shadow  : inset   0 0 ($portal-ring-spacing * 2) 1px rgba($portal-color, 1),
+               /*outset*/ 0 0  $glow-strong-border-blur  2px rgba($portal-color, 1);
+    padding     : $portal-ring-spacing - 2;
+    
     position    : relative;
-    box-shadow  : inset   0 0 $glow-mild-border-blur   1px rgba($portal-color, 1),
-               /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($portal-color, 1);
 }
 .portal::before, .portal::after
 {
@@ -269,21 +290,21 @@ div.input-type-number
     }
     50%
     {
-        width  : calc(100% - 6px);
-        height : calc(100% - 6px);
-        top    : 3px;
-        left   : 3px;
+        width  : calc(100% - #{$portal-ring-spacing - 2});
+        height : calc(100% - #{$portal-ring-spacing - 2});
+        top    : $portal-ring-spacing / 2 - 1;
+        left   : $portal-ring-spacing / 2 - 1;
         
         box-shadow : inset   0 0 ($glow-mild-border-blur / 2) 0.5px rgba($portal-color, 1),
                   /*outset*/ 0 0 ($glow-mild-border-blur / 2) 0.5px rgba($portal-color, 1);
-        opacity: 1;
+        opacity: 0.5;
     }
     100%
     {
-        width  : calc(100% - 14px);
-        height : calc(100% - 14px);
-        top    : 7px;
-        left   : 7px;
+        width  : calc(100% - #{$portal-ring-spacing * 2 - 2});
+        height : calc(100% - #{$portal-ring-spacing * 2 - 2});
+        top    : $portal-ring-spacing - 1;
+        left   : $portal-ring-spacing - 1;
         
         box-shadow : inset   0 0 0 0 rgba($portal-color, 1),
                   /*outset*/ 0 0 0 0 rgba($portal-color, 1);
@@ -291,7 +312,7 @@ div.input-type-number
     }
 }
 
-.box, .portal
+.box
 {
     padding: 6px;
 }

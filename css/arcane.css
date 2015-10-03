@@ -256,38 +256,69 @@ input[type="submit"] span,
 .button span {
   font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
 }
-button:hover, button:focus,
-input[type="button"]:hover,
-input[type="button"]:focus,
-input[type="reset"]:hover,
-input[type="reset"]:focus,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-.button:hover,
-.button:focus {
+button[disabled] span, button[disabled] i,
+input[type="button"][disabled] span,
+input[type="button"][disabled] i,
+input[type="reset"][disabled] span,
+input[type="reset"][disabled] i,
+input[type="submit"][disabled] span,
+input[type="submit"][disabled] i,
+.button[disabled] span,
+.button[disabled] i {
+  opacity: 0.6;
+}
+button:hover:not([disabled]), button:focus:not([disabled]),
+input[type="button"]:hover:not([disabled]),
+input[type="button"]:focus:not([disabled]),
+input[type="reset"]:hover:not([disabled]),
+input[type="reset"]:focus:not([disabled]),
+input[type="submit"]:hover:not([disabled]),
+input[type="submit"]:focus:not([disabled]),
+.button:hover:not([disabled]),
+.button:focus:not([disabled]) {
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
-button:hover span, button:hover i, button:focus span, button:focus i,
-input[type="button"]:hover span,
-input[type="button"]:hover i,
-input[type="button"]:focus span,
-input[type="button"]:focus i,
-input[type="reset"]:hover span,
-input[type="reset"]:hover i,
-input[type="reset"]:focus span,
-input[type="reset"]:focus i,
-input[type="submit"]:hover span,
-input[type="submit"]:hover i,
-input[type="submit"]:focus span,
-input[type="submit"]:focus i,
-.button:hover span,
-.button:hover i,
-.button:focus span,
-.button:focus i {
+button:hover:not([disabled]) span, button:hover:not([disabled]) i, button:focus:not([disabled]) span, button:focus:not([disabled]) i,
+input[type="button"]:hover:not([disabled]) span,
+input[type="button"]:hover:not([disabled]) i,
+input[type="button"]:focus:not([disabled]) span,
+input[type="button"]:focus:not([disabled]) i,
+input[type="reset"]:hover:not([disabled]) span,
+input[type="reset"]:hover:not([disabled]) i,
+input[type="reset"]:focus:not([disabled]) span,
+input[type="reset"]:focus:not([disabled]) i,
+input[type="submit"]:hover:not([disabled]) span,
+input[type="submit"]:hover:not([disabled]) i,
+input[type="submit"]:focus:not([disabled]) span,
+input[type="submit"]:focus:not([disabled]) i,
+.button:hover:not([disabled]) span,
+.button:hover:not([disabled]) i,
+.button:focus:not([disabled]) span,
+.button:focus:not([disabled]) i {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
   transform: scale(1.15, 1.15);
+}
+button:hover[disabled] span, button:hover[disabled] i, button:focus[disabled] span, button:focus[disabled] i,
+input[type="button"]:hover[disabled] span,
+input[type="button"]:hover[disabled] i,
+input[type="button"]:focus[disabled] span,
+input[type="button"]:focus[disabled] i,
+input[type="reset"]:hover[disabled] span,
+input[type="reset"]:hover[disabled] i,
+input[type="reset"]:focus[disabled] span,
+input[type="reset"]:focus[disabled] i,
+input[type="submit"]:hover[disabled] span,
+input[type="submit"]:hover[disabled] i,
+input[type="submit"]:focus[disabled] span,
+input[type="submit"]:focus[disabled] i,
+.button:hover[disabled] span,
+.button:hover[disabled] i,
+.button:focus[disabled] span,
+.button:focus[disabled] i {
+  opacity: 0.3;
+  transform: scale(0.8, 0.8);
 }
 button:active,
 input[type="button"]:active,
@@ -386,21 +417,23 @@ div.input-type-number[readonly] {
 }
 
 .portal {
+  border-color: #ff33ff;
+  box-shadow: inset 0 0 24px 1px magenta, 0 0 4px 2px magenta;
+  padding: 10px;
   position: relative;
-  box-shadow: inset 0 0 3px 1px magenta, 0 0 4px 1px magenta;
 }
 
 .portal::before, .portal::after {
   content: "";
   position: absolute;
   animation-name: portal-ring-loop;
-  animation-duration: 0.7s;
+  animation-duration: 0.75s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 .portal::before {
-  animation-delay: -0.35s;
+  animation-delay: -0.375s;
 }
 
 /*.portal::after
@@ -420,23 +453,23 @@ div.input-type-number[readonly] {
     opacity: 1;
   }
   50% {
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    top: 3px;
-    left: 3px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
     box-shadow: inset 0 0 1.5px 0.5px magenta, 0 0 1.5px 0.5px magenta;
-    opacity: 1;
+    opacity: 0.5;
   }
   100% {
-    width: calc(100% - 14px);
-    height: calc(100% - 14px);
-    top: 7px;
-    left: 7px;
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
+    top: 11px;
+    left: 11px;
     box-shadow: inset 0 0 0 0 magenta, 0 0 0 0 magenta;
     opacity: 0;
   }
 }
-.box, .portal {
+.box {
   padding: 6px;
 }
 
@@ -494,8 +527,6 @@ input[type="submit"].flavor-white,
   background: none;
   border: 1px solid white;
   border-radius: 2px;
-  border-width: 2px;
-  padding: 3px 6px;
 }
 button.flavor-white span, button.flavor-white i,
 input[type="button"].flavor-white span,
@@ -508,25 +539,6 @@ input[type="submit"].flavor-white i,
 .button.flavor-white i {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
-  display: inline-block;
-}
-button.flavor-white span,
-input[type="button"].flavor-white span,
-input[type="reset"].flavor-white span,
-input[type="submit"].flavor-white span,
-.button.flavor-white span {
-  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
-}
-button.flavor-white[disabled] span, button.flavor-white[disabled] i,
-input[type="button"].flavor-white[disabled] span,
-input[type="button"].flavor-white[disabled] i,
-input[type="reset"].flavor-white[disabled] span,
-input[type="reset"].flavor-white[disabled] i,
-input[type="submit"].flavor-white[disabled] span,
-input[type="submit"].flavor-white[disabled] i,
-.button.flavor-white[disabled] span,
-.button.flavor-white[disabled] i {
-  opacity: 0.6;
 }
 button.flavor-white:hover:not([disabled]), button.flavor-white:focus:not([disabled]),
 input[type="button"].flavor-white:hover:not([disabled]),
@@ -559,27 +571,6 @@ input[type="submit"].flavor-white:focus:not([disabled]) i,
 .button.flavor-white:focus:not([disabled]) i {
   color: white;
   text-shadow: 0 0 3px white;
-  transform: scale(1.15, 1.15);
-}
-button.flavor-white:hover[disabled] span, button.flavor-white:hover[disabled] i, button.flavor-white:focus[disabled] span, button.flavor-white:focus[disabled] i,
-input[type="button"].flavor-white:hover[disabled] span,
-input[type="button"].flavor-white:hover[disabled] i,
-input[type="button"].flavor-white:focus[disabled] span,
-input[type="button"].flavor-white:focus[disabled] i,
-input[type="reset"].flavor-white:hover[disabled] span,
-input[type="reset"].flavor-white:hover[disabled] i,
-input[type="reset"].flavor-white:focus[disabled] span,
-input[type="reset"].flavor-white:focus[disabled] i,
-input[type="submit"].flavor-white:hover[disabled] span,
-input[type="submit"].flavor-white:hover[disabled] i,
-input[type="submit"].flavor-white:focus[disabled] span,
-input[type="submit"].flavor-white:focus[disabled] i,
-.button.flavor-white:hover[disabled] span,
-.button.flavor-white:hover[disabled] i,
-.button.flavor-white:focus[disabled] span,
-.button.flavor-white:focus[disabled] i {
-  opacity: 0.3;
-  transform: scale(0.8, 0.8);
 }
 button.flavor-white:active,
 input[type="button"].flavor-white:active,
@@ -588,7 +579,6 @@ input[type="submit"].flavor-white:active,
 .button.flavor-white:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
-  padding: 3px 6px;
 }
 button.flavor-white:active span, button.flavor-white:active i,
 input[type="button"].flavor-white:active span,
@@ -601,7 +591,6 @@ input[type="submit"].flavor-white:active i,
 .button.flavor-white:active i {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
-  transform: scale(1.25, 1.25);
 }
 button.flavor-white.selected span, button.flavor-white.selected i,
 input[type="button"].flavor-white.selected span,
@@ -614,7 +603,6 @@ input[type="submit"].flavor-white.selected i,
 .button.flavor-white.selected i {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
-  transform: scale(1.25, 1.25);
 }
 .flavor-white.box {
   background: none;
@@ -623,7 +611,42 @@ input[type="submit"].flavor-white.selected i,
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-
+.flavor-white.portal, .flavor-white.portal::before, .flavor-white.portal::after {
+  border: 1px solid white;
+}
+.flavor-white.portal {
+  border-color: white;
+  box-shadow: inset 0 0 24px 1px white, 0 0 4px 2px white;
+}
+.flavor-white.portal::before, .flavor-white.portal::after {
+  animation-name: portal-ring-loop-flavor-white;
+}
+@keyframes portal-ring-loop-flavor-white {
+  0% {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 3px 1px white, 0 0 3px 1px white;
+    opacity: 1;
+  }
+  50% {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    box-shadow: inset 0 0 1.5px 0.5px white, 0 0 1.5px 0.5px white;
+    opacity: 0.5;
+  }
+  100% {
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
+    top: 11px;
+    left: 11px;
+    box-shadow: inset 0 0 0 0 white, 0 0 0 0 white;
+    opacity: 0;
+  }
+}
 button.flavor-blue,
 input[type="button"].flavor-blue,
 input[type="reset"].flavor-blue,
@@ -632,8 +655,6 @@ input[type="submit"].flavor-blue,
   background: none;
   border: 1px solid #3060FF;
   border-radius: 2px;
-  border-width: 2px;
-  padding: 3px 6px;
 }
 button.flavor-blue span, button.flavor-blue i,
 input[type="button"].flavor-blue span,
@@ -646,25 +667,6 @@ input[type="submit"].flavor-blue i,
 .button.flavor-blue i {
   color: #3060FF;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
-  display: inline-block;
-}
-button.flavor-blue span,
-input[type="button"].flavor-blue span,
-input[type="reset"].flavor-blue span,
-input[type="submit"].flavor-blue span,
-.button.flavor-blue span {
-  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
-}
-button.flavor-blue[disabled] span, button.flavor-blue[disabled] i,
-input[type="button"].flavor-blue[disabled] span,
-input[type="button"].flavor-blue[disabled] i,
-input[type="reset"].flavor-blue[disabled] span,
-input[type="reset"].flavor-blue[disabled] i,
-input[type="submit"].flavor-blue[disabled] span,
-input[type="submit"].flavor-blue[disabled] i,
-.button.flavor-blue[disabled] span,
-.button.flavor-blue[disabled] i {
-  opacity: 0.6;
 }
 button.flavor-blue:hover:not([disabled]), button.flavor-blue:focus:not([disabled]),
 input[type="button"].flavor-blue:hover:not([disabled]),
@@ -697,27 +699,6 @@ input[type="submit"].flavor-blue:focus:not([disabled]) i,
 .button.flavor-blue:focus:not([disabled]) i {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
-  transform: scale(1.15, 1.15);
-}
-button.flavor-blue:hover[disabled] span, button.flavor-blue:hover[disabled] i, button.flavor-blue:focus[disabled] span, button.flavor-blue:focus[disabled] i,
-input[type="button"].flavor-blue:hover[disabled] span,
-input[type="button"].flavor-blue:hover[disabled] i,
-input[type="button"].flavor-blue:focus[disabled] span,
-input[type="button"].flavor-blue:focus[disabled] i,
-input[type="reset"].flavor-blue:hover[disabled] span,
-input[type="reset"].flavor-blue:hover[disabled] i,
-input[type="reset"].flavor-blue:focus[disabled] span,
-input[type="reset"].flavor-blue:focus[disabled] i,
-input[type="submit"].flavor-blue:hover[disabled] span,
-input[type="submit"].flavor-blue:hover[disabled] i,
-input[type="submit"].flavor-blue:focus[disabled] span,
-input[type="submit"].flavor-blue:focus[disabled] i,
-.button.flavor-blue:hover[disabled] span,
-.button.flavor-blue:hover[disabled] i,
-.button.flavor-blue:focus[disabled] span,
-.button.flavor-blue:focus[disabled] i {
-  opacity: 0.3;
-  transform: scale(0.8, 0.8);
 }
 button.flavor-blue:active,
 input[type="button"].flavor-blue:active,
@@ -726,7 +707,6 @@ input[type="submit"].flavor-blue:active,
 .button.flavor-blue:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
-  padding: 3px 6px;
 }
 button.flavor-blue:active span, button.flavor-blue:active i,
 input[type="button"].flavor-blue:active span,
@@ -739,7 +719,6 @@ input[type="submit"].flavor-blue:active i,
 .button.flavor-blue:active i {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
-  transform: scale(1.25, 1.25);
 }
 button.flavor-blue.selected span, button.flavor-blue.selected i,
 input[type="button"].flavor-blue.selected span,
@@ -752,7 +731,6 @@ input[type="submit"].flavor-blue.selected i,
 .button.flavor-blue.selected i {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
-  transform: scale(1.25, 1.25);
 }
 .flavor-blue.box {
   background: none;
@@ -761,7 +739,42 @@ input[type="submit"].flavor-blue.selected i,
   color: #3060FF;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
-
+.flavor-blue.portal, .flavor-blue.portal::before, .flavor-blue.portal::after {
+  border: 1px solid #3060FF;
+}
+.flavor-blue.portal {
+  border-color: #5980ff;
+  box-shadow: inset 0 0 24px 1px #3060ff, 0 0 4px 2px #3060ff;
+}
+.flavor-blue.portal::before, .flavor-blue.portal::after {
+  animation-name: portal-ring-loop-flavor-blue;
+}
+@keyframes portal-ring-loop-flavor-blue {
+  0% {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 3px 1px #3060ff, 0 0 3px 1px #3060ff;
+    opacity: 1;
+  }
+  50% {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    box-shadow: inset 0 0 1.5px 0.5px #3060ff, 0 0 1.5px 0.5px #3060ff;
+    opacity: 0.5;
+  }
+  100% {
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
+    top: 11px;
+    left: 11px;
+    box-shadow: inset 0 0 0 0 #3060ff, 0 0 0 0 #3060ff;
+    opacity: 0;
+  }
+}
 button.flavor-green,
 input[type="button"].flavor-green,
 input[type="reset"].flavor-green,
@@ -770,8 +783,6 @@ input[type="submit"].flavor-green,
   background: none;
   border: 1px solid green;
   border-radius: 2px;
-  border-width: 2px;
-  padding: 3px 6px;
 }
 button.flavor-green span, button.flavor-green i,
 input[type="button"].flavor-green span,
@@ -784,25 +795,6 @@ input[type="submit"].flavor-green i,
 .button.flavor-green i {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
-  display: inline-block;
-}
-button.flavor-green span,
-input[type="button"].flavor-green span,
-input[type="reset"].flavor-green span,
-input[type="submit"].flavor-green span,
-.button.flavor-green span {
-  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
-}
-button.flavor-green[disabled] span, button.flavor-green[disabled] i,
-input[type="button"].flavor-green[disabled] span,
-input[type="button"].flavor-green[disabled] i,
-input[type="reset"].flavor-green[disabled] span,
-input[type="reset"].flavor-green[disabled] i,
-input[type="submit"].flavor-green[disabled] span,
-input[type="submit"].flavor-green[disabled] i,
-.button.flavor-green[disabled] span,
-.button.flavor-green[disabled] i {
-  opacity: 0.6;
 }
 button.flavor-green:hover:not([disabled]), button.flavor-green:focus:not([disabled]),
 input[type="button"].flavor-green:hover:not([disabled]),
@@ -835,27 +827,6 @@ input[type="submit"].flavor-green:focus:not([disabled]) i,
 .button.flavor-green:focus:not([disabled]) i {
   color: #99cc99;
   text-shadow: 0 0 3px green;
-  transform: scale(1.15, 1.15);
-}
-button.flavor-green:hover[disabled] span, button.flavor-green:hover[disabled] i, button.flavor-green:focus[disabled] span, button.flavor-green:focus[disabled] i,
-input[type="button"].flavor-green:hover[disabled] span,
-input[type="button"].flavor-green:hover[disabled] i,
-input[type="button"].flavor-green:focus[disabled] span,
-input[type="button"].flavor-green:focus[disabled] i,
-input[type="reset"].flavor-green:hover[disabled] span,
-input[type="reset"].flavor-green:hover[disabled] i,
-input[type="reset"].flavor-green:focus[disabled] span,
-input[type="reset"].flavor-green:focus[disabled] i,
-input[type="submit"].flavor-green:hover[disabled] span,
-input[type="submit"].flavor-green:hover[disabled] i,
-input[type="submit"].flavor-green:focus[disabled] span,
-input[type="submit"].flavor-green:focus[disabled] i,
-.button.flavor-green:hover[disabled] span,
-.button.flavor-green:hover[disabled] i,
-.button.flavor-green:focus[disabled] span,
-.button.flavor-green:focus[disabled] i {
-  opacity: 0.3;
-  transform: scale(0.8, 0.8);
 }
 button.flavor-green:active,
 input[type="button"].flavor-green:active,
@@ -864,7 +835,6 @@ input[type="submit"].flavor-green:active,
 .button.flavor-green:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
-  padding: 3px 6px;
 }
 button.flavor-green:active span, button.flavor-green:active i,
 input[type="button"].flavor-green:active span,
@@ -877,7 +847,6 @@ input[type="submit"].flavor-green:active i,
 .button.flavor-green:active i {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
-  transform: scale(1.25, 1.25);
 }
 button.flavor-green.selected span, button.flavor-green.selected i,
 input[type="button"].flavor-green.selected span,
@@ -890,7 +859,6 @@ input[type="submit"].flavor-green.selected i,
 .button.flavor-green.selected i {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
-  transform: scale(1.25, 1.25);
 }
 .flavor-green.box {
   background: none;
@@ -899,7 +867,42 @@ input[type="submit"].flavor-green.selected i,
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
-
+.flavor-green.portal, .flavor-green.portal::before, .flavor-green.portal::after {
+  border: 1px solid green;
+}
+.flavor-green.portal {
+  border-color: #339933;
+  box-shadow: inset 0 0 24px 1px green, 0 0 4px 2px green;
+}
+.flavor-green.portal::before, .flavor-green.portal::after {
+  animation-name: portal-ring-loop-flavor-green;
+}
+@keyframes portal-ring-loop-flavor-green {
+  0% {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 3px 1px green, 0 0 3px 1px green;
+    opacity: 1;
+  }
+  50% {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    box-shadow: inset 0 0 1.5px 0.5px green, 0 0 1.5px 0.5px green;
+    opacity: 0.5;
+  }
+  100% {
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
+    top: 11px;
+    left: 11px;
+    box-shadow: inset 0 0 0 0 green, 0 0 0 0 green;
+    opacity: 0;
+  }
+}
 button.flavor-danger,
 input[type="button"].flavor-danger,
 input[type="reset"].flavor-danger,
@@ -908,8 +911,6 @@ input[type="submit"].flavor-danger,
   background: none;
   border: 1px solid #FF6C00;
   border-radius: 2px;
-  border-width: 2px;
-  padding: 3px 6px;
 }
 button.flavor-danger span, button.flavor-danger i,
 input[type="button"].flavor-danger span,
@@ -922,25 +923,6 @@ input[type="submit"].flavor-danger i,
 .button.flavor-danger i {
   color: #FF6C00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
-  display: inline-block;
-}
-button.flavor-danger span,
-input[type="button"].flavor-danger span,
-input[type="reset"].flavor-danger span,
-input[type="submit"].flavor-danger span,
-.button.flavor-danger span {
-  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
-}
-button.flavor-danger[disabled] span, button.flavor-danger[disabled] i,
-input[type="button"].flavor-danger[disabled] span,
-input[type="button"].flavor-danger[disabled] i,
-input[type="reset"].flavor-danger[disabled] span,
-input[type="reset"].flavor-danger[disabled] i,
-input[type="submit"].flavor-danger[disabled] span,
-input[type="submit"].flavor-danger[disabled] i,
-.button.flavor-danger[disabled] span,
-.button.flavor-danger[disabled] i {
-  opacity: 0.6;
 }
 button.flavor-danger:hover:not([disabled]), button.flavor-danger:focus:not([disabled]),
 input[type="button"].flavor-danger:hover:not([disabled]),
@@ -973,27 +955,6 @@ input[type="submit"].flavor-danger:focus:not([disabled]) i,
 .button.flavor-danger:focus:not([disabled]) i {
   color: #ffc499;
   text-shadow: 0 0 3px #ff6c00;
-  transform: scale(1.15, 1.15);
-}
-button.flavor-danger:hover[disabled] span, button.flavor-danger:hover[disabled] i, button.flavor-danger:focus[disabled] span, button.flavor-danger:focus[disabled] i,
-input[type="button"].flavor-danger:hover[disabled] span,
-input[type="button"].flavor-danger:hover[disabled] i,
-input[type="button"].flavor-danger:focus[disabled] span,
-input[type="button"].flavor-danger:focus[disabled] i,
-input[type="reset"].flavor-danger:hover[disabled] span,
-input[type="reset"].flavor-danger:hover[disabled] i,
-input[type="reset"].flavor-danger:focus[disabled] span,
-input[type="reset"].flavor-danger:focus[disabled] i,
-input[type="submit"].flavor-danger:hover[disabled] span,
-input[type="submit"].flavor-danger:hover[disabled] i,
-input[type="submit"].flavor-danger:focus[disabled] span,
-input[type="submit"].flavor-danger:focus[disabled] i,
-.button.flavor-danger:hover[disabled] span,
-.button.flavor-danger:hover[disabled] i,
-.button.flavor-danger:focus[disabled] span,
-.button.flavor-danger:focus[disabled] i {
-  opacity: 0.3;
-  transform: scale(0.8, 0.8);
 }
 button.flavor-danger:active,
 input[type="button"].flavor-danger:active,
@@ -1002,7 +963,6 @@ input[type="submit"].flavor-danger:active,
 .button.flavor-danger:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
-  padding: 3px 6px;
 }
 button.flavor-danger:active span, button.flavor-danger:active i,
 input[type="button"].flavor-danger:active span,
@@ -1015,7 +975,6 @@ input[type="submit"].flavor-danger:active i,
 .button.flavor-danger:active i {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
-  transform: scale(1.25, 1.25);
 }
 button.flavor-danger.selected span, button.flavor-danger.selected i,
 input[type="button"].flavor-danger.selected span,
@@ -1028,7 +987,6 @@ input[type="submit"].flavor-danger.selected i,
 .button.flavor-danger.selected i {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
-  transform: scale(1.25, 1.25);
 }
 .flavor-danger.box {
   background: none;
@@ -1037,7 +995,46 @@ input[type="submit"].flavor-danger.selected i,
   color: #FF6C00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
-.flavor-danger.box {
+.flavor-danger.portal, .flavor-danger.portal::before, .flavor-danger.portal::after {
+  border: 1px solid #FF6C00;
+}
+.flavor-danger.portal {
+  border-color: #ff8933;
+  box-shadow: inset 0 0 24px 1px #ff6c00, 0 0 4px 2px #ff6c00;
+}
+.flavor-danger.portal::before, .flavor-danger.portal::after {
+  animation-name: portal-ring-loop-flavor-danger;
+}
+@keyframes portal-ring-loop-flavor-danger {
+  0% {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 3px 1px #ff6c00, 0 0 3px 1px #ff6c00;
+    opacity: 1;
+  }
+  50% {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    box-shadow: inset 0 0 1.5px 0.5px #ff6c00, 0 0 1.5px 0.5px #ff6c00;
+    opacity: 0.5;
+  }
+  100% {
+    width: calc(100% - 22px);
+    height: calc(100% - 22px);
+    top: 11px;
+    left: 11px;
+    box-shadow: inset 0 0 0 0 #ff6c00, 0 0 0 0 #ff6c00;
+    opacity: 0;
+  }
+}
+.flavor-alert-warn.box {
+  background: none;
+  border: 1px solid #FF6C00;
+  border-radius: 2px;
   border: 3px double;
   border-color: #ff6c00;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
@@ -1046,144 +1043,10 @@ input[type="submit"].flavor-danger.selected i,
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
 
-button.flavor-error,
-input[type="button"].flavor-error,
-input[type="reset"].flavor-error,
-input[type="submit"].flavor-error,
-.button.flavor-error {
+.flavor-alert-error.box {
   background: none;
   border: 1px solid red;
   border-radius: 2px;
-  border-width: 2px;
-  padding: 3px 6px;
-}
-button.flavor-error span, button.flavor-error i,
-input[type="button"].flavor-error span,
-input[type="button"].flavor-error i,
-input[type="reset"].flavor-error span,
-input[type="reset"].flavor-error i,
-input[type="submit"].flavor-error span,
-input[type="submit"].flavor-error i,
-.button.flavor-error span,
-.button.flavor-error i {
-  color: red;
-  text-shadow: 0 0 2px rgba(255, 0, 0, 0.6);
-  display: inline-block;
-}
-button.flavor-error span,
-input[type="button"].flavor-error span,
-input[type="reset"].flavor-error span,
-input[type="submit"].flavor-error span,
-.button.flavor-error span {
-  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
-}
-button.flavor-error[disabled] span, button.flavor-error[disabled] i,
-input[type="button"].flavor-error[disabled] span,
-input[type="button"].flavor-error[disabled] i,
-input[type="reset"].flavor-error[disabled] span,
-input[type="reset"].flavor-error[disabled] i,
-input[type="submit"].flavor-error[disabled] span,
-input[type="submit"].flavor-error[disabled] i,
-.button.flavor-error[disabled] span,
-.button.flavor-error[disabled] i {
-  opacity: 0.6;
-}
-button.flavor-error:hover:not([disabled]), button.flavor-error:focus:not([disabled]),
-input[type="button"].flavor-error:hover:not([disabled]),
-input[type="button"].flavor-error:focus:not([disabled]),
-input[type="reset"].flavor-error:hover:not([disabled]),
-input[type="reset"].flavor-error:focus:not([disabled]),
-input[type="submit"].flavor-error:hover:not([disabled]),
-input[type="submit"].flavor-error:focus:not([disabled]),
-.button.flavor-error:hover:not([disabled]),
-.button.flavor-error:focus:not([disabled]) {
-  border-color: #ff9999;
-  box-shadow: inset 0 0 3px 1px rgba(255, 0, 0, 0.6), 0 0 3px 1px rgba(255, 0, 0, 0.6);
-}
-button.flavor-error:hover:not([disabled]) span, button.flavor-error:hover:not([disabled]) i, button.flavor-error:focus:not([disabled]) span, button.flavor-error:focus:not([disabled]) i,
-input[type="button"].flavor-error:hover:not([disabled]) span,
-input[type="button"].flavor-error:hover:not([disabled]) i,
-input[type="button"].flavor-error:focus:not([disabled]) span,
-input[type="button"].flavor-error:focus:not([disabled]) i,
-input[type="reset"].flavor-error:hover:not([disabled]) span,
-input[type="reset"].flavor-error:hover:not([disabled]) i,
-input[type="reset"].flavor-error:focus:not([disabled]) span,
-input[type="reset"].flavor-error:focus:not([disabled]) i,
-input[type="submit"].flavor-error:hover:not([disabled]) span,
-input[type="submit"].flavor-error:hover:not([disabled]) i,
-input[type="submit"].flavor-error:focus:not([disabled]) span,
-input[type="submit"].flavor-error:focus:not([disabled]) i,
-.button.flavor-error:hover:not([disabled]) span,
-.button.flavor-error:hover:not([disabled]) i,
-.button.flavor-error:focus:not([disabled]) span,
-.button.flavor-error:focus:not([disabled]) i {
-  color: #ff9999;
-  text-shadow: 0 0 3px red;
-  transform: scale(1.15, 1.15);
-}
-button.flavor-error:hover[disabled] span, button.flavor-error:hover[disabled] i, button.flavor-error:focus[disabled] span, button.flavor-error:focus[disabled] i,
-input[type="button"].flavor-error:hover[disabled] span,
-input[type="button"].flavor-error:hover[disabled] i,
-input[type="button"].flavor-error:focus[disabled] span,
-input[type="button"].flavor-error:focus[disabled] i,
-input[type="reset"].flavor-error:hover[disabled] span,
-input[type="reset"].flavor-error:hover[disabled] i,
-input[type="reset"].flavor-error:focus[disabled] span,
-input[type="reset"].flavor-error:focus[disabled] i,
-input[type="submit"].flavor-error:hover[disabled] span,
-input[type="submit"].flavor-error:hover[disabled] i,
-input[type="submit"].flavor-error:focus[disabled] span,
-input[type="submit"].flavor-error:focus[disabled] i,
-.button.flavor-error:hover[disabled] span,
-.button.flavor-error:hover[disabled] i,
-.button.flavor-error:focus[disabled] span,
-.button.flavor-error:focus[disabled] i {
-  opacity: 0.3;
-  transform: scale(0.8, 0.8);
-}
-button.flavor-error:active,
-input[type="button"].flavor-error:active,
-input[type="reset"].flavor-error:active,
-input[type="submit"].flavor-error:active,
-.button.flavor-error:active {
-  border-color: white;
-  box-shadow: inset 0 0 4px 1px red, 0 0 4px 1px red;
-  padding: 3px 6px;
-}
-button.flavor-error:active span, button.flavor-error:active i,
-input[type="button"].flavor-error:active span,
-input[type="button"].flavor-error:active i,
-input[type="reset"].flavor-error:active span,
-input[type="reset"].flavor-error:active i,
-input[type="submit"].flavor-error:active span,
-input[type="submit"].flavor-error:active i,
-.button.flavor-error:active span,
-.button.flavor-error:active i {
-  color: white;
-  text-shadow: 0 0 4px red, 0 0 4px rgba(255, 0, 0, 0.7);
-  transform: scale(1.25, 1.25);
-}
-button.flavor-error.selected span, button.flavor-error.selected i,
-input[type="button"].flavor-error.selected span,
-input[type="button"].flavor-error.selected i,
-input[type="reset"].flavor-error.selected span,
-input[type="reset"].flavor-error.selected i,
-input[type="submit"].flavor-error.selected span,
-input[type="submit"].flavor-error.selected i,
-.button.flavor-error.selected span,
-.button.flavor-error.selected i {
-  color: white;
-  text-shadow: 0 0 4px red, 0 0 4px rgba(255, 0, 0, 0.7);
-  transform: scale(1.25, 1.25);
-}
-.flavor-error.box {
-  background: none;
-  border: 1px solid red;
-  border-radius: 2px;
-  color: red;
-  text-shadow: 0 0 2px rgba(255, 0, 0, 0.6);
-}
-.flavor-error.box {
   border: 3px double;
   border-color: red;
   box-shadow: inset 0 0 4px 1px red, 0 0 4px 1px red;

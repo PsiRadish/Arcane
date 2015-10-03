@@ -1,6 +1,8 @@
 
 @mixin define-flavor($color)
 {
+    $flavor-name: str-slice(#{&}, 2); // store value of & without dot
+    
     @at-root button#{&},
     input[type="button"]#{&},
     input[type="reset"]#{&},
@@ -8,29 +10,12 @@
     .button#{&}
     {
         @include spell-box($color);
-        border-width: 2px;
-        
-        padding: 3px 6px;
         
         span, i
         {
-            //color: $color;
             @include glow-idle-text($color);
-            display: inline-block;
-            //transition: all 0.25s;
-        }
-        span
-        {
-            font-family: $font-stack-arcane-mid;
         }
         
-        &[disabled]
-        {
-            span, i
-            {
-                opacity: 0.6
-            }
-        }
         &:hover, &:focus
         {
             &:not([disabled])
@@ -40,15 +25,6 @@
                 span, i
                 {
                     @include glow-mild-text($color);
-                    transform: scale(1.15, 1.15);
-                }
-            }
-            &[disabled]
-            {
-                span, i
-                {
-                    opacity: 0.3;
-                    transform: scale(0.8, 0.8);
                 }
             }
         }
@@ -57,12 +33,9 @@
         {
             @include glow-strong-border($color);
             
-            padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
-            
             span, i
             {
                 @include glow-strong-text($color);
-                transform: scale(1.25, 1.25);
             }
         }
         
@@ -71,7 +44,6 @@
             span, i
             {
                 @include glow-strong-text($color);
-                transform: scale(1.25, 1.25);
             }
         }
     }
@@ -82,13 +54,64 @@
         
         @include glow-idle-text($color);
     }
+    
+    &.portal, &.portal::before, &.portal::after
+    {
+        border : 1px solid $color;
+    }
+    &.portal
+    {
+        border-color: tint($color, $glow-portal-white-percent);
+        box-shadow  : inset   0 0 ($portal-ring-spacing * 2) 1px rgba($color, 1),
+                   /*outset*/ 0 0  $glow-strong-border-blur  2px rgba($color, 1);
+    }
+    &.portal::before, &.portal::after
+    {
+        animation-name : portal-ring-loop-#{$flavor-name};
+    }
+    
+    @keyframes portal-ring-loop-#{$flavor-name}
+    {
+        0%
+        {
+            width  : calc(100% - 0px);
+            height : calc(100% - 0px);
+            top    : 0;
+            left   : 0;
+            
+            box-shadow : inset   0 0 $glow-mild-border-blur 1px rgba($color, 1),
+                      /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, 1);
+            opacity: 1;
+        }
+        50%
+        {
+            width  : calc(100% - #{$portal-ring-spacing - 2});
+            height : calc(100% - #{$portal-ring-spacing - 2});
+            top    : $portal-ring-spacing / 2 - 1;
+            left   : $portal-ring-spacing / 2 - 1;
+            
+            box-shadow : inset   0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1),
+                      /*outset*/ 0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1);
+            opacity: 0.5;
+        }
+        100%
+        {
+            width  : calc(100% - #{$portal-ring-spacing * 2 - 2});
+            height : calc(100% - #{$portal-ring-spacing * 2 - 2});
+            top    : $portal-ring-spacing - 1;
+            left   : $portal-ring-spacing - 1;
+            
+            box-shadow : inset   0 0 0 0 rgba($color, 1),
+                /*outset*/ 0 0 0 0 rgba($color, 1);
+            opacity: 0;
+        }
+    }
 }
 @mixin define-alert-flavor($color)
 {
-    @include define-flavor($color);
-    
     &.box
     {
+        @include spell-box($color);
         border : 3px double;
         @include glow-strong-border($color, 0%);
         
@@ -101,10 +124,10 @@
 .flavor-white  { @include define-flavor(white); }
 .flavor-blue   { @include define-flavor($blue); }
 .flavor-green  { @include define-flavor(green); }
+.flavor-danger { @include define-flavor($danger-color); }
 
-//.flavor-danger { @include define-flavor($danger-color); }
-.flavor-danger { @include define-alert-flavor($danger-color); }
-.flavor-error  { @include define-alert-flavor($error-color); }
+.flavor-alert-warn  { @include define-alert-flavor($danger-color); }
+.flavor-alert-error { @include define-alert-flavor($error-color); }
 /*.flavor-error
 {
     @include define-flavor($error-color);
