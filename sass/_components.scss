@@ -1,0 +1,365 @@
+// Kyle Fiegener
+// ©LOL copyright
+
+// Animate EVERYTHING, MWAHAHAHAAA
+*, *::before, *::after
+{
+    transition: all 0.25s;
+}
+
+body
+{
+    background-color: black;
+    
+    @include glow-idle-text($text-color);
+    
+    font-family: $font-family-bottom-level;
+    font-size:   $font-size-base;
+    line-height: $line-height-computed;
+    
+    width: 100%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+{
+    font-weight: 500;
+    line-height: 1.1;
+    
+    margin-top:     1em;
+    margin-bottom:  0.5em;
+    
+    &:first-child
+    {
+        margin-top: 0.25em;
+    }
+}
+.h1, .h2, .h3, h1, h2, h3
+{
+    font-family: $font-family-top-level;
+    // margin-top: 16px;
+    // margin-bottom: 8px;
+}
+.h4, .h5, .h6, h4, h5, h6
+{
+    font-family: $font-family-mid-level;
+    // margin-top: 12px;
+    // margin-bottom: 6px;
+}
+.h1, h1
+{
+    font-size: $font-size-h1;
+}
+.h2, h2
+{
+    font-size: $font-size-h2;
+}
+.h3, h3
+{
+    font-size: $font-size-h3;
+}
+.h4, h4
+{
+    //font-size: $font-size-h4 + 2; // hack for smaller-ness of Port Lligat font
+    font-size: $font-size-h4;
+}
+.h5, h5
+{
+    //font-size: $font-size-h5 + 2; // hack for smaller-ness of Port Lligat font
+    font-size: $font-size-h5;
+    //font-weight: 600;
+}
+.h6, h6
+{
+    //font-size: $font-size-h6 + 2; // hack for smaller-ness of Port Lligat font
+    font-size: $font-size-h6;
+    //font-weight: 700;
+}
+
+a:not(.button)
+{
+    @include glow-idle-text($link-color);
+    text-decoration: none;
+    
+    position: relative;
+    
+    &::after
+    {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        
+        @include spell-box($link-color);
+        
+        opacity: 0;
+    }
+    
+    &:hover, &:focus
+    {
+        @include glow-mild-text($link-color);
+    }
+    //&:focus:not(.button)::after
+    &:focus::after
+    {
+        content: "";
+        
+        @include glow-mild-border($link-color);
+        
+        opacity: 1;
+    }
+    &:active
+    {
+        @include glow-strong-text($link-color);
+    }
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button
+{
+    @include spell-box($bttn-color);
+    border-width: 2px;
+    
+    padding: 3px 6px;
+    
+    span, i
+    {
+        @include glow-idle-text($bttn-color);
+        display: inline-block;
+        //transition: all 0.25s;
+    }
+    span
+    {
+        font-family: $font-stack-arcane-mid;
+    }
+    
+    &:hover, &:focus
+    {
+        @include glow-mild-border($bttn-color);
+        
+        span, i
+        {
+            @include glow-mild-text($bttn-color);
+            transform: scale(1.15, 1.15);
+        }
+    }
+    
+    &:active
+    {
+        @include glow-strong-border($bttn-color);
+        
+        padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
+        
+        span, i
+        {
+            @include glow-strong-text($bttn-color);
+            transform: scale(1.25, 1.25);
+        }
+    }
+    
+    &.selected
+    {
+        span, i
+        {
+            @include glow-strong-text($bttn-color);
+            transform: scale(1.25, 1.25);
+        }
+    }
+}
+
+form label
+{
+    @include glow-idle-text($form-color);
+}
+form label.label-focus
+{
+    @include glow-mild-text($form-color);
+}
+
+// http://www.w3schools.com/html/html_form_input_types.asp
+textarea,
+input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]), //:not([type="number"]),
+div.input-type-number
+{
+    //color: $form-color;
+    @include glow-idle-text($form-color);
+    @include spell-box($form-color);
+    
+    &.has-error
+    {
+        // @include glow-idle-text($error-color);
+        @include spell-box($error-color);
+    }
+    
+    padding: 3px;
+    
+    //@include glow-mild-border($form-color);
+    
+    &:focus:not([readonly]), &.focus
+    {
+        @include glow-mild-text($form-color);
+        @include glow-strong-border($form-color);
+        
+        &.has-error
+        {
+            // @include glow-mild-text($error-color);
+            @include glow-strong-border($error-color, 0%);
+        }
+    }
+    &[readonly]
+    {
+        @include spell-box($text-color);
+        @include glow-mild-border($text-color);
+    }
+}
+
+.portal, .portal::before, .portal::after
+{
+    border-radius : 6px;
+    border        : 1px solid $portal-color;
+}
+.portal
+{
+    position    : relative;
+    box-shadow  : inset   0 0 $glow-mild-border-blur   1px rgba($portal-color, 1),
+               /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($portal-color, 1);
+}
+.portal::before, .portal::after
+{
+    content       : "";
+    position      : absolute;
+    
+    //animation : portal-ring-loop 0.5s linear infinite;
+    animation-name            : portal-ring-loop;
+    animation-duration        : $portal-ring-loop-duration;
+    animation-timing-function : linear;
+    animation-iteration-count : infinite;
+}
+.portal::before
+{
+    //width  : calc(100% - 6px);
+    //height : calc(100% - 6px);
+    //top    : 3px;
+    //left   : 3px;
+    animation-delay: -($portal-ring-loop-duration / 2);
+}
+/*.portal::after
+{
+    width  : calc(100% - 14px);
+    height : calc(100% - 14px);
+    top    : 7px;
+    left   : 7px;
+}*/
+
+@keyframes portal-ring-loop
+{
+    0%
+    {
+        width  : calc(100% - 0px);
+        height : calc(100% - 0px);
+        top    : 0;
+        left   : 0;
+        
+        box-shadow : inset   0 0 $glow-mild-border-blur 1px rgba($portal-color, 1),
+                  /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($portal-color, 1);
+        opacity: 1;
+    }
+    50%
+    {
+        width  : calc(100% - 6px);
+        height : calc(100% - 6px);
+        top    : 3px;
+        left   : 3px;
+        
+        box-shadow : inset   0 0 ($glow-mild-border-blur / 2) 0.5px rgba($portal-color, 1),
+                  /*outset*/ 0 0 ($glow-mild-border-blur / 2) 0.5px rgba($portal-color, 1);
+        opacity: 1;
+    }
+    100%
+    {
+        width  : calc(100% - 14px);
+        height : calc(100% - 14px);
+        top    : 7px;
+        left   : 7px;
+        
+        box-shadow : inset   0 0 0 0 rgba($portal-color, 1),
+                  /*outset*/ 0 0 0 0 rgba($portal-color, 1);
+        opacity: 0;
+    }
+}
+
+.box, .portal
+{
+    padding: 6px;
+}
+
+.form-widget
+{
+    width: 100%;
+}
+
+/* Spin buttons via external DOM elements
+fieldset.input-type-number
+{
+    input[type="number"]
+    {
+        // padding-right: 18px !important;
+    }
+    
+    .spin-block
+    {
+        // margin-left: -10px;
+        display: inline-block;
+        // position: relative;
+        // top: 5px;
+        // left: -20px;
+    }
+    button.spin, .spin.button
+    {
+        border: none;
+        @include glow-idle-text($form-color);
+        padding: 0;
+        margin: 0;
+        line-height: 0;
+        
+        cursor: default;
+        
+        &:first-child
+        {
+            padding-bottom: 5px;
+        }
+        &:last-child
+        {
+            padding-top: 5px;
+        }
+        
+        i
+        {
+            @include glow-idle-text($form-color);
+            line-height: 0;
+        }
+    }
+}//*/
+// input[type=number]::shadow
+// {
+//     // *
+//     // {
+//         background: none;
+//         border: none;
+//         @include glow-idle-text($form-color);
+
+//         &:focus
+//         {
+//             @include glow-mild-text($form-color);
+//         }
+//     // }
+// }
+
+// .flavor-error
+// {
+//     color: $error-color;
+//     @include glow-idle-text($error-color);
+// }

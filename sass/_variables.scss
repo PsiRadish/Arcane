@@ -1,22 +1,23 @@
 // Kyle Fiegener
 // ©LOL copyright
 
-$blue:                  #3060FF;
+$blue                : #3060FF;
 
-$text-color:            white;
-$link-color:            #FFD700;
-$bttn-color:            $blue; //blue;
-$form-color:            #DDD;
+$danger-color        : #FF6C00;
+$error-color         : red;
 
-$danger-color:          #FF6C00;
-$error-color:           red;
+$text-color          : white;
+$link-color          : #FFD700;
+$bttn-color          : $blue; //blue;
+$form-color          : #DDD;
+$portal-color        : #F0F; // probably temporary
 
 // FONT STACKS
                             // TODO: Find out which of these monospace fonts are in any way "fancy"
-$font-stack-consolas        : Consolas, Monaco, Monofur, DejaVu Sans Mono, Bitstream Vera Sans Mono, Andale Mono, Liberation Mono, Lucida Console, monospace;
+$font-stack-consolas        : Consolas, Monaco, Monofur, monospace;
 $font-stack-corbel          : Corbel, Gill Sans, Lato, Gill Sans MT, Lucida Grande, Lucida Sans, Trebuchet MS, sans-serif;
 $font-stack-segoe           : Segoe UI, Frutiger, DejaVu Sans, Helvetica Neue, Helvetica, Source Sans Pro, Open Sans, Calibri, Arial, sans-serif;
-$font-stack-candara         : Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
+$font-stack-candara         : Candara, Optima, Optima Regular, Gill Sans, Lato, Gill Sans MT, sans-serif;
 
 $font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, serif; // I dunno ++ TODO: MORE
 
@@ -69,7 +70,7 @@ $font-size-h1               : ($font-size-base * 2.2);
 //*/
 
 $line-height-computed       : 20px / $font-size-base;
-// $big-ratio                  : $line-height-computed * 100;
+// $scale-big                  : $line-height-computed * 100;
 $scale-big                  : 142.857%;
 $scale-small                : 70%;
 
@@ -97,3 +98,5 @@ $glow-strong-text-blur      : 4px;
 $glow-strong-border-opacity : 1.0;
 $glow-strong-border-blur    : 4px;
 
+
+$portal-ring-loop-duration  : 0.7s;

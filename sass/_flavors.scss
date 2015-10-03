@@ -7,7 +7,7 @@
     input[type="submit"]#{&},
     .button#{&}
     {
-        @include Im-just-a-box($color);
+        @include spell-box($color);
         border-width: 2px;
         
         padding: 3px 6px;
@@ -78,16 +78,34 @@
     
     &.box
     {
-        @include Im-just-a-box($color);
+        @include spell-box($color);
         
         @include glow-idle-text($color);
+    }
+}
+@mixin define-alert-flavor($color)
+{
+    @include define-flavor($color);
+    
+    &.box
+    {
+        border : 3px double;
+        @include glow-strong-border($color, 0%);
+        
+        color: $color;
+        @include glow-strong-text($color, 0%);
+        //width: 100%;
     }
 }
 
 .flavor-white  { @include define-flavor(white); }
 .flavor-blue   { @include define-flavor($blue); }
-.flavor-danger { @include define-flavor($danger-color); }
-.flavor-error
+.flavor-green  { @include define-flavor(green); }
+
+//.flavor-danger { @include define-flavor($danger-color); }
+.flavor-danger { @include define-alert-flavor($danger-color); }
+.flavor-error  { @include define-alert-flavor($error-color); }
+/*.flavor-error
 {
     @include define-flavor($error-color);
     
@@ -101,4 +119,4 @@
         @include glow-strong-text($error-color, 0%);
         //width: 100%;
     }
-}
+}*/

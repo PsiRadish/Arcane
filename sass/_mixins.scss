@@ -6,7 +6,7 @@
     
 }
 
-@mixin Im-just-a-box($color)
+@mixin spell-box($color)
 {
     background: none;
     border: 1px solid $color;
@@ -22,8 +22,9 @@
 }
 @mixin glow-mild-text($color, $white-percent: $glow-mild-white-percent)
 {
-    color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-mild-text-blur rgba($color, $glow-mild-text-opacity);
+    //color: mix(white, $color, $white-percent);
+    color: tint($color, $white-percent);
+    text-shadow: 0 0 $glow-mild-text-blur rgba($color, $glow-mild-text-opacity);
     // text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
     
     // text-shadow: 1px  1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity),
@@ -31,9 +32,10 @@
 }
 @mixin glow-strong-text($color, $white-percent: $glow-strong-white-percent)
 {
-    color: mix(white, $color, $white-percent);
-    text-shadow: 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1),
-                 0px 0px $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2);
+    //color: mix(white, $color, $white-percent);
+    color: tint($color, $white-percent);
+    text-shadow: 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1),
+                 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2);
     // text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity1),
     //              0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity2);
                  
@@ -43,7 +45,8 @@
 
 @mixin glow-mild-border($color, $white-percent: $glow-mild-white-percent)
 {
-    border-color: mix(white, $color, $white-percent);
+    //border-color: mix(white, $color, $white-percent);
+    border-color: tint($color, $white-percent);
     box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity),
              /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity);
     // box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
@@ -51,7 +54,8 @@
 }
 @mixin glow-strong-border($color, $white-percent: $glow-strong-white-percent)
 {
-    border-color: mix(white, $color, $white-percent);
+    //border-color: mix(white, $color, $white-percent);
+    border-color: tint($color, $white-percent);
     box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity),
              /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity);
     // box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),

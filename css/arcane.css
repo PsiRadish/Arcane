@@ -1,14 +1,14 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Almendra:400,700,400italic,700italic|Metamorphous);
-/* ΓÇó "Nerd" Theme
-// h1ΓÇôh3
+/* • "Nerd" Theme
+// h1–h3
 $font-family-top-level      : $font-stack-consolas;
-// h4ΓÇôh6
+// h4–h6
 $font-family-mid-level      : $font-stack-corbel;
 // non-heading text
 $font-family-bottom-level   : $font-stack-segoe;
 //*/
-/*// ΓÇó Ink-ish
+/*// • Ink-ish
 $font-size-h6               :  $font-size-base;
 $font-size-h5               : ($font-size-base * 1.1);
 $font-size-h4               : ($font-size-base * 1.25);
@@ -16,9 +16,18 @@ $font-size-h3               : ($font-size-base * 1.50);
 $font-size-h2               : ($font-size-base * 1.75);
 $font-size-h1               : ($font-size-base * 2.2);
 //*/
-/*// ΓÇó Golden Ratio
+/*// • Golden Ratio
        TODO?: Golden ratio heading sizes
 //*/
+.no-border {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.center-text {
+  text-align: center !important;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -113,20 +122,19 @@ small {
   font-size: 70%;
 }
 
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sup {
-  top: -0.5em;
-}
-
 sub {
   bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
 }
 
 *, *::before, *::after {
@@ -137,7 +145,7 @@ body {
   background-color: black;
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
-  font-family: Candara, Optima, Optima Regular, Optima Roman, "Optima LT W10 Roman", Gill Sans, Lato, Gill Sans MT, sans-serif;
+  font-family: Candara, Optima, Optima Regular, Gill Sans, Lato, Gill Sans MT, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   width: 100%;
@@ -174,24 +182,24 @@ body {
 }
 
 .h4, h4 {
-  font-size: 20px;
-}
-
-.h5, h5 {
   font-size: 18px;
 }
 
-.h6, h6 {
+.h5, h5 {
   font-size: 16px;
 }
 
-a {
+.h6, h6 {
+  font-size: 14px;
+}
+
+a:not(.button) {
   color: #FFD700;
   text-shadow: 0 0 2px rgba(255, 215, 0, 0.6);
   text-decoration: none;
   position: relative;
 }
-a::after {
+a:not(.button)::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -202,19 +210,19 @@ a::after {
   border-radius: 2px;
   opacity: 0;
 }
-a:hover, a:focus {
+a:not(.button):hover, a:not(.button):focus {
   color: #ffef99;
-  text-shadow: 0px 0px 3px gold;
+  text-shadow: 0 0 3px gold;
 }
-a:focus:not(.button)::after {
+a:not(.button):focus::after {
   content: "";
   border-color: #ffef99;
   box-shadow: inset 0 0 3px 1px rgba(255, 215, 0, 0.6), 0 0 3px 1px rgba(255, 215, 0, 0.6);
   opacity: 1;
 }
-a:active {
+a:not(.button):active {
   color: white;
-  text-shadow: 0px 0px 4px gold, 0px 0px 4px rgba(255, 215, 0, 0.7);
+  text-shadow: 0 0 4px gold, 0 0 4px rgba(255, 215, 0, 0.7);
 }
 
 button,
@@ -278,7 +286,7 @@ input[type="submit"]:focus i,
 .button:focus span,
 .button:focus i {
   color: #acbfff;
-  text-shadow: 0px 0px 3px #3060ff;
+  text-shadow: 0 0 3px #3060ff;
   transform: scale(1.15, 1.15);
 }
 button:active,
@@ -300,7 +308,7 @@ input[type="submit"]:active i,
 .button:active span,
 .button:active i {
   color: white;
-  text-shadow: 0px 0px 4px #3060ff, 0px 0px 4px rgba(48, 96, 255, 0.7);
+  text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 button.selected span, button.selected i,
@@ -313,23 +321,18 @@ input[type="submit"].selected i,
 .button.selected span,
 .button.selected i {
   color: white;
-  text-shadow: 0px 0px 4px #3060ff, 0px 0px 4px rgba(48, 96, 255, 0.7);
+  text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 
-.no-border {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-label {
+form label {
   color: #DDD;
   text-shadow: 0 0 2px rgba(221, 221, 221, 0.6);
 }
 
-label.label-focus {
+form label.label-focus {
   color: #f1f1f1;
-  text-shadow: 0px 0px 3px #dddddd;
+  text-shadow: 0 0 3px #dddddd;
 }
 
 textarea,
@@ -355,7 +358,7 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
 div.input-type-number:focus:not([readonly]),
 div.input-type-number.focus {
   color: #f1f1f1;
-  text-shadow: 0px 0px 3px #dddddd;
+  text-shadow: 0 0 3px #dddddd;
   border-color: white;
   box-shadow: inset 0 0 4px 1px #dddddd, 0 0 4px 1px #dddddd;
 }
@@ -377,16 +380,68 @@ div.input-type-number[readonly] {
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
 
-.box {
+.portal, .portal::before, .portal::after {
+  border-radius: 6px;
+  border: 1px solid #F0F;
+}
+
+.portal {
+  position: relative;
+  box-shadow: inset 0 0 3px 1px magenta, 0 0 4px 1px magenta;
+}
+
+.portal::before, .portal::after {
+  content: "";
+  position: absolute;
+  animation-name: portal-ring-loop;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.portal::before {
+  animation-delay: -0.35s;
+}
+
+/*.portal::after
+{
+    width  : calc(100% - 14px);
+    height : calc(100% - 14px);
+    top    : 7px;
+    left   : 7px;
+}*/
+@keyframes portal-ring-loop {
+  0% {
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 3px 1px magenta, 0 0 3px 1px magenta;
+    opacity: 1;
+  }
+  50% {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    top: 3px;
+    left: 3px;
+    box-shadow: inset 0 0 1.5px 0.5px magenta, 0 0 1.5px 0.5px magenta;
+    opacity: 1;
+  }
+  100% {
+    width: calc(100% - 14px);
+    height: calc(100% - 14px);
+    top: 7px;
+    left: 7px;
+    box-shadow: inset 0 0 0 0 magenta, 0 0 0 0 magenta;
+    opacity: 0;
+  }
+}
+.box, .portal {
   padding: 6px;
 }
 
 .form-widget {
   width: 100%;
-}
-
-.center-text {
-  text-align: center;
 }
 
 /* Spin buttons via external DOM elements
@@ -503,7 +558,7 @@ input[type="submit"].flavor-white:focus:not([disabled]) i,
 .button.flavor-white:focus:not([disabled]) span,
 .button.flavor-white:focus:not([disabled]) i {
   color: white;
-  text-shadow: 0px 0px 3px white;
+  text-shadow: 0 0 3px white;
   transform: scale(1.15, 1.15);
 }
 button.flavor-white:hover[disabled] span, button.flavor-white:hover[disabled] i, button.flavor-white:focus[disabled] span, button.flavor-white:focus[disabled] i,
@@ -545,7 +600,7 @@ input[type="submit"].flavor-white:active i,
 .button.flavor-white:active span,
 .button.flavor-white:active i {
   color: white;
-  text-shadow: 0px 0px 4px white, 0px 0px 4px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 button.flavor-white.selected span, button.flavor-white.selected i,
@@ -558,7 +613,7 @@ input[type="submit"].flavor-white.selected i,
 .button.flavor-white.selected span,
 .button.flavor-white.selected i {
   color: white;
-  text-shadow: 0px 0px 4px white, 0px 0px 4px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 .flavor-white.box {
@@ -641,7 +696,7 @@ input[type="submit"].flavor-blue:focus:not([disabled]) i,
 .button.flavor-blue:focus:not([disabled]) span,
 .button.flavor-blue:focus:not([disabled]) i {
   color: #acbfff;
-  text-shadow: 0px 0px 3px #3060ff;
+  text-shadow: 0 0 3px #3060ff;
   transform: scale(1.15, 1.15);
 }
 button.flavor-blue:hover[disabled] span, button.flavor-blue:hover[disabled] i, button.flavor-blue:focus[disabled] span, button.flavor-blue:focus[disabled] i,
@@ -683,7 +738,7 @@ input[type="submit"].flavor-blue:active i,
 .button.flavor-blue:active span,
 .button.flavor-blue:active i {
   color: white;
-  text-shadow: 0px 0px 4px #3060ff, 0px 0px 4px rgba(48, 96, 255, 0.7);
+  text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 button.flavor-blue.selected span, button.flavor-blue.selected i,
@@ -696,7 +751,7 @@ input[type="submit"].flavor-blue.selected i,
 .button.flavor-blue.selected span,
 .button.flavor-blue.selected i {
   color: white;
-  text-shadow: 0px 0px 4px #3060ff, 0px 0px 4px rgba(48, 96, 255, 0.7);
+  text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
 .flavor-blue.box {
@@ -705,6 +760,144 @@ input[type="submit"].flavor-blue.selected i,
   border-radius: 2px;
   color: #3060FF;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
+}
+
+button.flavor-green,
+input[type="button"].flavor-green,
+input[type="reset"].flavor-green,
+input[type="submit"].flavor-green,
+.button.flavor-green {
+  background: none;
+  border: 1px solid green;
+  border-radius: 2px;
+  border-width: 2px;
+  padding: 3px 6px;
+}
+button.flavor-green span, button.flavor-green i,
+input[type="button"].flavor-green span,
+input[type="button"].flavor-green i,
+input[type="reset"].flavor-green span,
+input[type="reset"].flavor-green i,
+input[type="submit"].flavor-green span,
+input[type="submit"].flavor-green i,
+.button.flavor-green span,
+.button.flavor-green i {
+  color: green;
+  text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
+  display: inline-block;
+}
+button.flavor-green span,
+input[type="button"].flavor-green span,
+input[type="reset"].flavor-green span,
+input[type="submit"].flavor-green span,
+.button.flavor-green span {
+  font-family: Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
+}
+button.flavor-green[disabled] span, button.flavor-green[disabled] i,
+input[type="button"].flavor-green[disabled] span,
+input[type="button"].flavor-green[disabled] i,
+input[type="reset"].flavor-green[disabled] span,
+input[type="reset"].flavor-green[disabled] i,
+input[type="submit"].flavor-green[disabled] span,
+input[type="submit"].flavor-green[disabled] i,
+.button.flavor-green[disabled] span,
+.button.flavor-green[disabled] i {
+  opacity: 0.6;
+}
+button.flavor-green:hover:not([disabled]), button.flavor-green:focus:not([disabled]),
+input[type="button"].flavor-green:hover:not([disabled]),
+input[type="button"].flavor-green:focus:not([disabled]),
+input[type="reset"].flavor-green:hover:not([disabled]),
+input[type="reset"].flavor-green:focus:not([disabled]),
+input[type="submit"].flavor-green:hover:not([disabled]),
+input[type="submit"].flavor-green:focus:not([disabled]),
+.button.flavor-green:hover:not([disabled]),
+.button.flavor-green:focus:not([disabled]) {
+  border-color: #99cc99;
+  box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
+}
+button.flavor-green:hover:not([disabled]) span, button.flavor-green:hover:not([disabled]) i, button.flavor-green:focus:not([disabled]) span, button.flavor-green:focus:not([disabled]) i,
+input[type="button"].flavor-green:hover:not([disabled]) span,
+input[type="button"].flavor-green:hover:not([disabled]) i,
+input[type="button"].flavor-green:focus:not([disabled]) span,
+input[type="button"].flavor-green:focus:not([disabled]) i,
+input[type="reset"].flavor-green:hover:not([disabled]) span,
+input[type="reset"].flavor-green:hover:not([disabled]) i,
+input[type="reset"].flavor-green:focus:not([disabled]) span,
+input[type="reset"].flavor-green:focus:not([disabled]) i,
+input[type="submit"].flavor-green:hover:not([disabled]) span,
+input[type="submit"].flavor-green:hover:not([disabled]) i,
+input[type="submit"].flavor-green:focus:not([disabled]) span,
+input[type="submit"].flavor-green:focus:not([disabled]) i,
+.button.flavor-green:hover:not([disabled]) span,
+.button.flavor-green:hover:not([disabled]) i,
+.button.flavor-green:focus:not([disabled]) span,
+.button.flavor-green:focus:not([disabled]) i {
+  color: #99cc99;
+  text-shadow: 0 0 3px green;
+  transform: scale(1.15, 1.15);
+}
+button.flavor-green:hover[disabled] span, button.flavor-green:hover[disabled] i, button.flavor-green:focus[disabled] span, button.flavor-green:focus[disabled] i,
+input[type="button"].flavor-green:hover[disabled] span,
+input[type="button"].flavor-green:hover[disabled] i,
+input[type="button"].flavor-green:focus[disabled] span,
+input[type="button"].flavor-green:focus[disabled] i,
+input[type="reset"].flavor-green:hover[disabled] span,
+input[type="reset"].flavor-green:hover[disabled] i,
+input[type="reset"].flavor-green:focus[disabled] span,
+input[type="reset"].flavor-green:focus[disabled] i,
+input[type="submit"].flavor-green:hover[disabled] span,
+input[type="submit"].flavor-green:hover[disabled] i,
+input[type="submit"].flavor-green:focus[disabled] span,
+input[type="submit"].flavor-green:focus[disabled] i,
+.button.flavor-green:hover[disabled] span,
+.button.flavor-green:hover[disabled] i,
+.button.flavor-green:focus[disabled] span,
+.button.flavor-green:focus[disabled] i {
+  opacity: 0.3;
+  transform: scale(0.8, 0.8);
+}
+button.flavor-green:active,
+input[type="button"].flavor-green:active,
+input[type="reset"].flavor-green:active,
+input[type="submit"].flavor-green:active,
+.button.flavor-green:active {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
+  padding: 3px 6px;
+}
+button.flavor-green:active span, button.flavor-green:active i,
+input[type="button"].flavor-green:active span,
+input[type="button"].flavor-green:active i,
+input[type="reset"].flavor-green:active span,
+input[type="reset"].flavor-green:active i,
+input[type="submit"].flavor-green:active span,
+input[type="submit"].flavor-green:active i,
+.button.flavor-green:active span,
+.button.flavor-green:active i {
+  color: white;
+  text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
+  transform: scale(1.25, 1.25);
+}
+button.flavor-green.selected span, button.flavor-green.selected i,
+input[type="button"].flavor-green.selected span,
+input[type="button"].flavor-green.selected i,
+input[type="reset"].flavor-green.selected span,
+input[type="reset"].flavor-green.selected i,
+input[type="submit"].flavor-green.selected span,
+input[type="submit"].flavor-green.selected i,
+.button.flavor-green.selected span,
+.button.flavor-green.selected i {
+  color: white;
+  text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
+  transform: scale(1.25, 1.25);
+}
+.flavor-green.box {
+  background: none;
+  border: 1px solid green;
+  border-radius: 2px;
+  color: green;
+  text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
 
 button.flavor-danger,
@@ -779,7 +972,7 @@ input[type="submit"].flavor-danger:focus:not([disabled]) i,
 .button.flavor-danger:focus:not([disabled]) span,
 .button.flavor-danger:focus:not([disabled]) i {
   color: #ffc499;
-  text-shadow: 0px 0px 3px #ff6c00;
+  text-shadow: 0 0 3px #ff6c00;
   transform: scale(1.15, 1.15);
 }
 button.flavor-danger:hover[disabled] span, button.flavor-danger:hover[disabled] i, button.flavor-danger:focus[disabled] span, button.flavor-danger:focus[disabled] i,
@@ -821,7 +1014,7 @@ input[type="submit"].flavor-danger:active i,
 .button.flavor-danger:active span,
 .button.flavor-danger:active i {
   color: white;
-  text-shadow: 0px 0px 4px #ff6c00, 0px 0px 4px rgba(255, 108, 0, 0.7);
+  text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
   transform: scale(1.25, 1.25);
 }
 button.flavor-danger.selected span, button.flavor-danger.selected i,
@@ -834,7 +1027,7 @@ input[type="submit"].flavor-danger.selected i,
 .button.flavor-danger.selected span,
 .button.flavor-danger.selected i {
   color: white;
-  text-shadow: 0px 0px 4px #ff6c00, 0px 0px 4px rgba(255, 108, 0, 0.7);
+  text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
   transform: scale(1.25, 1.25);
 }
 .flavor-danger.box {
@@ -843,6 +1036,14 @@ input[type="submit"].flavor-danger.selected i,
   border-radius: 2px;
   color: #FF6C00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
+}
+.flavor-danger.box {
+  border: 3px double;
+  border-color: #ff6c00;
+  box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
+  color: #FF6C00;
+  color: #ff6c00;
+  text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
 
 button.flavor-error,
@@ -917,7 +1118,7 @@ input[type="submit"].flavor-error:focus:not([disabled]) i,
 .button.flavor-error:focus:not([disabled]) span,
 .button.flavor-error:focus:not([disabled]) i {
   color: #ff9999;
-  text-shadow: 0px 0px 3px red;
+  text-shadow: 0 0 3px red;
   transform: scale(1.15, 1.15);
 }
 button.flavor-error:hover[disabled] span, button.flavor-error:hover[disabled] i, button.flavor-error:focus[disabled] span, button.flavor-error:focus[disabled] i,
@@ -959,7 +1160,7 @@ input[type="submit"].flavor-error:active i,
 .button.flavor-error:active span,
 .button.flavor-error:active i {
   color: white;
-  text-shadow: 0px 0px 4px red, 0px 0px 4px rgba(255, 0, 0, 0.7);
+  text-shadow: 0 0 4px red, 0 0 4px rgba(255, 0, 0, 0.7);
   transform: scale(1.25, 1.25);
 }
 button.flavor-error.selected span, button.flavor-error.selected i,
@@ -972,7 +1173,7 @@ input[type="submit"].flavor-error.selected i,
 .button.flavor-error.selected span,
 .button.flavor-error.selected i {
   color: white;
-  text-shadow: 0px 0px 4px red, 0px 0px 4px rgba(255, 0, 0, 0.7);
+  text-shadow: 0 0 4px red, 0 0 4px rgba(255, 0, 0, 0.7);
   transform: scale(1.25, 1.25);
 }
 .flavor-error.box {
@@ -983,11 +1184,26 @@ input[type="submit"].flavor-error.selected i,
   text-shadow: 0 0 2px rgba(255, 0, 0, 0.6);
 }
 .flavor-error.box {
-  border-style: double;
-  border-width: 3px;
+  border: 3px double;
   border-color: red;
   box-shadow: inset 0 0 4px 1px red, 0 0 4px 1px red;
   color: red;
   color: red;
-  text-shadow: 0px 0px 4px red, 0px 0px 4px rgba(255, 0, 0, 0.7);
+  text-shadow: 0 0 4px red, 0 0 4px rgba(255, 0, 0, 0.7);
 }
+
+/*.flavor-error
+{
+    @include define-flavor($error-color);
+    
+    &.box
+    {
+        border-style: double;
+        border-width: 3px;
+        @include glow-strong-border($error-color, 0%);
+        
+        color: $error-color;
+        @include glow-strong-text($error-color, 0%);
+        //width: 100%;
+    }
+}*/
