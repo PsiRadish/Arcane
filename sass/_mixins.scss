@@ -15,6 +15,20 @@
 //     }
 // }
 
+@mixin clearfix()
+{
+    &::before,
+    &::after
+    {
+        content: " ";
+        display: table;
+    }
+    &::after
+    {
+        clear: both;
+    }
+}
+
 @mixin list-style-none()
 {
     padding-left: 0;
