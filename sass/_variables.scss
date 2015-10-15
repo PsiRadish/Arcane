@@ -8,9 +8,16 @@ $error-color         : red;
 
 $text-color          : white;
 $link-color          : #FFD700;
-$bttn-color          : $blue; //blue;
-$form-color          : #DDD;
-$portal-color        : #F0F; // probably temporary
+$bttn-color          : $blue;
+$container-color     : $text-color;
+//$portal-color        : #F0F;
+
+// $form-color          : #DDD;
+$form-color          : $text-color;
+$form-opacity        : 0.85;
+
+$nav-color           : $text-color;
+$nav-opacity         : 0.75;
 
 // FONT STACKS
                             // TODO: Find out which of these monospace fonts are in any way "fancy"
@@ -23,7 +30,7 @@ $font-stack-times-alt       : Constantia, Liberation Serif, Times New Roman, ser
 
 // $font-stack-arcane-base     : Actor, (#{$font-stack-candara});
 $font-stack-arcane-top      : Metamorphous, Avdira, Nogard, Dragon Text; // TODO: Add some common built-in fonts in case web fonts don't work
-$font-stack-arcane-mid      : Almendra, Constantia, Georgia, Liberation Serif, Times New Roman, serif; // TODO: More nice built-in serif fonts
+$font-stack-arcane-mid      : Almendra, Dragon Text, Nogard, Constantia, Georgia, Liberation Serif, Times New Roman, serif; // TODO: More nice built-in serif fonts
 $font-stack-arcane-base     : $font-stack-candara;
 
 $font-stack-monospace       : DejaVu Sans Mono, Consolas, Monaco, Liberation Mono, Lucida Console, Andale Mono, monospace;
@@ -48,13 +55,13 @@ $font-family-mid-level      : $font-stack-corbel;
 $font-family-bottom-level   : $font-stack-segoe;
 //*/
 
-$font-size-base             : 14px;
+$font-size-base             : 14px !default;
 
 // HEADING SIZES
 //// • Bootstrap-ish
-$font-size-h6               : $font-size-base;      // 14px
-$font-size-h5               : $font-size-base + 2;  // 16px
-$font-size-h4               : $font-size-base + 4;  // 18px
+$font-size-h6               : $font-size-base + 2;  // 16px
+$font-size-h5               : $font-size-base + 4;  // 18px
+$font-size-h4               : $font-size-base + 6;  // 20px
 $font-size-h3               : $font-size-base + 10; // 24px
 $font-size-h2               : $font-size-base + 16; // 30px
 $font-size-h1               : $font-size-base + 22; // 36px
@@ -101,3 +108,8 @@ $glow-strong-border-blur    : 4px;
 $portal-ring-loop-duration  : 0.75s;
 $portal-ring-spacing        : 12px;
 $glow-portal-white-percent  : 20%;
+$portal-bg-properties       : black;
+
+$box-padding                : 6px;
+
+$transition-duration        : 0.25s;

@@ -1,63 +1,77 @@
 // Kyle Fiegener
 // ©LOL copyright
 
+// Returns a CSS string containing an rgba function call if $opacity != 1,
+// otherwise just returns $color as a string.
+// @function rgba-or-not($color, $opacity)
+// {
+//     @if $opacity != 1
+//     {
+//         @return #{rgba($color, $opacity)};
+//     }
+//     @else
+//     {
+//         @return #{$color}
+//     }
+// }
+
+@mixin list-style-none()
+{
+    padding-left: 0;
+    
+    > li::before
+    {
+        content: "";
+        
+        position: static;  // freaking IE
+        position: initial;
+        display: inline;   // freaking IE
+        display: initial;
+        right: auto;       // freaking IE
+        right: initial;
+        width: auto;       // freaking IE
+        width: initial;
+    }
+}
+
 @mixin text-shadow-uniform()
 {
     
 }
 
-@mixin spell-box($color)
+@mixin spell-box($color:$container-color, $border-width:1px, $border-radius:2px, $border-style:solid, $opacity:1)
 {
     background: none;
-    border: 1px solid $color;
-    border-radius: 2px;
+    border: $border-width $border-style rgba($color, $opacity);
+    border-radius: $border-radius;
 }
 
-@mixin glow-idle-text($color)
+@mixin glow-idle-text($color, $opacity:1)
 {
-    color: $color;
-    text-shadow: 0 0 $glow-idle-text-blur rgba($color, $glow-idle-text-opacity);
-    // text-shadow: 1px 1px 1px  rgba($color, 0.3),
-    //             -1px -1px 1px rgba($color, 0.3);
+    color: rgba($color, $opacity);
+    text-shadow: 0 0 $glow-idle-text-blur rgba($color, $glow-idle-text-opacity * $opacity);
 }
-@mixin glow-mild-text($color, $white-percent: $glow-mild-white-percent)
+@mixin glow-mild-text($color, $white-percent:$glow-mild-white-percent, $opacity:1)
 {
-    //color: mix(white, $color, $white-percent);
-    color: tint($color, $white-percent);
-    text-shadow: 0 0 $glow-mild-text-blur rgba($color, $glow-mild-text-opacity);
-    // text-shadow: 0px 0px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
-    
-    // text-shadow: 1px  1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity),
-    //             -1px -1px $glow-mild-text-blur rgba(mix(white, $color, $white-percent), $glow-mild-text-opacity);
+    color: rgba(tint($color, $white-percent), $opacity);
+    text-shadow: 0 0 $glow-mild-text-blur rgba($color, $glow-mild-text-opacity * $opacity);
 }
-@mixin glow-strong-text($color, $white-percent: $glow-strong-white-percent)
+@mixin glow-strong-text($color, $white-percent:$glow-strong-white-percent, $opacity:1)
 {
-    //color: mix(white, $color, $white-percent);
-    color: tint($color, $white-percent);
-    text-shadow: 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1),
-                 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2);
-    // text-shadow: 0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity1),
-    //              0px 0px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity2);
-                 
-    // text-shadow: 1px  1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity),
-    //             -1px -1px $glow-strong-text-blur rgba(mix(white, $color, $white-percent), $glow-strong-text-opacity);
+    color: rgba(tint($color, $white-percent), $opacity);
+    text-shadow: 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity1 * $opacity),
+                 0 0 $glow-strong-text-blur rgba($color, $glow-strong-text-opacity2 * $opacity); // stack glows to make them stronger
 }
 
-@mixin glow-mild-border($color, $white-percent: $glow-mild-white-percent)
+@mixin glow-mild-border($color, $white-percent:$glow-mild-white-percent)
 {
-    //border-color: mix(white, $color, $white-percent);
     border-color: tint($color, $white-percent);
     box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity),
              /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, $glow-mild-border-opacity);
-    // box-shadow: inset   0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity),
-    //          /*outset*/ 0 0 $glow-mild-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-mild-border-opacity);
 }
-@mixin glow-strong-border($color, $white-percent: $glow-strong-white-percent)
+@mixin glow-strong-border($color, $white-percent:$glow-strong-white-percent)
 {
-    //border-color: mix(white, $color, $white-percent);
     border-color: tint($color, $white-percent);
     box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity),
              /*outset*/ 0 0 $glow-strong-border-blur 1px rgba($color, $glow-strong-border-opacity);
-    // box-shadow: inset   0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity),
-    //          /*outset*/ 0 0 $glow-strong-border-blur 1px rgba(mix(white, $color, $white-percent), $glow-strong-border-opacity);
 }

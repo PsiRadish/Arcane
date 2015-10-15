@@ -1,7 +1,25 @@
 
-@mixin define-flavor($color)
+// Color variants for most components
+$flavors:
+(
+    flavor-white  : white,
+    flavor-blue   : $blue,
+    flavor-green  : green,
+    flavor-orange : #FF9933,
+    flavor-danger : $danger-color,
+    flavor-nav    : $nav-color
+);
+
+// Color variants for alert messages
+$alert-flavors:
+(
+    flavor-alert-warn  : $danger-color,
+    flavor-alert-error : $error-color
+);
+
+@mixin define-flavor($color, $flavor-name:null)
 {
-    $flavor-name: str-slice(#{&}, 2); // store value of & without dot
+    // $flavor-name: str-slice(#{&}, 2); // store value of & without dot for portal animation name
     
     @at-root button#{&},
     input[type="button"]#{&},
@@ -9,7 +27,7 @@
     input[type="submit"]#{&},
     .button#{&}
     {
-        @include spell-box($color);
+        @include spell-box($color, 2px, 4px);
         
         span, i
         {
@@ -48,6 +66,12 @@
         }
     }
     
+    @at-root hr#{&}, & hr
+    {
+        @include spell-box($color);
+        @include glow-mild-border($color);
+    }
+    
     &.box
     {
         @include spell-box($color);
@@ -55,55 +79,58 @@
         @include glow-idle-text($color);
     }
     
-    &.portal, &.portal::before, &.portal::after
+    @if ($flavor-name) // can't create portal animation without a flavor-name
     {
-        border : 1px solid $color;
-    }
-    &.portal
-    {
-        border-color: tint($color, $glow-portal-white-percent);
-        box-shadow  : inset   0 0 ($portal-ring-spacing * 2) 1px rgba($color, 1),
-                   /*outset*/ 0 0  $glow-strong-border-blur  2px rgba($color, 1);
-    }
-    &.portal::before, &.portal::after
-    {
-        animation-name : portal-ring-loop-#{$flavor-name};
-    }
-    
-    @keyframes portal-ring-loop-#{$flavor-name}
-    {
-        0%
+        &.portal, &.portal::before, &.portal::after
         {
-            width  : calc(100% - 0px);
-            height : calc(100% - 0px);
-            top    : 0;
-            left   : 0;
-            
-            box-shadow : inset   0 0 $glow-mild-border-blur 1px rgba($color, 1),
-                      /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, 1);
-            opacity: 1;
+            border : 1px solid $color;
         }
-        50%
+        &.portal
         {
-            width  : calc(100% - #{$portal-ring-spacing - 2});
-            height : calc(100% - #{$portal-ring-spacing - 2});
-            top    : $portal-ring-spacing / 2 - 1;
-            left   : $portal-ring-spacing / 2 - 1;
-            
-            box-shadow : inset   0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1),
-                      /*outset*/ 0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1);
-            opacity: 0.5;
+            border-color: tint($color, $glow-portal-white-percent);
+            box-shadow  : inset   0 0 ($portal-ring-spacing * 2) 1px rgba($color, 1),
+                       /*outset*/ 0 0  $glow-strong-border-blur  2px rgba($color, 1);
         }
-        100%
+        &.portal::before, &.portal::after
         {
-            width  : calc(100% - #{$portal-ring-spacing * 2 - 2});
-            height : calc(100% - #{$portal-ring-spacing * 2 - 2});
-            top    : $portal-ring-spacing - 1;
-            left   : $portal-ring-spacing - 1;
-            
-            box-shadow : inset   0 0 0 0 rgba($color, 1),
-                /*outset*/ 0 0 0 0 rgba($color, 1);
-            opacity: 0;
+            animation-name : portal-ring-loop-#{$flavor-name};
+        }
+        
+        @keyframes portal-ring-loop-#{$flavor-name}
+        {
+            0%
+            {
+                width  : calc(100% - 0px);
+                height : calc(100% - 0px);
+                top    : 0;
+                left   : 0;
+                
+                box-shadow : inset   0 0 $glow-mild-border-blur 1px rgba($color, 1),
+                          /*outset*/ 0 0 $glow-mild-border-blur 1px rgba($color, 1);
+                opacity: 1;
+            }
+            50%
+            {
+                width  : calc(100% - #{$portal-ring-spacing - 2});
+                height : calc(100% - #{$portal-ring-spacing - 2});
+                top    : $portal-ring-spacing / 2 - 1;
+                left   : $portal-ring-spacing / 2 - 1;
+                
+                box-shadow : inset   0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1),
+                          /*outset*/ 0 0 ($glow-mild-border-blur / 2) 0.5px rgba($color, 1);
+                opacity: 0.5;
+            }
+            100%
+            {
+                width  : calc(100% - #{$portal-ring-spacing * 2 - 2});
+                height : calc(100% - #{$portal-ring-spacing * 2 - 2});
+                top    : $portal-ring-spacing - 1;
+                left   : $portal-ring-spacing - 1;
+                
+                box-shadow : inset   0 0 0 0 rgba($color, 1),
+                    /*outset*/ 0 0 0 0 rgba($color, 1);
+                opacity: 0;
+            }
         }
     }
 }
@@ -111,8 +138,8 @@
 {
     &.box
     {
-        @include spell-box($color);
-        border : 3px double;
+        @include spell-box($color, 3px, $border-style:double);
+        // border : 3px double;
         @include glow-strong-border($color, 0%);
         
         color: $color;
@@ -121,25 +148,31 @@
     }
 }
 
-.flavor-white  { @include define-flavor(white); }
-.flavor-blue   { @include define-flavor($blue); }
-.flavor-green  { @include define-flavor(green); }
-.flavor-danger { @include define-flavor($danger-color); }
+// .flavor-white  { @include define-flavor(white); }
+// .flavor-blue   { @include define-flavor($blue); }
+// .flavor-green  { @include define-flavor(green); }
+// .flavor-danger { @include define-flavor($danger-color); }
 
-.flavor-alert-warn  { @include define-alert-flavor($danger-color); }
-.flavor-alert-error { @include define-alert-flavor($error-color); }
-/*.flavor-error
+// .flavor-alert-warn  { @include define-alert-flavor($danger-color); }
+// .flavor-alert-error { @include define-alert-flavor($error-color); }
+
+// Loop through maps making flavors
+@each $flavor, $color in $flavors
+{   
+    // @if type-of($color) == list   // color and opacity specified
+    // {
+    //     $opacity: nth($color, 2);
+    //     $color:   nth($color, 1);
+    // }
+    // @else
+    // {
+    //     $opacity: 1;
+    // }
+    // 
+    // .#{$flavor} { @include define-flavor($color, $opacity, $flavor); }
+    .#{$flavor} { @include define-flavor($color, $flavor); }
+}
+@each $flavor, $color in $alert-flavors
 {
-    @include define-flavor($error-color);
-    
-    &.box
-    {
-        border-style: double;
-        border-width: 3px;
-        @include glow-strong-border($error-color, 0%);
-        
-        color: $error-color;
-        @include glow-strong-text($error-color, 0%);
-        //width: 100%;
-    }
-}*/
+    .#{$flavor} { @include define-alert-flavor($color); }
+}
