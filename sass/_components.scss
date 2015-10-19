@@ -189,24 +189,24 @@ input[type="reset"],
 input[type="submit"],
 .button
 {
+    @include glow-idle-text($bttn-color);
     @include spell-box($bttn-color, 2px, 4px);
-    
     padding: 3px 6px;
     
-    span, i
+    span, i, label, p
     {
         @include glow-idle-text($bttn-color);
         display: inline-block;
         //transition: all 0.25s;
     }
-    span
+    span, label, p
     {
         font-family: $font-stack-arcane-mid;
     }
     
     &[disabled]
     {
-        span, i
+        span, i, label, p
         {
             opacity: 0.6
         }
@@ -217,7 +217,7 @@ input[type="submit"],
         {
             @include glow-mild-border($bttn-color);
             
-            span, i
+            span, i, label, p
             {
                 @include glow-mild-text($bttn-color);
                 transform: scale(1.15, 1.15);
@@ -225,7 +225,7 @@ input[type="submit"],
         }
         &[disabled]
         {
-            span, i
+            span, i, label, p
             {
                 opacity: 0.3;
                 transform: scale(0.8, 0.8);
@@ -239,7 +239,7 @@ input[type="submit"],
         
         padding: 3px 6px; // probably only necessary because of something bootstrap's doing...?
         
-        span, i
+        span, i, label, p
         {
             @include glow-strong-text($bttn-color);
             transform: scale(1.25, 1.25);
@@ -248,7 +248,7 @@ input[type="submit"],
     
     &.selected
     {
-        span, i
+        span, i, label, p
         {
             @include glow-strong-text($bttn-color);
             transform: scale(1.25, 1.25);
@@ -266,8 +266,9 @@ form label.label-focus
 }
 
 // http://www.w3schools.com/html/html_form_input_types.asp
-// Typing-based input fields
+// Text-based input fields
 textarea,
+select,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]) //, :not([type="number"]),
 // div.input-type-number
 {
@@ -298,6 +299,10 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
         @include spell-box($text-color);
         @include glow-mild-border($text-color);
     }
+}
+select, option
+{
+    background: none;
 }
 
 // Content container with inward-moving rings at the border to look like a portal

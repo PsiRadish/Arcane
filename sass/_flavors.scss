@@ -20,6 +20,7 @@ $alert-flavors:
 @mixin define-flavor($color, $flavor-name:null)
 {
     // $flavor-name: str-slice(#{&}, 2); // store value of & without dot for portal animation name
+    @include glow-idle-text($color);
     
     @at-root button#{&},
     input[type="button"]#{&},
@@ -27,9 +28,11 @@ $alert-flavors:
     input[type="submit"]#{&},
     .button#{&}
     {
+        @include glow-idle-text($color);
+        
         @include spell-box($color, 2px, 4px);
         
-        span, i
+        span, i, label, p
         {
             @include glow-idle-text($color);
         }
@@ -40,7 +43,7 @@ $alert-flavors:
             {
                 @include glow-mild-border($color);
                 
-                span, i
+                span, i, label, p
                 {
                     @include glow-mild-text($color);
                 }
@@ -51,7 +54,7 @@ $alert-flavors:
         {
             @include glow-strong-border($color);
             
-            span, i
+            span, i, label, p
             {
                 @include glow-strong-text($color);
             }
@@ -59,14 +62,14 @@ $alert-flavors:
         
         &.selected
         {
-            span, i
+            span, i, label, p
             {
                 @include glow-strong-text($color);
             }
         }
     }
     
-    @at-root hr#{&}, & hr
+    @at-root hr#{&}, & > hr
     {
         @include spell-box($color);
         @include glow-mild-border($color);
@@ -148,15 +151,8 @@ $alert-flavors:
     }
 }
 
-// .flavor-white  { @include define-flavor(white); }
-// .flavor-blue   { @include define-flavor($blue); }
-// .flavor-green  { @include define-flavor(green); }
-// .flavor-danger { @include define-flavor($danger-color); }
 
-// .flavor-alert-warn  { @include define-alert-flavor($danger-color); }
-// .flavor-alert-error { @include define-alert-flavor($error-color); }
-
-// Loop through maps making flavors
+// Loop through flavor maps defining flavors
 @each $flavor, $color in $flavors
 {   
     // @if type-of($color) == list   // color and opacity specified

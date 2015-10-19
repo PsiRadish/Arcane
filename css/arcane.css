@@ -137,6 +137,16 @@ sup {
   top: -0.5em;
 }
 
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
 *, *::before, *::after {
   transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
 }
@@ -285,40 +295,66 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
+  color: #3060ff;
+  text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
   background: none;
   border: 2px solid #3060ff;
   border-radius: 4px;
   padding: 3px 6px;
 }
-button span, button i,
+button span, button i, button label, button p,
 input[type="button"] span,
 input[type="button"] i,
+input[type="button"] label,
+input[type="button"] p,
 input[type="reset"] span,
 input[type="reset"] i,
+input[type="reset"] label,
+input[type="reset"] p,
 input[type="submit"] span,
 input[type="submit"] i,
+input[type="submit"] label,
+input[type="submit"] p,
 .button span,
-.button i {
+.button i,
+.button label,
+.button p {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
   display: inline-block;
 }
-button span,
+button span, button label, button p,
 input[type="button"] span,
+input[type="button"] label,
+input[type="button"] p,
 input[type="reset"] span,
+input[type="reset"] label,
+input[type="reset"] p,
 input[type="submit"] span,
-.button span {
+input[type="submit"] label,
+input[type="submit"] p,
+.button span,
+.button label,
+.button p {
   font-family: Almendra, Dragon Text, Nogard, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
 }
-button[disabled] span, button[disabled] i,
+button[disabled] span, button[disabled] i, button[disabled] label, button[disabled] p,
 input[type="button"][disabled] span,
 input[type="button"][disabled] i,
+input[type="button"][disabled] label,
+input[type="button"][disabled] p,
 input[type="reset"][disabled] span,
 input[type="reset"][disabled] i,
+input[type="reset"][disabled] label,
+input[type="reset"][disabled] p,
 input[type="submit"][disabled] span,
 input[type="submit"][disabled] i,
+input[type="submit"][disabled] label,
+input[type="submit"][disabled] p,
 .button[disabled] span,
-.button[disabled] i {
+.button[disabled] i,
+.button[disabled] label,
+.button[disabled] p {
   opacity: 0.6;
 }
 button:hover:not([disabled]), button:focus:not([disabled]),
@@ -333,44 +369,76 @@ input[type="submit"]:focus:not([disabled]),
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
-button:hover:not([disabled]) span, button:hover:not([disabled]) i, button:focus:not([disabled]) span, button:focus:not([disabled]) i,
+button:hover:not([disabled]) span, button:hover:not([disabled]) i, button:hover:not([disabled]) label, button:hover:not([disabled]) p, button:focus:not([disabled]) span, button:focus:not([disabled]) i, button:focus:not([disabled]) label, button:focus:not([disabled]) p,
 input[type="button"]:hover:not([disabled]) span,
 input[type="button"]:hover:not([disabled]) i,
+input[type="button"]:hover:not([disabled]) label,
+input[type="button"]:hover:not([disabled]) p,
 input[type="button"]:focus:not([disabled]) span,
 input[type="button"]:focus:not([disabled]) i,
+input[type="button"]:focus:not([disabled]) label,
+input[type="button"]:focus:not([disabled]) p,
 input[type="reset"]:hover:not([disabled]) span,
 input[type="reset"]:hover:not([disabled]) i,
+input[type="reset"]:hover:not([disabled]) label,
+input[type="reset"]:hover:not([disabled]) p,
 input[type="reset"]:focus:not([disabled]) span,
 input[type="reset"]:focus:not([disabled]) i,
+input[type="reset"]:focus:not([disabled]) label,
+input[type="reset"]:focus:not([disabled]) p,
 input[type="submit"]:hover:not([disabled]) span,
 input[type="submit"]:hover:not([disabled]) i,
+input[type="submit"]:hover:not([disabled]) label,
+input[type="submit"]:hover:not([disabled]) p,
 input[type="submit"]:focus:not([disabled]) span,
 input[type="submit"]:focus:not([disabled]) i,
+input[type="submit"]:focus:not([disabled]) label,
+input[type="submit"]:focus:not([disabled]) p,
 .button:hover:not([disabled]) span,
 .button:hover:not([disabled]) i,
+.button:hover:not([disabled]) label,
+.button:hover:not([disabled]) p,
 .button:focus:not([disabled]) span,
-.button:focus:not([disabled]) i {
+.button:focus:not([disabled]) i,
+.button:focus:not([disabled]) label,
+.button:focus:not([disabled]) p {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
   transform: scale(1.15, 1.15);
 }
-button:hover[disabled] span, button:hover[disabled] i, button:focus[disabled] span, button:focus[disabled] i,
+button:hover[disabled] span, button:hover[disabled] i, button:hover[disabled] label, button:hover[disabled] p, button:focus[disabled] span, button:focus[disabled] i, button:focus[disabled] label, button:focus[disabled] p,
 input[type="button"]:hover[disabled] span,
 input[type="button"]:hover[disabled] i,
+input[type="button"]:hover[disabled] label,
+input[type="button"]:hover[disabled] p,
 input[type="button"]:focus[disabled] span,
 input[type="button"]:focus[disabled] i,
+input[type="button"]:focus[disabled] label,
+input[type="button"]:focus[disabled] p,
 input[type="reset"]:hover[disabled] span,
 input[type="reset"]:hover[disabled] i,
+input[type="reset"]:hover[disabled] label,
+input[type="reset"]:hover[disabled] p,
 input[type="reset"]:focus[disabled] span,
 input[type="reset"]:focus[disabled] i,
+input[type="reset"]:focus[disabled] label,
+input[type="reset"]:focus[disabled] p,
 input[type="submit"]:hover[disabled] span,
 input[type="submit"]:hover[disabled] i,
+input[type="submit"]:hover[disabled] label,
+input[type="submit"]:hover[disabled] p,
 input[type="submit"]:focus[disabled] span,
 input[type="submit"]:focus[disabled] i,
+input[type="submit"]:focus[disabled] label,
+input[type="submit"]:focus[disabled] p,
 .button:hover[disabled] span,
 .button:hover[disabled] i,
+.button:hover[disabled] label,
+.button:hover[disabled] p,
 .button:focus[disabled] span,
-.button:focus[disabled] i {
+.button:focus[disabled] i,
+.button:focus[disabled] label,
+.button:focus[disabled] p {
   opacity: 0.3;
   transform: scale(0.8, 0.8);
 }
@@ -383,28 +451,44 @@ input[type="submit"]:active,
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
   padding: 3px 6px;
 }
-button:active span, button:active i,
+button:active span, button:active i, button:active label, button:active p,
 input[type="button"]:active span,
 input[type="button"]:active i,
+input[type="button"]:active label,
+input[type="button"]:active p,
 input[type="reset"]:active span,
 input[type="reset"]:active i,
+input[type="reset"]:active label,
+input[type="reset"]:active p,
 input[type="submit"]:active span,
 input[type="submit"]:active i,
+input[type="submit"]:active label,
+input[type="submit"]:active p,
 .button:active span,
-.button:active i {
+.button:active i,
+.button:active label,
+.button:active p {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
 }
-button.selected span, button.selected i,
+button.selected span, button.selected i, button.selected label, button.selected p,
 input[type="button"].selected span,
 input[type="button"].selected i,
+input[type="button"].selected label,
+input[type="button"].selected p,
 input[type="reset"].selected span,
 input[type="reset"].selected i,
+input[type="reset"].selected label,
+input[type="reset"].selected p,
 input[type="submit"].selected span,
 input[type="submit"].selected i,
+input[type="submit"].selected label,
+input[type="submit"].selected p,
 .button.selected span,
-.button.selected i {
+.button.selected i,
+.button.selected label,
+.button.selected p {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   transform: scale(1.25, 1.25);
@@ -421,6 +505,7 @@ form label.label-focus {
 }
 
 textarea,
+select,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]) {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.51);
@@ -430,12 +515,15 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
   padding: 3px;
 }
 textarea.has-error,
+select.has-error,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]).has-error {
   background: none;
   border: 1px solid red;
   border-radius: 2px;
 }
 textarea:focus:not([readonly]), textarea.focus,
+select:focus:not([readonly]),
+select.focus,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):focus:not([readonly]),
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]).focus {
   color: white;
@@ -444,18 +532,25 @@ input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="ch
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
 textarea:focus:not([readonly]).has-error, textarea.focus.has-error,
+select:focus:not([readonly]).has-error,
+select.focus.has-error,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]):focus:not([readonly]).has-error,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]).focus.has-error {
   border-color: red;
   box-shadow: inset 0 0 4px 1px red, 0 0 4px 1px red;
 }
 textarea[readonly],
+select[readonly],
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"])[readonly] {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
+}
+
+select, option {
+  background: none;
 }
 
 .portal {
@@ -569,24 +664,38 @@ fieldset.input-type-number
         }
     }
 }//*/
+.flavor-white {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
 button.flavor-white,
 input[type="button"].flavor-white,
 input[type="reset"].flavor-white,
 input[type="submit"].flavor-white,
 .button.flavor-white {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
   background: none;
   border: 2px solid white;
   border-radius: 4px;
 }
-button.flavor-white span, button.flavor-white i,
+button.flavor-white span, button.flavor-white i, button.flavor-white label, button.flavor-white p,
 input[type="button"].flavor-white span,
 input[type="button"].flavor-white i,
+input[type="button"].flavor-white label,
+input[type="button"].flavor-white p,
 input[type="reset"].flavor-white span,
 input[type="reset"].flavor-white i,
+input[type="reset"].flavor-white label,
+input[type="reset"].flavor-white p,
 input[type="submit"].flavor-white span,
 input[type="submit"].flavor-white i,
+input[type="submit"].flavor-white label,
+input[type="submit"].flavor-white p,
 .button.flavor-white span,
-.button.flavor-white i {
+.button.flavor-white i,
+.button.flavor-white label,
+.button.flavor-white p {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
@@ -602,23 +711,39 @@ input[type="submit"].flavor-white:focus:not([disabled]),
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-button.flavor-white:hover:not([disabled]) span, button.flavor-white:hover:not([disabled]) i, button.flavor-white:focus:not([disabled]) span, button.flavor-white:focus:not([disabled]) i,
+button.flavor-white:hover:not([disabled]) span, button.flavor-white:hover:not([disabled]) i, button.flavor-white:hover:not([disabled]) label, button.flavor-white:hover:not([disabled]) p, button.flavor-white:focus:not([disabled]) span, button.flavor-white:focus:not([disabled]) i, button.flavor-white:focus:not([disabled]) label, button.flavor-white:focus:not([disabled]) p,
 input[type="button"].flavor-white:hover:not([disabled]) span,
 input[type="button"].flavor-white:hover:not([disabled]) i,
+input[type="button"].flavor-white:hover:not([disabled]) label,
+input[type="button"].flavor-white:hover:not([disabled]) p,
 input[type="button"].flavor-white:focus:not([disabled]) span,
 input[type="button"].flavor-white:focus:not([disabled]) i,
+input[type="button"].flavor-white:focus:not([disabled]) label,
+input[type="button"].flavor-white:focus:not([disabled]) p,
 input[type="reset"].flavor-white:hover:not([disabled]) span,
 input[type="reset"].flavor-white:hover:not([disabled]) i,
+input[type="reset"].flavor-white:hover:not([disabled]) label,
+input[type="reset"].flavor-white:hover:not([disabled]) p,
 input[type="reset"].flavor-white:focus:not([disabled]) span,
 input[type="reset"].flavor-white:focus:not([disabled]) i,
+input[type="reset"].flavor-white:focus:not([disabled]) label,
+input[type="reset"].flavor-white:focus:not([disabled]) p,
 input[type="submit"].flavor-white:hover:not([disabled]) span,
 input[type="submit"].flavor-white:hover:not([disabled]) i,
+input[type="submit"].flavor-white:hover:not([disabled]) label,
+input[type="submit"].flavor-white:hover:not([disabled]) p,
 input[type="submit"].flavor-white:focus:not([disabled]) span,
 input[type="submit"].flavor-white:focus:not([disabled]) i,
+input[type="submit"].flavor-white:focus:not([disabled]) label,
+input[type="submit"].flavor-white:focus:not([disabled]) p,
 .button.flavor-white:hover:not([disabled]) span,
 .button.flavor-white:hover:not([disabled]) i,
+.button.flavor-white:hover:not([disabled]) label,
+.button.flavor-white:hover:not([disabled]) p,
 .button.flavor-white:focus:not([disabled]) span,
-.button.flavor-white:focus:not([disabled]) i {
+.button.flavor-white:focus:not([disabled]) i,
+.button.flavor-white:focus:not([disabled]) label,
+.button.flavor-white:focus:not([disabled]) p {
   color: white;
   text-shadow: 0 0 3px white;
 }
@@ -630,31 +755,47 @@ input[type="submit"].flavor-white:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-button.flavor-white:active span, button.flavor-white:active i,
+button.flavor-white:active span, button.flavor-white:active i, button.flavor-white:active label, button.flavor-white:active p,
 input[type="button"].flavor-white:active span,
 input[type="button"].flavor-white:active i,
+input[type="button"].flavor-white:active label,
+input[type="button"].flavor-white:active p,
 input[type="reset"].flavor-white:active span,
 input[type="reset"].flavor-white:active i,
+input[type="reset"].flavor-white:active label,
+input[type="reset"].flavor-white:active p,
 input[type="submit"].flavor-white:active span,
 input[type="submit"].flavor-white:active i,
+input[type="submit"].flavor-white:active label,
+input[type="submit"].flavor-white:active p,
 .button.flavor-white:active span,
-.button.flavor-white:active i {
+.button.flavor-white:active i,
+.button.flavor-white:active label,
+.button.flavor-white:active p {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-button.flavor-white.selected span, button.flavor-white.selected i,
+button.flavor-white.selected span, button.flavor-white.selected i, button.flavor-white.selected label, button.flavor-white.selected p,
 input[type="button"].flavor-white.selected span,
 input[type="button"].flavor-white.selected i,
+input[type="button"].flavor-white.selected label,
+input[type="button"].flavor-white.selected p,
 input[type="reset"].flavor-white.selected span,
 input[type="reset"].flavor-white.selected i,
+input[type="reset"].flavor-white.selected label,
+input[type="reset"].flavor-white.selected p,
 input[type="submit"].flavor-white.selected span,
 input[type="submit"].flavor-white.selected i,
+input[type="submit"].flavor-white.selected label,
+input[type="submit"].flavor-white.selected p,
 .button.flavor-white.selected span,
-.button.flavor-white.selected i {
+.button.flavor-white.selected i,
+.button.flavor-white.selected label,
+.button.flavor-white.selected p {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-hr.flavor-white, .flavor-white hr {
+hr.flavor-white, .flavor-white > hr {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
@@ -704,24 +845,38 @@ hr.flavor-white, .flavor-white hr {
     opacity: 0;
   }
 }
+.flavor-blue {
+  color: #3060ff;
+  text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
+}
 button.flavor-blue,
 input[type="button"].flavor-blue,
 input[type="reset"].flavor-blue,
 input[type="submit"].flavor-blue,
 .button.flavor-blue {
+  color: #3060ff;
+  text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
   background: none;
   border: 2px solid #3060ff;
   border-radius: 4px;
 }
-button.flavor-blue span, button.flavor-blue i,
+button.flavor-blue span, button.flavor-blue i, button.flavor-blue label, button.flavor-blue p,
 input[type="button"].flavor-blue span,
 input[type="button"].flavor-blue i,
+input[type="button"].flavor-blue label,
+input[type="button"].flavor-blue p,
 input[type="reset"].flavor-blue span,
 input[type="reset"].flavor-blue i,
+input[type="reset"].flavor-blue label,
+input[type="reset"].flavor-blue p,
 input[type="submit"].flavor-blue span,
 input[type="submit"].flavor-blue i,
+input[type="submit"].flavor-blue label,
+input[type="submit"].flavor-blue p,
 .button.flavor-blue span,
-.button.flavor-blue i {
+.button.flavor-blue i,
+.button.flavor-blue label,
+.button.flavor-blue p {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
@@ -737,23 +892,39 @@ input[type="submit"].flavor-blue:focus:not([disabled]),
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
-button.flavor-blue:hover:not([disabled]) span, button.flavor-blue:hover:not([disabled]) i, button.flavor-blue:focus:not([disabled]) span, button.flavor-blue:focus:not([disabled]) i,
+button.flavor-blue:hover:not([disabled]) span, button.flavor-blue:hover:not([disabled]) i, button.flavor-blue:hover:not([disabled]) label, button.flavor-blue:hover:not([disabled]) p, button.flavor-blue:focus:not([disabled]) span, button.flavor-blue:focus:not([disabled]) i, button.flavor-blue:focus:not([disabled]) label, button.flavor-blue:focus:not([disabled]) p,
 input[type="button"].flavor-blue:hover:not([disabled]) span,
 input[type="button"].flavor-blue:hover:not([disabled]) i,
+input[type="button"].flavor-blue:hover:not([disabled]) label,
+input[type="button"].flavor-blue:hover:not([disabled]) p,
 input[type="button"].flavor-blue:focus:not([disabled]) span,
 input[type="button"].flavor-blue:focus:not([disabled]) i,
+input[type="button"].flavor-blue:focus:not([disabled]) label,
+input[type="button"].flavor-blue:focus:not([disabled]) p,
 input[type="reset"].flavor-blue:hover:not([disabled]) span,
 input[type="reset"].flavor-blue:hover:not([disabled]) i,
+input[type="reset"].flavor-blue:hover:not([disabled]) label,
+input[type="reset"].flavor-blue:hover:not([disabled]) p,
 input[type="reset"].flavor-blue:focus:not([disabled]) span,
 input[type="reset"].flavor-blue:focus:not([disabled]) i,
+input[type="reset"].flavor-blue:focus:not([disabled]) label,
+input[type="reset"].flavor-blue:focus:not([disabled]) p,
 input[type="submit"].flavor-blue:hover:not([disabled]) span,
 input[type="submit"].flavor-blue:hover:not([disabled]) i,
+input[type="submit"].flavor-blue:hover:not([disabled]) label,
+input[type="submit"].flavor-blue:hover:not([disabled]) p,
 input[type="submit"].flavor-blue:focus:not([disabled]) span,
 input[type="submit"].flavor-blue:focus:not([disabled]) i,
+input[type="submit"].flavor-blue:focus:not([disabled]) label,
+input[type="submit"].flavor-blue:focus:not([disabled]) p,
 .button.flavor-blue:hover:not([disabled]) span,
 .button.flavor-blue:hover:not([disabled]) i,
+.button.flavor-blue:hover:not([disabled]) label,
+.button.flavor-blue:hover:not([disabled]) p,
 .button.flavor-blue:focus:not([disabled]) span,
-.button.flavor-blue:focus:not([disabled]) i {
+.button.flavor-blue:focus:not([disabled]) i,
+.button.flavor-blue:focus:not([disabled]) label,
+.button.flavor-blue:focus:not([disabled]) p {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
 }
@@ -765,31 +936,47 @@ input[type="submit"].flavor-blue:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
-button.flavor-blue:active span, button.flavor-blue:active i,
+button.flavor-blue:active span, button.flavor-blue:active i, button.flavor-blue:active label, button.flavor-blue:active p,
 input[type="button"].flavor-blue:active span,
 input[type="button"].flavor-blue:active i,
+input[type="button"].flavor-blue:active label,
+input[type="button"].flavor-blue:active p,
 input[type="reset"].flavor-blue:active span,
 input[type="reset"].flavor-blue:active i,
+input[type="reset"].flavor-blue:active label,
+input[type="reset"].flavor-blue:active p,
 input[type="submit"].flavor-blue:active span,
 input[type="submit"].flavor-blue:active i,
+input[type="submit"].flavor-blue:active label,
+input[type="submit"].flavor-blue:active p,
 .button.flavor-blue:active span,
-.button.flavor-blue:active i {
+.button.flavor-blue:active i,
+.button.flavor-blue:active label,
+.button.flavor-blue:active p {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
 }
-button.flavor-blue.selected span, button.flavor-blue.selected i,
+button.flavor-blue.selected span, button.flavor-blue.selected i, button.flavor-blue.selected label, button.flavor-blue.selected p,
 input[type="button"].flavor-blue.selected span,
 input[type="button"].flavor-blue.selected i,
+input[type="button"].flavor-blue.selected label,
+input[type="button"].flavor-blue.selected p,
 input[type="reset"].flavor-blue.selected span,
 input[type="reset"].flavor-blue.selected i,
+input[type="reset"].flavor-blue.selected label,
+input[type="reset"].flavor-blue.selected p,
 input[type="submit"].flavor-blue.selected span,
 input[type="submit"].flavor-blue.selected i,
+input[type="submit"].flavor-blue.selected label,
+input[type="submit"].flavor-blue.selected p,
 .button.flavor-blue.selected span,
-.button.flavor-blue.selected i {
+.button.flavor-blue.selected i,
+.button.flavor-blue.selected label,
+.button.flavor-blue.selected p {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
 }
-hr.flavor-blue, .flavor-blue hr {
+hr.flavor-blue, .flavor-blue > hr {
   background: none;
   border: 1px solid #3060ff;
   border-radius: 2px;
@@ -839,24 +1026,38 @@ hr.flavor-blue, .flavor-blue hr {
     opacity: 0;
   }
 }
+.flavor-green {
+  color: green;
+  text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
+}
 button.flavor-green,
 input[type="button"].flavor-green,
 input[type="reset"].flavor-green,
 input[type="submit"].flavor-green,
 .button.flavor-green {
+  color: green;
+  text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
   background: none;
   border: 2px solid green;
   border-radius: 4px;
 }
-button.flavor-green span, button.flavor-green i,
+button.flavor-green span, button.flavor-green i, button.flavor-green label, button.flavor-green p,
 input[type="button"].flavor-green span,
 input[type="button"].flavor-green i,
+input[type="button"].flavor-green label,
+input[type="button"].flavor-green p,
 input[type="reset"].flavor-green span,
 input[type="reset"].flavor-green i,
+input[type="reset"].flavor-green label,
+input[type="reset"].flavor-green p,
 input[type="submit"].flavor-green span,
 input[type="submit"].flavor-green i,
+input[type="submit"].flavor-green label,
+input[type="submit"].flavor-green p,
 .button.flavor-green span,
-.button.flavor-green i {
+.button.flavor-green i,
+.button.flavor-green label,
+.button.flavor-green p {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
@@ -872,23 +1073,39 @@ input[type="submit"].flavor-green:focus:not([disabled]),
   border-color: #99cc99;
   box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
 }
-button.flavor-green:hover:not([disabled]) span, button.flavor-green:hover:not([disabled]) i, button.flavor-green:focus:not([disabled]) span, button.flavor-green:focus:not([disabled]) i,
+button.flavor-green:hover:not([disabled]) span, button.flavor-green:hover:not([disabled]) i, button.flavor-green:hover:not([disabled]) label, button.flavor-green:hover:not([disabled]) p, button.flavor-green:focus:not([disabled]) span, button.flavor-green:focus:not([disabled]) i, button.flavor-green:focus:not([disabled]) label, button.flavor-green:focus:not([disabled]) p,
 input[type="button"].flavor-green:hover:not([disabled]) span,
 input[type="button"].flavor-green:hover:not([disabled]) i,
+input[type="button"].flavor-green:hover:not([disabled]) label,
+input[type="button"].flavor-green:hover:not([disabled]) p,
 input[type="button"].flavor-green:focus:not([disabled]) span,
 input[type="button"].flavor-green:focus:not([disabled]) i,
+input[type="button"].flavor-green:focus:not([disabled]) label,
+input[type="button"].flavor-green:focus:not([disabled]) p,
 input[type="reset"].flavor-green:hover:not([disabled]) span,
 input[type="reset"].flavor-green:hover:not([disabled]) i,
+input[type="reset"].flavor-green:hover:not([disabled]) label,
+input[type="reset"].flavor-green:hover:not([disabled]) p,
 input[type="reset"].flavor-green:focus:not([disabled]) span,
 input[type="reset"].flavor-green:focus:not([disabled]) i,
+input[type="reset"].flavor-green:focus:not([disabled]) label,
+input[type="reset"].flavor-green:focus:not([disabled]) p,
 input[type="submit"].flavor-green:hover:not([disabled]) span,
 input[type="submit"].flavor-green:hover:not([disabled]) i,
+input[type="submit"].flavor-green:hover:not([disabled]) label,
+input[type="submit"].flavor-green:hover:not([disabled]) p,
 input[type="submit"].flavor-green:focus:not([disabled]) span,
 input[type="submit"].flavor-green:focus:not([disabled]) i,
+input[type="submit"].flavor-green:focus:not([disabled]) label,
+input[type="submit"].flavor-green:focus:not([disabled]) p,
 .button.flavor-green:hover:not([disabled]) span,
 .button.flavor-green:hover:not([disabled]) i,
+.button.flavor-green:hover:not([disabled]) label,
+.button.flavor-green:hover:not([disabled]) p,
 .button.flavor-green:focus:not([disabled]) span,
-.button.flavor-green:focus:not([disabled]) i {
+.button.flavor-green:focus:not([disabled]) i,
+.button.flavor-green:focus:not([disabled]) label,
+.button.flavor-green:focus:not([disabled]) p {
   color: #99cc99;
   text-shadow: 0 0 3px green;
 }
@@ -900,31 +1117,47 @@ input[type="submit"].flavor-green:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
 }
-button.flavor-green:active span, button.flavor-green:active i,
+button.flavor-green:active span, button.flavor-green:active i, button.flavor-green:active label, button.flavor-green:active p,
 input[type="button"].flavor-green:active span,
 input[type="button"].flavor-green:active i,
+input[type="button"].flavor-green:active label,
+input[type="button"].flavor-green:active p,
 input[type="reset"].flavor-green:active span,
 input[type="reset"].flavor-green:active i,
+input[type="reset"].flavor-green:active label,
+input[type="reset"].flavor-green:active p,
 input[type="submit"].flavor-green:active span,
 input[type="submit"].flavor-green:active i,
+input[type="submit"].flavor-green:active label,
+input[type="submit"].flavor-green:active p,
 .button.flavor-green:active span,
-.button.flavor-green:active i {
+.button.flavor-green:active i,
+.button.flavor-green:active label,
+.button.flavor-green:active p {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
 }
-button.flavor-green.selected span, button.flavor-green.selected i,
+button.flavor-green.selected span, button.flavor-green.selected i, button.flavor-green.selected label, button.flavor-green.selected p,
 input[type="button"].flavor-green.selected span,
 input[type="button"].flavor-green.selected i,
+input[type="button"].flavor-green.selected label,
+input[type="button"].flavor-green.selected p,
 input[type="reset"].flavor-green.selected span,
 input[type="reset"].flavor-green.selected i,
+input[type="reset"].flavor-green.selected label,
+input[type="reset"].flavor-green.selected p,
 input[type="submit"].flavor-green.selected span,
 input[type="submit"].flavor-green.selected i,
+input[type="submit"].flavor-green.selected label,
+input[type="submit"].flavor-green.selected p,
 .button.flavor-green.selected span,
-.button.flavor-green.selected i {
+.button.flavor-green.selected i,
+.button.flavor-green.selected label,
+.button.flavor-green.selected p {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
 }
-hr.flavor-green, .flavor-green hr {
+hr.flavor-green, .flavor-green > hr {
   background: none;
   border: 1px solid green;
   border-radius: 2px;
@@ -974,24 +1207,38 @@ hr.flavor-green, .flavor-green hr {
     opacity: 0;
   }
 }
+.flavor-orange {
+  color: #ff9933;
+  text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
+}
 button.flavor-orange,
 input[type="button"].flavor-orange,
 input[type="reset"].flavor-orange,
 input[type="submit"].flavor-orange,
 .button.flavor-orange {
+  color: #ff9933;
+  text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
   background: none;
   border: 2px solid #ff9933;
   border-radius: 4px;
 }
-button.flavor-orange span, button.flavor-orange i,
+button.flavor-orange span, button.flavor-orange i, button.flavor-orange label, button.flavor-orange p,
 input[type="button"].flavor-orange span,
 input[type="button"].flavor-orange i,
+input[type="button"].flavor-orange label,
+input[type="button"].flavor-orange p,
 input[type="reset"].flavor-orange span,
 input[type="reset"].flavor-orange i,
+input[type="reset"].flavor-orange label,
+input[type="reset"].flavor-orange p,
 input[type="submit"].flavor-orange span,
 input[type="submit"].flavor-orange i,
+input[type="submit"].flavor-orange label,
+input[type="submit"].flavor-orange p,
 .button.flavor-orange span,
-.button.flavor-orange i {
+.button.flavor-orange i,
+.button.flavor-orange label,
+.button.flavor-orange p {
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
@@ -1007,23 +1254,39 @@ input[type="submit"].flavor-orange:focus:not([disabled]),
   border-color: #ffd6ad;
   box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
 }
-button.flavor-orange:hover:not([disabled]) span, button.flavor-orange:hover:not([disabled]) i, button.flavor-orange:focus:not([disabled]) span, button.flavor-orange:focus:not([disabled]) i,
+button.flavor-orange:hover:not([disabled]) span, button.flavor-orange:hover:not([disabled]) i, button.flavor-orange:hover:not([disabled]) label, button.flavor-orange:hover:not([disabled]) p, button.flavor-orange:focus:not([disabled]) span, button.flavor-orange:focus:not([disabled]) i, button.flavor-orange:focus:not([disabled]) label, button.flavor-orange:focus:not([disabled]) p,
 input[type="button"].flavor-orange:hover:not([disabled]) span,
 input[type="button"].flavor-orange:hover:not([disabled]) i,
+input[type="button"].flavor-orange:hover:not([disabled]) label,
+input[type="button"].flavor-orange:hover:not([disabled]) p,
 input[type="button"].flavor-orange:focus:not([disabled]) span,
 input[type="button"].flavor-orange:focus:not([disabled]) i,
+input[type="button"].flavor-orange:focus:not([disabled]) label,
+input[type="button"].flavor-orange:focus:not([disabled]) p,
 input[type="reset"].flavor-orange:hover:not([disabled]) span,
 input[type="reset"].flavor-orange:hover:not([disabled]) i,
+input[type="reset"].flavor-orange:hover:not([disabled]) label,
+input[type="reset"].flavor-orange:hover:not([disabled]) p,
 input[type="reset"].flavor-orange:focus:not([disabled]) span,
 input[type="reset"].flavor-orange:focus:not([disabled]) i,
+input[type="reset"].flavor-orange:focus:not([disabled]) label,
+input[type="reset"].flavor-orange:focus:not([disabled]) p,
 input[type="submit"].flavor-orange:hover:not([disabled]) span,
 input[type="submit"].flavor-orange:hover:not([disabled]) i,
+input[type="submit"].flavor-orange:hover:not([disabled]) label,
+input[type="submit"].flavor-orange:hover:not([disabled]) p,
 input[type="submit"].flavor-orange:focus:not([disabled]) span,
 input[type="submit"].flavor-orange:focus:not([disabled]) i,
+input[type="submit"].flavor-orange:focus:not([disabled]) label,
+input[type="submit"].flavor-orange:focus:not([disabled]) p,
 .button.flavor-orange:hover:not([disabled]) span,
 .button.flavor-orange:hover:not([disabled]) i,
+.button.flavor-orange:hover:not([disabled]) label,
+.button.flavor-orange:hover:not([disabled]) p,
 .button.flavor-orange:focus:not([disabled]) span,
-.button.flavor-orange:focus:not([disabled]) i {
+.button.flavor-orange:focus:not([disabled]) i,
+.button.flavor-orange:focus:not([disabled]) label,
+.button.flavor-orange:focus:not([disabled]) p {
   color: #ffd6ad;
   text-shadow: 0 0 3px #ff9933;
 }
@@ -1035,31 +1298,47 @@ input[type="submit"].flavor-orange:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
-button.flavor-orange:active span, button.flavor-orange:active i,
+button.flavor-orange:active span, button.flavor-orange:active i, button.flavor-orange:active label, button.flavor-orange:active p,
 input[type="button"].flavor-orange:active span,
 input[type="button"].flavor-orange:active i,
+input[type="button"].flavor-orange:active label,
+input[type="button"].flavor-orange:active p,
 input[type="reset"].flavor-orange:active span,
 input[type="reset"].flavor-orange:active i,
+input[type="reset"].flavor-orange:active label,
+input[type="reset"].flavor-orange:active p,
 input[type="submit"].flavor-orange:active span,
 input[type="submit"].flavor-orange:active i,
+input[type="submit"].flavor-orange:active label,
+input[type="submit"].flavor-orange:active p,
 .button.flavor-orange:active span,
-.button.flavor-orange:active i {
+.button.flavor-orange:active i,
+.button.flavor-orange:active label,
+.button.flavor-orange:active p {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
 }
-button.flavor-orange.selected span, button.flavor-orange.selected i,
+button.flavor-orange.selected span, button.flavor-orange.selected i, button.flavor-orange.selected label, button.flavor-orange.selected p,
 input[type="button"].flavor-orange.selected span,
 input[type="button"].flavor-orange.selected i,
+input[type="button"].flavor-orange.selected label,
+input[type="button"].flavor-orange.selected p,
 input[type="reset"].flavor-orange.selected span,
 input[type="reset"].flavor-orange.selected i,
+input[type="reset"].flavor-orange.selected label,
+input[type="reset"].flavor-orange.selected p,
 input[type="submit"].flavor-orange.selected span,
 input[type="submit"].flavor-orange.selected i,
+input[type="submit"].flavor-orange.selected label,
+input[type="submit"].flavor-orange.selected p,
 .button.flavor-orange.selected span,
-.button.flavor-orange.selected i {
+.button.flavor-orange.selected i,
+.button.flavor-orange.selected label,
+.button.flavor-orange.selected p {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
 }
-hr.flavor-orange, .flavor-orange hr {
+hr.flavor-orange, .flavor-orange > hr {
   background: none;
   border: 1px solid #ff9933;
   border-radius: 2px;
@@ -1109,24 +1388,38 @@ hr.flavor-orange, .flavor-orange hr {
     opacity: 0;
   }
 }
+.flavor-danger {
+  color: #ff6c00;
+  text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
+}
 button.flavor-danger,
 input[type="button"].flavor-danger,
 input[type="reset"].flavor-danger,
 input[type="submit"].flavor-danger,
 .button.flavor-danger {
+  color: #ff6c00;
+  text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
   background: none;
   border: 2px solid #ff6c00;
   border-radius: 4px;
 }
-button.flavor-danger span, button.flavor-danger i,
+button.flavor-danger span, button.flavor-danger i, button.flavor-danger label, button.flavor-danger p,
 input[type="button"].flavor-danger span,
 input[type="button"].flavor-danger i,
+input[type="button"].flavor-danger label,
+input[type="button"].flavor-danger p,
 input[type="reset"].flavor-danger span,
 input[type="reset"].flavor-danger i,
+input[type="reset"].flavor-danger label,
+input[type="reset"].flavor-danger p,
 input[type="submit"].flavor-danger span,
 input[type="submit"].flavor-danger i,
+input[type="submit"].flavor-danger label,
+input[type="submit"].flavor-danger p,
 .button.flavor-danger span,
-.button.flavor-danger i {
+.button.flavor-danger i,
+.button.flavor-danger label,
+.button.flavor-danger p {
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
@@ -1142,23 +1435,39 @@ input[type="submit"].flavor-danger:focus:not([disabled]),
   border-color: #ffc499;
   box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
 }
-button.flavor-danger:hover:not([disabled]) span, button.flavor-danger:hover:not([disabled]) i, button.flavor-danger:focus:not([disabled]) span, button.flavor-danger:focus:not([disabled]) i,
+button.flavor-danger:hover:not([disabled]) span, button.flavor-danger:hover:not([disabled]) i, button.flavor-danger:hover:not([disabled]) label, button.flavor-danger:hover:not([disabled]) p, button.flavor-danger:focus:not([disabled]) span, button.flavor-danger:focus:not([disabled]) i, button.flavor-danger:focus:not([disabled]) label, button.flavor-danger:focus:not([disabled]) p,
 input[type="button"].flavor-danger:hover:not([disabled]) span,
 input[type="button"].flavor-danger:hover:not([disabled]) i,
+input[type="button"].flavor-danger:hover:not([disabled]) label,
+input[type="button"].flavor-danger:hover:not([disabled]) p,
 input[type="button"].flavor-danger:focus:not([disabled]) span,
 input[type="button"].flavor-danger:focus:not([disabled]) i,
+input[type="button"].flavor-danger:focus:not([disabled]) label,
+input[type="button"].flavor-danger:focus:not([disabled]) p,
 input[type="reset"].flavor-danger:hover:not([disabled]) span,
 input[type="reset"].flavor-danger:hover:not([disabled]) i,
+input[type="reset"].flavor-danger:hover:not([disabled]) label,
+input[type="reset"].flavor-danger:hover:not([disabled]) p,
 input[type="reset"].flavor-danger:focus:not([disabled]) span,
 input[type="reset"].flavor-danger:focus:not([disabled]) i,
+input[type="reset"].flavor-danger:focus:not([disabled]) label,
+input[type="reset"].flavor-danger:focus:not([disabled]) p,
 input[type="submit"].flavor-danger:hover:not([disabled]) span,
 input[type="submit"].flavor-danger:hover:not([disabled]) i,
+input[type="submit"].flavor-danger:hover:not([disabled]) label,
+input[type="submit"].flavor-danger:hover:not([disabled]) p,
 input[type="submit"].flavor-danger:focus:not([disabled]) span,
 input[type="submit"].flavor-danger:focus:not([disabled]) i,
+input[type="submit"].flavor-danger:focus:not([disabled]) label,
+input[type="submit"].flavor-danger:focus:not([disabled]) p,
 .button.flavor-danger:hover:not([disabled]) span,
 .button.flavor-danger:hover:not([disabled]) i,
+.button.flavor-danger:hover:not([disabled]) label,
+.button.flavor-danger:hover:not([disabled]) p,
 .button.flavor-danger:focus:not([disabled]) span,
-.button.flavor-danger:focus:not([disabled]) i {
+.button.flavor-danger:focus:not([disabled]) i,
+.button.flavor-danger:focus:not([disabled]) label,
+.button.flavor-danger:focus:not([disabled]) p {
   color: #ffc499;
   text-shadow: 0 0 3px #ff6c00;
 }
@@ -1170,31 +1479,47 @@ input[type="submit"].flavor-danger:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
 }
-button.flavor-danger:active span, button.flavor-danger:active i,
+button.flavor-danger:active span, button.flavor-danger:active i, button.flavor-danger:active label, button.flavor-danger:active p,
 input[type="button"].flavor-danger:active span,
 input[type="button"].flavor-danger:active i,
+input[type="button"].flavor-danger:active label,
+input[type="button"].flavor-danger:active p,
 input[type="reset"].flavor-danger:active span,
 input[type="reset"].flavor-danger:active i,
+input[type="reset"].flavor-danger:active label,
+input[type="reset"].flavor-danger:active p,
 input[type="submit"].flavor-danger:active span,
 input[type="submit"].flavor-danger:active i,
+input[type="submit"].flavor-danger:active label,
+input[type="submit"].flavor-danger:active p,
 .button.flavor-danger:active span,
-.button.flavor-danger:active i {
+.button.flavor-danger:active i,
+.button.flavor-danger:active label,
+.button.flavor-danger:active p {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
-button.flavor-danger.selected span, button.flavor-danger.selected i,
+button.flavor-danger.selected span, button.flavor-danger.selected i, button.flavor-danger.selected label, button.flavor-danger.selected p,
 input[type="button"].flavor-danger.selected span,
 input[type="button"].flavor-danger.selected i,
+input[type="button"].flavor-danger.selected label,
+input[type="button"].flavor-danger.selected p,
 input[type="reset"].flavor-danger.selected span,
 input[type="reset"].flavor-danger.selected i,
+input[type="reset"].flavor-danger.selected label,
+input[type="reset"].flavor-danger.selected p,
 input[type="submit"].flavor-danger.selected span,
 input[type="submit"].flavor-danger.selected i,
+input[type="submit"].flavor-danger.selected label,
+input[type="submit"].flavor-danger.selected p,
 .button.flavor-danger.selected span,
-.button.flavor-danger.selected i {
+.button.flavor-danger.selected i,
+.button.flavor-danger.selected label,
+.button.flavor-danger.selected p {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
-hr.flavor-danger, .flavor-danger hr {
+hr.flavor-danger, .flavor-danger > hr {
   background: none;
   border: 1px solid #ff6c00;
   border-radius: 2px;
@@ -1244,24 +1569,38 @@ hr.flavor-danger, .flavor-danger hr {
     opacity: 0;
   }
 }
+.flavor-nav {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
 button.flavor-nav,
 input[type="button"].flavor-nav,
 input[type="reset"].flavor-nav,
 input[type="submit"].flavor-nav,
 .button.flavor-nav {
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
   background: none;
   border: 2px solid white;
   border-radius: 4px;
 }
-button.flavor-nav span, button.flavor-nav i,
+button.flavor-nav span, button.flavor-nav i, button.flavor-nav label, button.flavor-nav p,
 input[type="button"].flavor-nav span,
 input[type="button"].flavor-nav i,
+input[type="button"].flavor-nav label,
+input[type="button"].flavor-nav p,
 input[type="reset"].flavor-nav span,
 input[type="reset"].flavor-nav i,
+input[type="reset"].flavor-nav label,
+input[type="reset"].flavor-nav p,
 input[type="submit"].flavor-nav span,
 input[type="submit"].flavor-nav i,
+input[type="submit"].flavor-nav label,
+input[type="submit"].flavor-nav p,
 .button.flavor-nav span,
-.button.flavor-nav i {
+.button.flavor-nav i,
+.button.flavor-nav label,
+.button.flavor-nav p {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
@@ -1277,23 +1616,39 @@ input[type="submit"].flavor-nav:focus:not([disabled]),
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-button.flavor-nav:hover:not([disabled]) span, button.flavor-nav:hover:not([disabled]) i, button.flavor-nav:focus:not([disabled]) span, button.flavor-nav:focus:not([disabled]) i,
+button.flavor-nav:hover:not([disabled]) span, button.flavor-nav:hover:not([disabled]) i, button.flavor-nav:hover:not([disabled]) label, button.flavor-nav:hover:not([disabled]) p, button.flavor-nav:focus:not([disabled]) span, button.flavor-nav:focus:not([disabled]) i, button.flavor-nav:focus:not([disabled]) label, button.flavor-nav:focus:not([disabled]) p,
 input[type="button"].flavor-nav:hover:not([disabled]) span,
 input[type="button"].flavor-nav:hover:not([disabled]) i,
+input[type="button"].flavor-nav:hover:not([disabled]) label,
+input[type="button"].flavor-nav:hover:not([disabled]) p,
 input[type="button"].flavor-nav:focus:not([disabled]) span,
 input[type="button"].flavor-nav:focus:not([disabled]) i,
+input[type="button"].flavor-nav:focus:not([disabled]) label,
+input[type="button"].flavor-nav:focus:not([disabled]) p,
 input[type="reset"].flavor-nav:hover:not([disabled]) span,
 input[type="reset"].flavor-nav:hover:not([disabled]) i,
+input[type="reset"].flavor-nav:hover:not([disabled]) label,
+input[type="reset"].flavor-nav:hover:not([disabled]) p,
 input[type="reset"].flavor-nav:focus:not([disabled]) span,
 input[type="reset"].flavor-nav:focus:not([disabled]) i,
+input[type="reset"].flavor-nav:focus:not([disabled]) label,
+input[type="reset"].flavor-nav:focus:not([disabled]) p,
 input[type="submit"].flavor-nav:hover:not([disabled]) span,
 input[type="submit"].flavor-nav:hover:not([disabled]) i,
+input[type="submit"].flavor-nav:hover:not([disabled]) label,
+input[type="submit"].flavor-nav:hover:not([disabled]) p,
 input[type="submit"].flavor-nav:focus:not([disabled]) span,
 input[type="submit"].flavor-nav:focus:not([disabled]) i,
+input[type="submit"].flavor-nav:focus:not([disabled]) label,
+input[type="submit"].flavor-nav:focus:not([disabled]) p,
 .button.flavor-nav:hover:not([disabled]) span,
 .button.flavor-nav:hover:not([disabled]) i,
+.button.flavor-nav:hover:not([disabled]) label,
+.button.flavor-nav:hover:not([disabled]) p,
 .button.flavor-nav:focus:not([disabled]) span,
-.button.flavor-nav:focus:not([disabled]) i {
+.button.flavor-nav:focus:not([disabled]) i,
+.button.flavor-nav:focus:not([disabled]) label,
+.button.flavor-nav:focus:not([disabled]) p {
   color: white;
   text-shadow: 0 0 3px white;
 }
@@ -1305,31 +1660,47 @@ input[type="submit"].flavor-nav:active,
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-button.flavor-nav:active span, button.flavor-nav:active i,
+button.flavor-nav:active span, button.flavor-nav:active i, button.flavor-nav:active label, button.flavor-nav:active p,
 input[type="button"].flavor-nav:active span,
 input[type="button"].flavor-nav:active i,
+input[type="button"].flavor-nav:active label,
+input[type="button"].flavor-nav:active p,
 input[type="reset"].flavor-nav:active span,
 input[type="reset"].flavor-nav:active i,
+input[type="reset"].flavor-nav:active label,
+input[type="reset"].flavor-nav:active p,
 input[type="submit"].flavor-nav:active span,
 input[type="submit"].flavor-nav:active i,
+input[type="submit"].flavor-nav:active label,
+input[type="submit"].flavor-nav:active p,
 .button.flavor-nav:active span,
-.button.flavor-nav:active i {
+.button.flavor-nav:active i,
+.button.flavor-nav:active label,
+.button.flavor-nav:active p {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-button.flavor-nav.selected span, button.flavor-nav.selected i,
+button.flavor-nav.selected span, button.flavor-nav.selected i, button.flavor-nav.selected label, button.flavor-nav.selected p,
 input[type="button"].flavor-nav.selected span,
 input[type="button"].flavor-nav.selected i,
+input[type="button"].flavor-nav.selected label,
+input[type="button"].flavor-nav.selected p,
 input[type="reset"].flavor-nav.selected span,
 input[type="reset"].flavor-nav.selected i,
+input[type="reset"].flavor-nav.selected label,
+input[type="reset"].flavor-nav.selected p,
 input[type="submit"].flavor-nav.selected span,
 input[type="submit"].flavor-nav.selected i,
+input[type="submit"].flavor-nav.selected label,
+input[type="submit"].flavor-nav.selected p,
 .button.flavor-nav.selected span,
-.button.flavor-nav.selected i {
+.button.flavor-nav.selected i,
+.button.flavor-nav.selected label,
+.button.flavor-nav.selected p {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-hr.flavor-nav, .flavor-nav hr {
+hr.flavor-nav, .flavor-nav > hr {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
