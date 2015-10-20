@@ -20,7 +20,6 @@ $alert-schools:
 @mixin define-school($color, $school-name:null)
 {
     // $school-name: str-slice(#{&}, 2); // store value of & without dot for portal animation name
-    @include glow-idle-text($color);
     
     @at-root button#{&},
     input[type="button"]#{&},

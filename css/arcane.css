@@ -611,10 +611,6 @@ fieldset.input-type-number
         }
     }
 }//*/
-.school-white {
-  color: white;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
-}
 button.school-white,
 input[type="button"].school-white,
 input[type="reset"].school-white,
@@ -734,10 +730,6 @@ a.box.school-white:active {
     box-shadow: inset 0 0 0 0 white, 0 0 0 0 white;
     opacity: 0;
   }
-}
-.school-blue {
-  color: #3060ff;
-  text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
 button.school-blue,
 input[type="button"].school-blue,
@@ -859,10 +851,6 @@ a.box.school-blue:active {
     opacity: 0;
   }
 }
-.school-green {
-  color: green;
-  text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
-}
 button.school-green,
 input[type="button"].school-green,
 input[type="reset"].school-green,
@@ -982,10 +970,6 @@ a.box.school-green:active {
     box-shadow: inset 0 0 0 0 green, 0 0 0 0 green;
     opacity: 0;
   }
-}
-.school-orange {
-  color: #ff9933;
-  text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
 button.school-orange,
 input[type="button"].school-orange,
@@ -1107,10 +1091,6 @@ a.box.school-orange:active {
     opacity: 0;
   }
 }
-.school-danger {
-  color: #ff6c00;
-  text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
-}
 button.school-danger,
 input[type="button"].school-danger,
 input[type="reset"].school-danger,
@@ -1230,10 +1210,6 @@ a.box.school-danger:active {
     box-shadow: inset 0 0 0 0 #ff6c00, 0 0 0 0 #ff6c00;
     opacity: 0;
   }
-}
-.school-nav {
-  color: white;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
 button.school-nav,
 input[type="button"].school-nav,
