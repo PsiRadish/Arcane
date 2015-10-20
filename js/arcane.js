@@ -19,7 +19,7 @@ $(document).ready(function()
     
     
     //// Immediately remove focus from clicked links and buttons
-    $('a, button, input[type="button"], input[type="reset"], input[type="submit"], .button').on("click", function()
+    $('a, button, input[type="button"], input[type="reset"], input[type="submit"], .boton').on("click", function()
     {
         $(this).blur();
     });

@@ -10,6 +10,11 @@ html
     -webkit-tap-highlight-color: transparent;
 }
 
+body
+{
+    width: 100%;
+}
+
 *, *::before, *::after
 {
     box-sizing: border-box;

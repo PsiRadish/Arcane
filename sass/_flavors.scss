@@ -26,13 +26,14 @@ $alert-flavors:
     input[type="button"]#{&},
     input[type="reset"]#{&},
     input[type="submit"]#{&},
-    .button#{&}
+    .boton#{&}
     {
         @include glow-idle-text($color);
         
         @include spell-box($color, 2px, 4px);
         
-        span, i, label, p
+        //span, i, label, p
+        > .power-words
         {
             @include glow-idle-text($color);
         }
@@ -42,30 +43,19 @@ $alert-flavors:
             &:not([disabled])
             {
                 @include glow-mild-border($color);
-                
-                span, i, label, p
-                {
-                    @include glow-mild-text($color);
-                }
+                @include glow-mild-text($color);
             }
         }
         
-        &:active
+        &:active:not([disabled])
         {
+            @include glow-strong-text($color);
             @include glow-strong-border($color);
-            
-            span, i, label, p
-            {
-                @include glow-strong-text($color);
-            }
         }
         
-        &.selected
+        &.selected:not([disabled])
         {
-            span, i, label, p
-            {
-                @include glow-strong-text($color);
-            }
+            @include glow-strong-text($color);
         }
     }
     
@@ -80,6 +70,24 @@ $alert-flavors:
         @include spell-box($color);
         
         @include glow-idle-text($color);
+    }
+    @at-root a.box#{&}
+    {
+        @include spell-box($color);
+    
+        @include glow-idle-text($color);
+        
+        &:hover, &:focus
+        {
+            @include glow-mild-text($color);
+            @include glow-mild-border($color);
+        }
+    
+        &:active
+        {
+            @include glow-strong-text($color);
+            @include glow-strong-border($color);
+        }
     }
     
     @if ($flavor-name) // can't create portal animation without a flavor-name

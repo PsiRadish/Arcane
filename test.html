@@ -4,6 +4,7 @@
   <title>Arcane Test</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/arcane.css">
+  <script src="js/arcane.js"></script>
   <style type="text/css">
   
     body
@@ -26,14 +27,28 @@
 <p>Gosh, Sam! If a few hundred years of civilization have to be totalled just to ensure that a bunch of smelly, quasi-human creatures have a safe haven for their disgusting lifestyles, then so be it!</p>
 
 <h5>Faux Feedback Form</h5>
-<form>
+<form class="box">
   <h6>Form Section</h6>
-  <fieldset><label>Dude:</label><input type="text"/></fieldset>
-  <fieldset><label>Dude:</label><input type="date"/></fieldset>
-  <fieldset><label>Dude:</label><input type="number"/></fieldset>
-  <fieldset><label>Dude:</label><input type="color"/></fieldset>
-  <button><span>Submit</span></button>
+  <fieldset>
+    <label>Text: <input type="text"/></label>
+  </fieldset>
+  <fieldset>
+    <label for="date">Date: </label><input id="date" type="date"/>
+  </fieldset>
+  <fieldset>
+    <label>Number: </label><input type="number"/>
+  </fieldset>
+  <fieldset>
+    <label>Color: </label><input type="color"/>
+  </fieldset>
+  <button><span class="power-words">Submit</span></button>
 </form>
+
+<p>I'm about to get quotey up in this shit.</p>
+<blockquote>
+  I just want some pants.<br>
+  A decent pair of pants!
+</blockquote>
 
 </body>
 </html>

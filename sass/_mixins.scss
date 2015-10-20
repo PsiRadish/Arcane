@@ -29,22 +29,42 @@
     }
 }
 
-@mixin list-style-none()
+//@mixin list-style-none()
+//{
+//    padding-left: 0;
+//    
+//    > li::before
+//    {
+//        content: "";
+//        
+//        position: static;  // freaking IE
+//        position: initial;
+//        display: inline;   // freaking IE
+//        display: initial;
+//        right: auto;       // freaking IE
+//        right: initial;
+//        width: auto;       // freaking IE
+//        width: initial;
+//    }
+//}
+
+@mixin transition-anim($duration:$transition-duration)
 {
-    padding-left: 0;
+    transition: transform   $duration,
+                color       $duration,
+                opacity     $duration,
+                border      $duration,
+                text-shadow $duration,
+                box-shadow  $duration;
+}
+
+@mixin transition-anim-psuedo($duration:$transition-duration)
+{
+    @include transition-anim($duration);
     
-    > li::before
+    &::before, &::after
     {
-        content: "";
-        
-        position: static;  // freaking IE
-        position: initial;
-        display: inline;   // freaking IE
-        display: initial;
-        right: auto;       // freaking IE
-        right: initial;
-        width: auto;       // freaking IE
-        width: initial;
+        @include transition-anim($duration);
     }
 }
 
