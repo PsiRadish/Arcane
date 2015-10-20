@@ -201,16 +201,49 @@ body, #arcane, .arcane {
   font-size: 16px;
 }
 
-p {
+p, blockquote {
   margin: 0.5em 0;
 }
-
-p:first-child {
+p:first-child, blockquote:first-child {
   margin-top: 0;
 }
-
-p:last-child {
+p:last-child, blockquote:last-child {
   margin-bottom: 0;
+}
+
+blockquote {
+  padding-left: 1.75em;
+  font-size: calc(1em + 2px);
+  font-style: italic;
+  letter-spacing: -1px;
+  position: relative;
+}
+blockquote::before {
+  content: "“";
+  font-family: Georgia, serif;
+  font-size: 3em;
+  font-style: normal;
+  opacity: 0.6;
+  line-height: 0;
+  display: inline-block;
+  width: 0.5833333333333333em;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 0.04em;
+  padding-top: 0.5208333333333333em;
+}
+blockquote cite {
+  display: block;
+  font-size: calc(1em - 2px);
+  font-style: normal;
+  letter-spacing: 0;
+  font-weight: bold;
+}
+blockquote cite::before {
+  content: "―";
 }
 
 hr {
@@ -578,105 +611,105 @@ fieldset.input-type-number
         }
     }
 }//*/
-.flavor-white {
+.school-white {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-button.flavor-white,
-input[type="button"].flavor-white,
-input[type="reset"].flavor-white,
-input[type="submit"].flavor-white,
-.boton.flavor-white {
+button.school-white,
+input[type="button"].school-white,
+input[type="reset"].school-white,
+input[type="submit"].school-white,
+.boton.school-white {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
   background: none;
   border: 2px solid white;
   border-radius: 4px;
 }
-button.flavor-white > .power-words,
-input[type="button"].flavor-white > .power-words,
-input[type="reset"].flavor-white > .power-words,
-input[type="submit"].flavor-white > .power-words,
-.boton.flavor-white > .power-words {
+button.school-white > .power-words,
+input[type="button"].school-white > .power-words,
+input[type="reset"].school-white > .power-words,
+input[type="submit"].school-white > .power-words,
+.boton.school-white > .power-words {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-button.flavor-white:hover:not([disabled]), button.flavor-white:focus:not([disabled]),
-input[type="button"].flavor-white:hover:not([disabled]),
-input[type="button"].flavor-white:focus:not([disabled]),
-input[type="reset"].flavor-white:hover:not([disabled]),
-input[type="reset"].flavor-white:focus:not([disabled]),
-input[type="submit"].flavor-white:hover:not([disabled]),
-input[type="submit"].flavor-white:focus:not([disabled]),
-.boton.flavor-white:hover:not([disabled]),
-.boton.flavor-white:focus:not([disabled]) {
+button.school-white:hover:not([disabled]), button.school-white:focus:not([disabled]),
+input[type="button"].school-white:hover:not([disabled]),
+input[type="button"].school-white:focus:not([disabled]),
+input[type="reset"].school-white:hover:not([disabled]),
+input[type="reset"].school-white:focus:not([disabled]),
+input[type="submit"].school-white:hover:not([disabled]),
+input[type="submit"].school-white:focus:not([disabled]),
+.boton.school-white:hover:not([disabled]),
+.boton.school-white:focus:not([disabled]) {
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
   color: white;
   text-shadow: 0 0 3px white;
 }
-button.flavor-white:active:not([disabled]),
-input[type="button"].flavor-white:active:not([disabled]),
-input[type="reset"].flavor-white:active:not([disabled]),
-input[type="submit"].flavor-white:active:not([disabled]),
-.boton.flavor-white:active:not([disabled]) {
+button.school-white:active:not([disabled]),
+input[type="button"].school-white:active:not([disabled]),
+input[type="reset"].school-white:active:not([disabled]),
+input[type="submit"].school-white:active:not([disabled]),
+.boton.school-white:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-button.flavor-white.selected:not([disabled]),
-input[type="button"].flavor-white.selected:not([disabled]),
-input[type="reset"].flavor-white.selected:not([disabled]),
-input[type="submit"].flavor-white.selected:not([disabled]),
-.boton.flavor-white.selected:not([disabled]) {
+button.school-white.selected:not([disabled]),
+input[type="button"].school-white.selected:not([disabled]),
+input[type="reset"].school-white.selected:not([disabled]),
+input[type="submit"].school-white.selected:not([disabled]),
+.boton.school-white.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-hr.flavor-white, .flavor-white > hr {
+hr.school-white, .school-white > hr {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-.flavor-white.box {
+.school-white.box {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-white {
+a.box.school-white {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-white:hover, a.box.flavor-white:focus {
+a.box.school-white:hover, a.box.school-white:focus {
   color: white;
   text-shadow: 0 0 3px white;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-white:active {
+a.box.school-white:active {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-.flavor-white.portal, .flavor-white.portal::before, .flavor-white.portal::after {
+.school-white.portal, .school-white.portal::before, .school-white.portal::after {
   border: 1px solid white;
 }
-.flavor-white.portal {
+.school-white.portal {
   border-color: white;
   box-shadow: inset 0 0 24px 1px white, 0 0 4px 2px white;
 }
-.flavor-white.portal::before, .flavor-white.portal::after {
-  animation-name: portal-ring-loop-flavor-white;
+.school-white.portal::before, .school-white.portal::after {
+  animation-name: portal-ring-loop-school-white;
 }
-@keyframes portal-ring-loop-flavor-white {
+@keyframes portal-ring-loop-school-white {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -702,105 +735,105 @@ a.box.flavor-white:active {
     opacity: 0;
   }
 }
-.flavor-blue {
+.school-blue {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
-button.flavor-blue,
-input[type="button"].flavor-blue,
-input[type="reset"].flavor-blue,
-input[type="submit"].flavor-blue,
-.boton.flavor-blue {
+button.school-blue,
+input[type="button"].school-blue,
+input[type="reset"].school-blue,
+input[type="submit"].school-blue,
+.boton.school-blue {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
   background: none;
   border: 2px solid #3060ff;
   border-radius: 4px;
 }
-button.flavor-blue > .power-words,
-input[type="button"].flavor-blue > .power-words,
-input[type="reset"].flavor-blue > .power-words,
-input[type="submit"].flavor-blue > .power-words,
-.boton.flavor-blue > .power-words {
+button.school-blue > .power-words,
+input[type="button"].school-blue > .power-words,
+input[type="reset"].school-blue > .power-words,
+input[type="submit"].school-blue > .power-words,
+.boton.school-blue > .power-words {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
-button.flavor-blue:hover:not([disabled]), button.flavor-blue:focus:not([disabled]),
-input[type="button"].flavor-blue:hover:not([disabled]),
-input[type="button"].flavor-blue:focus:not([disabled]),
-input[type="reset"].flavor-blue:hover:not([disabled]),
-input[type="reset"].flavor-blue:focus:not([disabled]),
-input[type="submit"].flavor-blue:hover:not([disabled]),
-input[type="submit"].flavor-blue:focus:not([disabled]),
-.boton.flavor-blue:hover:not([disabled]),
-.boton.flavor-blue:focus:not([disabled]) {
+button.school-blue:hover:not([disabled]), button.school-blue:focus:not([disabled]),
+input[type="button"].school-blue:hover:not([disabled]),
+input[type="button"].school-blue:focus:not([disabled]),
+input[type="reset"].school-blue:hover:not([disabled]),
+input[type="reset"].school-blue:focus:not([disabled]),
+input[type="submit"].school-blue:hover:not([disabled]),
+input[type="submit"].school-blue:focus:not([disabled]),
+.boton.school-blue:hover:not([disabled]),
+.boton.school-blue:focus:not([disabled]) {
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
 }
-button.flavor-blue:active:not([disabled]),
-input[type="button"].flavor-blue:active:not([disabled]),
-input[type="reset"].flavor-blue:active:not([disabled]),
-input[type="submit"].flavor-blue:active:not([disabled]),
-.boton.flavor-blue:active:not([disabled]) {
+button.school-blue:active:not([disabled]),
+input[type="button"].school-blue:active:not([disabled]),
+input[type="reset"].school-blue:active:not([disabled]),
+input[type="submit"].school-blue:active:not([disabled]),
+.boton.school-blue:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
-button.flavor-blue.selected:not([disabled]),
-input[type="button"].flavor-blue.selected:not([disabled]),
-input[type="reset"].flavor-blue.selected:not([disabled]),
-input[type="submit"].flavor-blue.selected:not([disabled]),
-.boton.flavor-blue.selected:not([disabled]) {
+button.school-blue.selected:not([disabled]),
+input[type="button"].school-blue.selected:not([disabled]),
+input[type="reset"].school-blue.selected:not([disabled]),
+input[type="submit"].school-blue.selected:not([disabled]),
+.boton.school-blue.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
 }
-hr.flavor-blue, .flavor-blue > hr {
+hr.school-blue, .school-blue > hr {
   background: none;
   border: 1px solid #3060ff;
   border-radius: 2px;
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
-.flavor-blue.box {
+.school-blue.box {
   background: none;
   border: 1px solid #3060ff;
   border-radius: 2px;
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
-a.box.flavor-blue {
+a.box.school-blue {
   background: none;
   border: 1px solid #3060ff;
   border-radius: 2px;
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
 }
-a.box.flavor-blue:hover, a.box.flavor-blue:focus {
+a.box.school-blue:hover, a.box.school-blue:focus {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
-a.box.flavor-blue:active {
+a.box.school-blue:active {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
-.flavor-blue.portal, .flavor-blue.portal::before, .flavor-blue.portal::after {
+.school-blue.portal, .school-blue.portal::before, .school-blue.portal::after {
   border: 1px solid #3060FF;
 }
-.flavor-blue.portal {
+.school-blue.portal {
   border-color: #5980ff;
   box-shadow: inset 0 0 24px 1px #3060ff, 0 0 4px 2px #3060ff;
 }
-.flavor-blue.portal::before, .flavor-blue.portal::after {
-  animation-name: portal-ring-loop-flavor-blue;
+.school-blue.portal::before, .school-blue.portal::after {
+  animation-name: portal-ring-loop-school-blue;
 }
-@keyframes portal-ring-loop-flavor-blue {
+@keyframes portal-ring-loop-school-blue {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -826,105 +859,105 @@ a.box.flavor-blue:active {
     opacity: 0;
   }
 }
-.flavor-green {
+.school-green {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
-button.flavor-green,
-input[type="button"].flavor-green,
-input[type="reset"].flavor-green,
-input[type="submit"].flavor-green,
-.boton.flavor-green {
+button.school-green,
+input[type="button"].school-green,
+input[type="reset"].school-green,
+input[type="submit"].school-green,
+.boton.school-green {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
   background: none;
   border: 2px solid green;
   border-radius: 4px;
 }
-button.flavor-green > .power-words,
-input[type="button"].flavor-green > .power-words,
-input[type="reset"].flavor-green > .power-words,
-input[type="submit"].flavor-green > .power-words,
-.boton.flavor-green > .power-words {
+button.school-green > .power-words,
+input[type="button"].school-green > .power-words,
+input[type="reset"].school-green > .power-words,
+input[type="submit"].school-green > .power-words,
+.boton.school-green > .power-words {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
-button.flavor-green:hover:not([disabled]), button.flavor-green:focus:not([disabled]),
-input[type="button"].flavor-green:hover:not([disabled]),
-input[type="button"].flavor-green:focus:not([disabled]),
-input[type="reset"].flavor-green:hover:not([disabled]),
-input[type="reset"].flavor-green:focus:not([disabled]),
-input[type="submit"].flavor-green:hover:not([disabled]),
-input[type="submit"].flavor-green:focus:not([disabled]),
-.boton.flavor-green:hover:not([disabled]),
-.boton.flavor-green:focus:not([disabled]) {
+button.school-green:hover:not([disabled]), button.school-green:focus:not([disabled]),
+input[type="button"].school-green:hover:not([disabled]),
+input[type="button"].school-green:focus:not([disabled]),
+input[type="reset"].school-green:hover:not([disabled]),
+input[type="reset"].school-green:focus:not([disabled]),
+input[type="submit"].school-green:hover:not([disabled]),
+input[type="submit"].school-green:focus:not([disabled]),
+.boton.school-green:hover:not([disabled]),
+.boton.school-green:focus:not([disabled]) {
   border-color: #99cc99;
   box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
   color: #99cc99;
   text-shadow: 0 0 3px green;
 }
-button.flavor-green:active:not([disabled]),
-input[type="button"].flavor-green:active:not([disabled]),
-input[type="reset"].flavor-green:active:not([disabled]),
-input[type="submit"].flavor-green:active:not([disabled]),
-.boton.flavor-green:active:not([disabled]) {
+button.school-green:active:not([disabled]),
+input[type="button"].school-green:active:not([disabled]),
+input[type="reset"].school-green:active:not([disabled]),
+input[type="submit"].school-green:active:not([disabled]),
+.boton.school-green:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
 }
-button.flavor-green.selected:not([disabled]),
-input[type="button"].flavor-green.selected:not([disabled]),
-input[type="reset"].flavor-green.selected:not([disabled]),
-input[type="submit"].flavor-green.selected:not([disabled]),
-.boton.flavor-green.selected:not([disabled]) {
+button.school-green.selected:not([disabled]),
+input[type="button"].school-green.selected:not([disabled]),
+input[type="reset"].school-green.selected:not([disabled]),
+input[type="submit"].school-green.selected:not([disabled]),
+.boton.school-green.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
 }
-hr.flavor-green, .flavor-green > hr {
+hr.school-green, .school-green > hr {
   background: none;
   border: 1px solid green;
   border-radius: 2px;
   border-color: #99cc99;
   box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
 }
-.flavor-green.box {
+.school-green.box {
   background: none;
   border: 1px solid green;
   border-radius: 2px;
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
-a.box.flavor-green {
+a.box.school-green {
   background: none;
   border: 1px solid green;
   border-radius: 2px;
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
 }
-a.box.flavor-green:hover, a.box.flavor-green:focus {
+a.box.school-green:hover, a.box.school-green:focus {
   color: #99cc99;
   text-shadow: 0 0 3px green;
   border-color: #99cc99;
   box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
 }
-a.box.flavor-green:active {
+a.box.school-green:active {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
 }
-.flavor-green.portal, .flavor-green.portal::before, .flavor-green.portal::after {
+.school-green.portal, .school-green.portal::before, .school-green.portal::after {
   border: 1px solid green;
 }
-.flavor-green.portal {
+.school-green.portal {
   border-color: #339933;
   box-shadow: inset 0 0 24px 1px green, 0 0 4px 2px green;
 }
-.flavor-green.portal::before, .flavor-green.portal::after {
-  animation-name: portal-ring-loop-flavor-green;
+.school-green.portal::before, .school-green.portal::after {
+  animation-name: portal-ring-loop-school-green;
 }
-@keyframes portal-ring-loop-flavor-green {
+@keyframes portal-ring-loop-school-green {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -950,105 +983,105 @@ a.box.flavor-green:active {
     opacity: 0;
   }
 }
-.flavor-orange {
+.school-orange {
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
-button.flavor-orange,
-input[type="button"].flavor-orange,
-input[type="reset"].flavor-orange,
-input[type="submit"].flavor-orange,
-.boton.flavor-orange {
+button.school-orange,
+input[type="button"].school-orange,
+input[type="reset"].school-orange,
+input[type="submit"].school-orange,
+.boton.school-orange {
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
   background: none;
   border: 2px solid #ff9933;
   border-radius: 4px;
 }
-button.flavor-orange > .power-words,
-input[type="button"].flavor-orange > .power-words,
-input[type="reset"].flavor-orange > .power-words,
-input[type="submit"].flavor-orange > .power-words,
-.boton.flavor-orange > .power-words {
+button.school-orange > .power-words,
+input[type="button"].school-orange > .power-words,
+input[type="reset"].school-orange > .power-words,
+input[type="submit"].school-orange > .power-words,
+.boton.school-orange > .power-words {
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
-button.flavor-orange:hover:not([disabled]), button.flavor-orange:focus:not([disabled]),
-input[type="button"].flavor-orange:hover:not([disabled]),
-input[type="button"].flavor-orange:focus:not([disabled]),
-input[type="reset"].flavor-orange:hover:not([disabled]),
-input[type="reset"].flavor-orange:focus:not([disabled]),
-input[type="submit"].flavor-orange:hover:not([disabled]),
-input[type="submit"].flavor-orange:focus:not([disabled]),
-.boton.flavor-orange:hover:not([disabled]),
-.boton.flavor-orange:focus:not([disabled]) {
+button.school-orange:hover:not([disabled]), button.school-orange:focus:not([disabled]),
+input[type="button"].school-orange:hover:not([disabled]),
+input[type="button"].school-orange:focus:not([disabled]),
+input[type="reset"].school-orange:hover:not([disabled]),
+input[type="reset"].school-orange:focus:not([disabled]),
+input[type="submit"].school-orange:hover:not([disabled]),
+input[type="submit"].school-orange:focus:not([disabled]),
+.boton.school-orange:hover:not([disabled]),
+.boton.school-orange:focus:not([disabled]) {
   border-color: #ffd6ad;
   box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
   color: #ffd6ad;
   text-shadow: 0 0 3px #ff9933;
 }
-button.flavor-orange:active:not([disabled]),
-input[type="button"].flavor-orange:active:not([disabled]),
-input[type="reset"].flavor-orange:active:not([disabled]),
-input[type="submit"].flavor-orange:active:not([disabled]),
-.boton.flavor-orange:active:not([disabled]) {
+button.school-orange:active:not([disabled]),
+input[type="button"].school-orange:active:not([disabled]),
+input[type="reset"].school-orange:active:not([disabled]),
+input[type="submit"].school-orange:active:not([disabled]),
+.boton.school-orange:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
-button.flavor-orange.selected:not([disabled]),
-input[type="button"].flavor-orange.selected:not([disabled]),
-input[type="reset"].flavor-orange.selected:not([disabled]),
-input[type="submit"].flavor-orange.selected:not([disabled]),
-.boton.flavor-orange.selected:not([disabled]) {
+button.school-orange.selected:not([disabled]),
+input[type="button"].school-orange.selected:not([disabled]),
+input[type="reset"].school-orange.selected:not([disabled]),
+input[type="submit"].school-orange.selected:not([disabled]),
+.boton.school-orange.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
 }
-hr.flavor-orange, .flavor-orange > hr {
+hr.school-orange, .school-orange > hr {
   background: none;
   border: 1px solid #ff9933;
   border-radius: 2px;
   border-color: #ffd6ad;
   box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
 }
-.flavor-orange.box {
+.school-orange.box {
   background: none;
   border: 1px solid #ff9933;
   border-radius: 2px;
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
-a.box.flavor-orange {
+a.box.school-orange {
   background: none;
   border: 1px solid #ff9933;
   border-radius: 2px;
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
 }
-a.box.flavor-orange:hover, a.box.flavor-orange:focus {
+a.box.school-orange:hover, a.box.school-orange:focus {
   color: #ffd6ad;
   text-shadow: 0 0 3px #ff9933;
   border-color: #ffd6ad;
   box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
 }
-a.box.flavor-orange:active {
+a.box.school-orange:active {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
-.flavor-orange.portal, .flavor-orange.portal::before, .flavor-orange.portal::after {
+.school-orange.portal, .school-orange.portal::before, .school-orange.portal::after {
   border: 1px solid #FF9933;
 }
-.flavor-orange.portal {
+.school-orange.portal {
   border-color: #ffad5c;
   box-shadow: inset 0 0 24px 1px #ff9933, 0 0 4px 2px #ff9933;
 }
-.flavor-orange.portal::before, .flavor-orange.portal::after {
-  animation-name: portal-ring-loop-flavor-orange;
+.school-orange.portal::before, .school-orange.portal::after {
+  animation-name: portal-ring-loop-school-orange;
 }
-@keyframes portal-ring-loop-flavor-orange {
+@keyframes portal-ring-loop-school-orange {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -1074,105 +1107,105 @@ a.box.flavor-orange:active {
     opacity: 0;
   }
 }
-.flavor-danger {
+.school-danger {
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
-button.flavor-danger,
-input[type="button"].flavor-danger,
-input[type="reset"].flavor-danger,
-input[type="submit"].flavor-danger,
-.boton.flavor-danger {
+button.school-danger,
+input[type="button"].school-danger,
+input[type="reset"].school-danger,
+input[type="submit"].school-danger,
+.boton.school-danger {
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
   background: none;
   border: 2px solid #ff6c00;
   border-radius: 4px;
 }
-button.flavor-danger > .power-words,
-input[type="button"].flavor-danger > .power-words,
-input[type="reset"].flavor-danger > .power-words,
-input[type="submit"].flavor-danger > .power-words,
-.boton.flavor-danger > .power-words {
+button.school-danger > .power-words,
+input[type="button"].school-danger > .power-words,
+input[type="reset"].school-danger > .power-words,
+input[type="submit"].school-danger > .power-words,
+.boton.school-danger > .power-words {
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
-button.flavor-danger:hover:not([disabled]), button.flavor-danger:focus:not([disabled]),
-input[type="button"].flavor-danger:hover:not([disabled]),
-input[type="button"].flavor-danger:focus:not([disabled]),
-input[type="reset"].flavor-danger:hover:not([disabled]),
-input[type="reset"].flavor-danger:focus:not([disabled]),
-input[type="submit"].flavor-danger:hover:not([disabled]),
-input[type="submit"].flavor-danger:focus:not([disabled]),
-.boton.flavor-danger:hover:not([disabled]),
-.boton.flavor-danger:focus:not([disabled]) {
+button.school-danger:hover:not([disabled]), button.school-danger:focus:not([disabled]),
+input[type="button"].school-danger:hover:not([disabled]),
+input[type="button"].school-danger:focus:not([disabled]),
+input[type="reset"].school-danger:hover:not([disabled]),
+input[type="reset"].school-danger:focus:not([disabled]),
+input[type="submit"].school-danger:hover:not([disabled]),
+input[type="submit"].school-danger:focus:not([disabled]),
+.boton.school-danger:hover:not([disabled]),
+.boton.school-danger:focus:not([disabled]) {
   border-color: #ffc499;
   box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
   color: #ffc499;
   text-shadow: 0 0 3px #ff6c00;
 }
-button.flavor-danger:active:not([disabled]),
-input[type="button"].flavor-danger:active:not([disabled]),
-input[type="reset"].flavor-danger:active:not([disabled]),
-input[type="submit"].flavor-danger:active:not([disabled]),
-.boton.flavor-danger:active:not([disabled]) {
+button.school-danger:active:not([disabled]),
+input[type="button"].school-danger:active:not([disabled]),
+input[type="reset"].school-danger:active:not([disabled]),
+input[type="submit"].school-danger:active:not([disabled]),
+.boton.school-danger:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
 }
-button.flavor-danger.selected:not([disabled]),
-input[type="button"].flavor-danger.selected:not([disabled]),
-input[type="reset"].flavor-danger.selected:not([disabled]),
-input[type="submit"].flavor-danger.selected:not([disabled]),
-.boton.flavor-danger.selected:not([disabled]) {
+button.school-danger.selected:not([disabled]),
+input[type="button"].school-danger.selected:not([disabled]),
+input[type="reset"].school-danger.selected:not([disabled]),
+input[type="submit"].school-danger.selected:not([disabled]),
+.boton.school-danger.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
-hr.flavor-danger, .flavor-danger > hr {
+hr.school-danger, .school-danger > hr {
   background: none;
   border: 1px solid #ff6c00;
   border-radius: 2px;
   border-color: #ffc499;
   box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
 }
-.flavor-danger.box {
+.school-danger.box {
   background: none;
   border: 1px solid #ff6c00;
   border-radius: 2px;
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
-a.box.flavor-danger {
+a.box.school-danger {
   background: none;
   border: 1px solid #ff6c00;
   border-radius: 2px;
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
 }
-a.box.flavor-danger:hover, a.box.flavor-danger:focus {
+a.box.school-danger:hover, a.box.school-danger:focus {
   color: #ffc499;
   text-shadow: 0 0 3px #ff6c00;
   border-color: #ffc499;
   box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
 }
-a.box.flavor-danger:active {
+a.box.school-danger:active {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
 }
-.flavor-danger.portal, .flavor-danger.portal::before, .flavor-danger.portal::after {
+.school-danger.portal, .school-danger.portal::before, .school-danger.portal::after {
   border: 1px solid #FF6C00;
 }
-.flavor-danger.portal {
+.school-danger.portal {
   border-color: #ff8933;
   box-shadow: inset 0 0 24px 1px #ff6c00, 0 0 4px 2px #ff6c00;
 }
-.flavor-danger.portal::before, .flavor-danger.portal::after {
-  animation-name: portal-ring-loop-flavor-danger;
+.school-danger.portal::before, .school-danger.portal::after {
+  animation-name: portal-ring-loop-school-danger;
 }
-@keyframes portal-ring-loop-flavor-danger {
+@keyframes portal-ring-loop-school-danger {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -1198,105 +1231,105 @@ a.box.flavor-danger:active {
     opacity: 0;
   }
 }
-.flavor-nav {
+.school-nav {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-button.flavor-nav,
-input[type="button"].flavor-nav,
-input[type="reset"].flavor-nav,
-input[type="submit"].flavor-nav,
-.boton.flavor-nav {
+button.school-nav,
+input[type="button"].school-nav,
+input[type="reset"].school-nav,
+input[type="submit"].school-nav,
+.boton.school-nav {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
   background: none;
   border: 2px solid white;
   border-radius: 4px;
 }
-button.flavor-nav > .power-words,
-input[type="button"].flavor-nav > .power-words,
-input[type="reset"].flavor-nav > .power-words,
-input[type="submit"].flavor-nav > .power-words,
-.boton.flavor-nav > .power-words {
+button.school-nav > .power-words,
+input[type="button"].school-nav > .power-words,
+input[type="reset"].school-nav > .power-words,
+input[type="submit"].school-nav > .power-words,
+.boton.school-nav > .power-words {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-button.flavor-nav:hover:not([disabled]), button.flavor-nav:focus:not([disabled]),
-input[type="button"].flavor-nav:hover:not([disabled]),
-input[type="button"].flavor-nav:focus:not([disabled]),
-input[type="reset"].flavor-nav:hover:not([disabled]),
-input[type="reset"].flavor-nav:focus:not([disabled]),
-input[type="submit"].flavor-nav:hover:not([disabled]),
-input[type="submit"].flavor-nav:focus:not([disabled]),
-.boton.flavor-nav:hover:not([disabled]),
-.boton.flavor-nav:focus:not([disabled]) {
+button.school-nav:hover:not([disabled]), button.school-nav:focus:not([disabled]),
+input[type="button"].school-nav:hover:not([disabled]),
+input[type="button"].school-nav:focus:not([disabled]),
+input[type="reset"].school-nav:hover:not([disabled]),
+input[type="reset"].school-nav:focus:not([disabled]),
+input[type="submit"].school-nav:hover:not([disabled]),
+input[type="submit"].school-nav:focus:not([disabled]),
+.boton.school-nav:hover:not([disabled]),
+.boton.school-nav:focus:not([disabled]) {
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
   color: white;
   text-shadow: 0 0 3px white;
 }
-button.flavor-nav:active:not([disabled]),
-input[type="button"].flavor-nav:active:not([disabled]),
-input[type="reset"].flavor-nav:active:not([disabled]),
-input[type="submit"].flavor-nav:active:not([disabled]),
-.boton.flavor-nav:active:not([disabled]) {
+button.school-nav:active:not([disabled]),
+input[type="button"].school-nav:active:not([disabled]),
+input[type="reset"].school-nav:active:not([disabled]),
+input[type="submit"].school-nav:active:not([disabled]),
+.boton.school-nav:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-button.flavor-nav.selected:not([disabled]),
-input[type="button"].flavor-nav.selected:not([disabled]),
-input[type="reset"].flavor-nav.selected:not([disabled]),
-input[type="submit"].flavor-nav.selected:not([disabled]),
-.boton.flavor-nav.selected:not([disabled]) {
+button.school-nav.selected:not([disabled]),
+input[type="button"].school-nav.selected:not([disabled]),
+input[type="reset"].school-nav.selected:not([disabled]),
+input[type="submit"].school-nav.selected:not([disabled]),
+.boton.school-nav.selected:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
-hr.flavor-nav, .flavor-nav > hr {
+hr.school-nav, .school-nav > hr {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-.flavor-nav.box {
+.school-nav.box {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-nav {
+a.box.school-nav {
   background: none;
   border: 1px solid white;
   border-radius: 2px;
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-nav:hover, a.box.flavor-nav:focus {
+a.box.school-nav:hover, a.box.school-nav:focus {
   color: white;
   text-shadow: 0 0 3px white;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
-a.box.flavor-nav:active {
+a.box.school-nav:active {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
-.flavor-nav.portal, .flavor-nav.portal::before, .flavor-nav.portal::after {
+.school-nav.portal, .school-nav.portal::before, .school-nav.portal::after {
   border: 1px solid white;
 }
-.flavor-nav.portal {
+.school-nav.portal {
   border-color: white;
   box-shadow: inset 0 0 24px 1px white, 0 0 4px 2px white;
 }
-.flavor-nav.portal::before, .flavor-nav.portal::after {
-  animation-name: portal-ring-loop-flavor-nav;
+.school-nav.portal::before, .school-nav.portal::after {
+  animation-name: portal-ring-loop-school-nav;
 }
-@keyframes portal-ring-loop-flavor-nav {
+@keyframes portal-ring-loop-school-nav {
   0% {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
@@ -1322,7 +1355,7 @@ a.box.flavor-nav:active {
     opacity: 0;
   }
 }
-.flavor-alert-warn.box {
+.school-alert-warn.box {
   background: none;
   border: 3px double #ff6c00;
   border-radius: 2px;
@@ -1333,7 +1366,7 @@ a.box.flavor-nav:active {
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
 }
 
-.flavor-alert-error.box {
+.school-alert-error.box {
   background: none;
   border: 3px double red;
   border-radius: 2px;

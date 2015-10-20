@@ -71,17 +71,66 @@ body, #arcane, .arcane
     //font-weight: 700;
 }
 
-p
+p, blockquote
 {
     margin: 0.5em 0;
+    
+    &:first-child
+    {
+        margin-top: 0;
+    }
+    &:last-child
+    {
+        margin-bottom: 0;
+    }
 }
-p:first-child
+
+blockquote
 {
-    margin-top: 0;
-}
-p:last-child
-{
-    margin-bottom: 0;
+    padding-left: 1.75em;
+    font-size: calc(1em + 2px);
+    font-style: italic;
+    letter-spacing: -1px;
+    
+    position: relative;
+    
+    &::before
+    {
+        content: "“";
+                
+        font-family: Georgia, serif;
+        font-size: 3em;
+        font-style: normal;
+        //transform: scale(3.0);
+        opacity: 0.6;
+    
+        line-height: 0;
+        
+        display: inline-block;
+        width: 0.5833333333333333em;
+        height: 100%;
+        background: linear-gradient(to right, rgba($text-color, 0.5) 0%, rgba($text-color, 0) 100%);
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-left: 0.04em;
+        padding-top: 0.5208333333333333em;
+    }
+    
+    cite
+    {
+        display: block;
+        font-size: calc(1em - 2px);
+        font-style: normal;
+        letter-spacing: 0;
+        font-weight: bold;
+        
+        &::before
+        {
+            content: "―";
+        }
+    }
 }
 
 hr

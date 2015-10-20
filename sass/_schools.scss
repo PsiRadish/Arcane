@@ -1,25 +1,25 @@
 
 // Color variants for most components
-$flavors:
+$schools:
 (
-    flavor-white  : white,
-    flavor-blue   : $blue,
-    flavor-green  : green,
-    flavor-orange : #FF9933,
-    flavor-danger : $danger-color,
-    flavor-nav    : $nav-color
+    school-white  : white,
+    school-blue   : $blue,
+    school-green  : green,
+    school-orange : #FF9933,
+    school-danger : $danger-color,
+    school-nav    : $nav-color
 );
 
 // Color variants for alert messages
-$alert-flavors:
+$alert-schools:
 (
-    flavor-alert-warn  : $danger-color,
-    flavor-alert-error : $error-color
+    school-alert-warn  : $danger-color,
+    school-alert-error : $error-color
 );
 
-@mixin define-flavor($color, $flavor-name:null)
+@mixin define-school($color, $school-name:null)
 {
-    // $flavor-name: str-slice(#{&}, 2); // store value of & without dot for portal animation name
+    // $school-name: str-slice(#{&}, 2); // store value of & without dot for portal animation name
     @include glow-idle-text($color);
     
     @at-root button#{&},
@@ -90,7 +90,7 @@ $alert-flavors:
         }
     }
     
-    @if ($flavor-name) // can't create portal animation without a flavor-name
+    @if ($school-name) // can't create portal animation without a school-name
     {
         &.portal, &.portal::before, &.portal::after
         {
@@ -104,10 +104,10 @@ $alert-flavors:
         }
         &.portal::before, &.portal::after
         {
-            animation-name : portal-ring-loop-#{$flavor-name};
+            animation-name : portal-ring-loop-#{$school-name};
         }
         
-        @keyframes portal-ring-loop-#{$flavor-name}
+        @keyframes portal-ring-loop-#{$school-name}
         {
             0%
             {
@@ -145,7 +145,7 @@ $alert-flavors:
         }
     }
 }
-@mixin define-alert-flavor($color)
+@mixin define-alert-school($color)
 {
     &.box
     {
@@ -160,8 +160,8 @@ $alert-flavors:
 }
 
 
-// Loop through flavor maps defining flavors
-@each $flavor, $color in $flavors
+// Loop through school maps defining schools
+@each $school, $color in $schools
 {   
     // @if type-of($color) == list   // color and opacity specified
     // {
@@ -173,10 +173,10 @@ $alert-flavors:
     //     $opacity: 1;
     // }
     // 
-    // .#{$flavor} { @include define-flavor($color, $opacity, $flavor); }
-    .#{$flavor} { @include define-flavor($color, $flavor); }
+    // .#{$school} { @include define-school($color, $opacity, $school); }
+    .#{$school} { @include define-school($color, $school); }
 }
-@each $flavor, $color in $alert-flavors
+@each $school, $color in $alert-schools
 {
-    .#{$flavor} { @include define-alert-flavor($color); }
+    .#{$school} { @include define-alert-school($color); }
 }
