@@ -223,19 +223,24 @@ a:not(.boton)
     }
 }
 
-a:not(.boton):not(.box) > img
+a:not(.boton):not(.box)
 {
-    @include spell-box($link-color);
-    
-    &:hover, &:focus
+    > img
+    {
+        @include transition-anim();
+        
+        @include spell-box($link-color);
+    }
+    &:hover > img, &:focus > img
     {
         @include glow-mild-border($link-color);
     }
-    &:active
+    &:active > img
     {
         @include glow-strong-border($link-color);
     }
 }
+
 
 button,
 input[type="button"],
