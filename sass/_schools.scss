@@ -28,8 +28,10 @@ $alert-schools:
     .boton#{&}
     {
         @include glow-idle-text($color);
-        
-        @include spell-box($color, 2px, 4px);
+        &:not(.no-border)
+        {
+            @include spell-box($color, 2px, 4px);
+        }
         
         //span, i, label, p
         > .power-words
@@ -41,15 +43,21 @@ $alert-schools:
         {
             &:not([disabled])
             {
-                @include glow-mild-border($color);
                 @include glow-mild-text($color);
+                &:not(.no-border)
+                {
+                    @include glow-mild-border($color);
+                }
             }
         }
         
         &:active:not([disabled])
         {
             @include glow-strong-text($color);
-            @include glow-strong-border($color);
+            &:not(.no-border)
+            {
+                @include glow-strong-border($color);
+            }
         }
         
         &.selected:not([disabled])
@@ -86,6 +94,31 @@ $alert-schools:
         {
             @include glow-strong-text($color);
             @include glow-strong-border($color);
+        }
+    }
+    
+    &.arcane-tabs
+    {
+        > .tab-list > li .bolt-blurred
+        {
+            stroke: $color;
+        }
+        
+        > .pannus
+        {            
+            @include spell-box($color);
+            @include glow-idle-text(mix($color, $text-color, 40%));
+            background-color: rgba($color, 0);
+        }
+        > .pannus.switching
+        {
+            @include glow-strong-border($color);
+            background-color: rgba($color, 0.5);
+            
+            > .tab-content.selected
+            {
+                @include glow-strong-text(mix($color, $text-color, 40%));
+            }
         }
     }
     

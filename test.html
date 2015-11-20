@@ -4,6 +4,9 @@
   <title>Arcane Test</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/arcane.css">
+  <!-- Latest compiled and minified CSS & JS -->
+  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/arcane.js"></script>
   <style type="text/css">
   
@@ -14,7 +17,7 @@
   
   </style>
 </head>
-<body>
+<body style="width: 1100px; margin: 0 auto;">
 
 <h1>Arcane</h1>
 <h2>Test</h2>
@@ -23,7 +26,7 @@
 <h4>A Thing with an H4 Headiing</h4>
 <p>This thing is not super-important, but it ain't shit, either.</p>
 
-<h4>Faux Feedback Section with H4 Heading</h4>
+<!-- <h4>Faux Feedback Section with H4 Heading</h4>
 <p>Gosh, Sam! If a few hundred years of civilization have to be totalled just to ensure that a bunch of smelly, quasi-human creatures have a safe haven for their disgusting lifestyles, then so be it!</p>
 
 <h5>Faux Feedback Form</h5>
@@ -50,7 +53,61 @@
   <cite>Brainiac</cite>
 </blockquote>
 
-<p>And how!</p>
+<p>And how!</p> -->
+
+<h4>Now some tabs for some reason!</h4>
+<div class="arcane-tabs no-initial-tab">
+  <ul class="inline-spread">
+    <li><a href=".tab-1" class="h5">Front-End Freedom</a></li>
+    <li><a href=".tab-2" class="h5">Possible Back-End Work</a></li>
+    <li><a href=".tab-3" class="h5">Video Games!</a></li>
+  </ul>
+  <article class="tab-1">
+    <p>Fighting CSS is gratification!</p>
+  </article>
+  <article class="tab-2">
+    <p>Maybe back-end is maybe awesome!</p>
+  </article>
+  <article class="tab-3">
+    <p>Poppy cannot die!</p>
+    <p>Creep score is tricky, though.</p>
+  </article>
+  <article class="defallita">
+    <p>Select a reason.</p>
+  </article>
+</div>
+
+<!-- TURNS INTO -->
+<!-- <div class="arcane-tabs demo">
+  <ul class="inline-spread tab-list">
+    <li><a href=".tab-1" class="boton no-border h5"><span class="power-words">Front-End Freedom</span></a></li>
+    <li><a href=".tab-2" class="boton no-border h5"><span class="power-words">Possible Back-End Work</span></a></li>
+    <li><a href=".tab-3" class="boton no-border h5"><span class="power-words">Video Games!</span></a></li>
+  </ul>
+  <div class="pannus no-tab-selected">
+    <article class="tab-1 tab-content">
+      <p>Fighting CSS is gratification!</p>
+    </article>
+    <article class="tab-2 tab-content">
+      <p>Maybe back-end is maybe awesome!</p>
+    </article>
+    <article class="tab-3 tab-content">
+      <p>Poppy cannot die!</p>
+      <p>Creep score is tricky, though.</p>
+    </article>
+    <article class="defallita tab-content selected">
+      <p>Select a reason.</p>
+    </article>
+  </div>
+</div> -->
+
+<!-- Tell jQuery UI to do its tabs thang. -->
+<script>
+  // $(function()
+  // {
+  //   $( ".arcane-tabs" ).tabs();
+  // });
+</script>
 
 </body>
 </html>

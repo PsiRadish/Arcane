@@ -267,11 +267,33 @@ ul.bullae > li::before {
   width: 0;
 }
 
+ul.inline-spread::before, ul.inline-spread::after, ol.inline-spread::before, ol.inline-spread::after {
+  content: " ";
+  display: table;
+}
+ul.inline-spread::after, ol.inline-spread::after {
+  clear: both;
+}
+ul.inline-spread > li, ol.inline-spread > li {
+  margin-left: 0;
+  margin-right: 0;
+  float: left;
+}
+ul.inline-spread > li:first-child, ol.inline-spread > li:first-child {
+  text-align: left;
+}
+ul.inline-spread > li:last-child, ol.inline-spread > li:last-child {
+  text-align: right;
+}
+ul.inline-spread > li:not(:first-child):not(:last-child), ol.inline-spread > li:not(:first-child):not(:last-child) {
+  text-align: center;
+}
+
 a {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
 }
 a::before, a::after {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
 }
 
 a:not(.boton) {
@@ -322,15 +344,16 @@ a:not(.boton):not(.box):focus:not(:active)::after {
 }
 
 a:not(.boton):not(.box) > img {
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   background: none;
   border: 1px solid gold;
   border-radius: 2px;
 }
-a:not(.boton):not(.box) > img:hover, a:not(.boton):not(.box) > img:focus {
+a:not(.boton):not(.box):hover > img, a:not(.boton):not(.box):focus > img {
   border-color: #ffef99;
   box-shadow: inset 0 0 3px 1px rgba(255, 215, 0, 0.6), 0 0 3px 1px rgba(255, 215, 0, 0.6);
 }
-a:not(.boton):not(.box) > img:active {
+a:not(.boton):not(.box):active > img {
   border-color: white;
   box-shadow: inset 0 0 4px 1px gold, 0 0 4px 1px gold;
 }
@@ -340,9 +363,15 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .boton {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
+}
+button:not(.no-border),
+input[type="button"]:not(.no-border),
+input[type="reset"]:not(.no-border),
+input[type="submit"]:not(.no-border),
+.boton:not(.no-border) {
   background: none;
   border: 2px solid #3060ff;
   border-radius: 4px;
@@ -353,15 +382,15 @@ input[type="button"] > .power-words,
 input[type="reset"] > .power-words,
 input[type="submit"] > .power-words,
 .boton > .power-words {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   display: inline-block;
   font-family: Almendra, Dragon Text, Nogard, Constantia, Georgia, Liberation Serif, Times New Roman, serif;
 }
-button[disabled] > .power-words,
-input[type="button"][disabled] > .power-words,
-input[type="reset"][disabled] > .power-words,
-input[type="submit"][disabled] > .power-words,
-.boton[disabled] > .power-words {
+button[disabled],
+input[type="button"][disabled],
+input[type="reset"][disabled],
+input[type="submit"][disabled],
+.boton[disabled] {
   opacity: 0.6;
 }
 button:hover:not([disabled]), button:focus:not([disabled]),
@@ -375,6 +404,16 @@ input[type="submit"]:focus:not([disabled]),
 .boton:focus:not([disabled]) {
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
+}
+button:hover:not([disabled]):not(.no-border), button:focus:not([disabled]):not(.no-border),
+input[type="button"]:hover:not([disabled]):not(.no-border),
+input[type="button"]:focus:not([disabled]):not(.no-border),
+input[type="reset"]:hover:not([disabled]):not(.no-border),
+input[type="reset"]:focus:not([disabled]):not(.no-border),
+input[type="submit"]:hover:not([disabled]):not(.no-border),
+input[type="submit"]:focus:not([disabled]):not(.no-border),
+.boton:hover:not([disabled]):not(.no-border),
+.boton:focus:not([disabled]):not(.no-border) {
   border-color: #acbfff;
   box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
@@ -398,7 +437,7 @@ input[type="submit"]:hover[disabled] > .power-words,
 input[type="submit"]:focus[disabled] > .power-words,
 .boton:hover[disabled] > .power-words,
 .boton:focus[disabled] > .power-words {
-  opacity: 0.3;
+  opacity: 0.5;
   transform: scale(0.8, 0.8);
 }
 button:active:not([disabled]),
@@ -408,9 +447,14 @@ input[type="submit"]:active:not([disabled]),
 .boton:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
+}
+button:active:not([disabled]):not(.no-border),
+input[type="button"]:active:not([disabled]):not(.no-border),
+input[type="reset"]:active:not([disabled]):not(.no-border),
+input[type="submit"]:active:not([disabled]):not(.no-border),
+.boton:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
-  padding: 3px 6px;
 }
 button:active:not([disabled]) > .power-words,
 input[type="button"]:active:not([disabled]) > .power-words,
@@ -432,11 +476,11 @@ input[type="button"].selected:not([disabled]) > .power-words,
 input[type="reset"].selected:not([disabled]) > .power-words,
 input[type="submit"].selected:not([disabled]) > .power-words,
 .boton.selected:not([disabled]) > .power-words {
-  transform: scale(1.25, 1.25);
+  transform: scale(1.2, 1.2);
 }
 
 form label {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.51);
 }
@@ -449,7 +493,7 @@ form label.label-focus {
 textarea,
 select,
 input:not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="button"]):not([type="color"]):not([type="range"]) {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.51);
   background: none;
@@ -496,12 +540,25 @@ select, option {
   background: none;
 }
 
+.form-widget {
+  width: 100%;
+}
+
+.box {
+  padding: 6px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 2px;
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
 .portal {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
   background: black;
 }
 .portal::before, .portal::after {
-  transition: transform 0.25s, color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s, border 0.25s, text-shadow 0.25s, box-shadow 0.25s;
 }
 
 .portal, .portal::before, .portal::after {
@@ -530,15 +587,6 @@ select, option {
   animation-delay: -0.375s;
 }
 
-.box {
-  padding: 6px;
-  background: none;
-  border: 1px solid white;
-  border-radius: 2px;
-  color: white;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
-}
-
 @keyframes portal-ring-loop {
   0% {
     width: calc(100% - 0px);
@@ -565,8 +613,78 @@ select, option {
     opacity: 0;
   }
 }
-.form-widget {
-  width: 100%;
+.arcane-tabs {
+  margin-top: 0.5em;
+}
+.arcane-tabs > .tab-list {
+  margin-bottom: 12px;
+  padding: 0 12px;
+}
+.arcane-tabs > .tab-list > li > a {
+  line-height: 1.375;
+}
+.arcane-tabs > .tab-list.inline-spread > li:first-child > a > .power-words {
+  transform-origin: left;
+}
+.arcane-tabs > .tab-list.inline-spread > li:last-child > a > .power-words {
+  transform-origin: right;
+}
+.arcane-tabs .bolt-blurred {
+  stroke: #3060FF;
+}
+.arcane-tabs .fx {
+  transition: transform 0.3s, color 0.3s, background-color 0.3s, opacity 0.3s, border 0.3s, text-shadow 0.3s, box-shadow 0.3s;
+}
+.arcane-tabs > .pannus {
+  transition: transform 0.3s, color 0.3s, background-color 0.3s, opacity 0.3s, border 0.3s, text-shadow 0.3s, box-shadow 0.3s, width 0.3s, height 0.3s;
+  padding: 12px;
+  background: none;
+  border: 1px solid #3060ff;
+  border-radius: 2px;
+  color: #acbfff;
+  text-shadow: 0 0 2px rgba(172, 191, 255, 0.6);
+  background-color: rgba(48, 96, 255, 0);
+  overflow: hidden;
+  position: relative;
+}
+.arcane-tabs > .pannus > .tab-content {
+  transition: transform 0.3s, color 0.3s, background-color 0.3s, opacity 0.3s, border 0.3s, text-shadow 0.3s, box-shadow 0.3s;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  /* &.switching.test // DEBUG
+  {
+      position: absolute; // so it no longer influences height of container
+      // top: $box-padding * 2;
+      // left: $box-padding * 2;
+      
+      opacity: 1;
+      text-shadow: none;
+  } */
+}
+.arcane-tabs > .pannus > .tab-content.selected {
+  opacity: 1;
+}
+.arcane-tabs > .pannus > .tab-content.switching {
+  opacity: 0;
+  text-shadow: none;
+}
+.arcane-tabs > .pannus > .tab-content:not(.selected):not(.switching) {
+  display: none;
+  opacity: 0;
+  text-shadow: none;
+}
+.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
+  background-color: rgba(48, 96, 255, 0.5);
+}
+.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px #acbfff, 0 0 4px rgba(172, 191, 255, 0.7);
+}
+.arcane-tabs > .pannus.no-tab-selected {
+  opacity: 0.6;
 }
 
 /* Spin buttons via external DOM elements
@@ -618,6 +736,12 @@ input[type="submit"].school-white,
 .boton.school-white {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+button.school-white:not(.no-border),
+input[type="button"].school-white:not(.no-border),
+input[type="reset"].school-white:not(.no-border),
+input[type="submit"].school-white:not(.no-border),
+.boton.school-white:not(.no-border) {
   background: none;
   border: 2px solid white;
   border-radius: 4px;
@@ -639,10 +763,20 @@ input[type="submit"].school-white:hover:not([disabled]),
 input[type="submit"].school-white:focus:not([disabled]),
 .boton.school-white:hover:not([disabled]),
 .boton.school-white:focus:not([disabled]) {
-  border-color: white;
-  box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
   color: white;
   text-shadow: 0 0 3px white;
+}
+button.school-white:hover:not([disabled]):not(.no-border), button.school-white:focus:not([disabled]):not(.no-border),
+input[type="button"].school-white:hover:not([disabled]):not(.no-border),
+input[type="button"].school-white:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-white:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-white:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-white:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-white:focus:not([disabled]):not(.no-border),
+.boton.school-white:hover:not([disabled]):not(.no-border),
+.boton.school-white:focus:not([disabled]):not(.no-border) {
+  border-color: white;
+  box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
 button.school-white:active:not([disabled]),
 input[type="button"].school-white:active:not([disabled]),
@@ -651,6 +785,12 @@ input[type="submit"].school-white:active:not([disabled]),
 .boton.school-white:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
+}
+button.school-white:active:not([disabled]):not(.no-border),
+input[type="button"].school-white:active:not([disabled]):not(.no-border),
+input[type="reset"].school-white:active:not([disabled]):not(.no-border),
+input[type="submit"].school-white:active:not([disabled]):not(.no-border),
+.boton.school-white:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
@@ -695,6 +835,26 @@ a.box.school-white:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
+.school-white.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: white;
+}
+.school-white.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid white;
+  border-radius: 2px;
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0);
+}
+.school-white.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.school-white.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
+}
 .school-white.portal, .school-white.portal::before, .school-white.portal::after {
   border: 1px solid white;
 }
@@ -738,6 +898,12 @@ input[type="submit"].school-blue,
 .boton.school-blue {
   color: #3060ff;
   text-shadow: 0 0 2px rgba(48, 96, 255, 0.6);
+}
+button.school-blue:not(.no-border),
+input[type="button"].school-blue:not(.no-border),
+input[type="reset"].school-blue:not(.no-border),
+input[type="submit"].school-blue:not(.no-border),
+.boton.school-blue:not(.no-border) {
   background: none;
   border: 2px solid #3060ff;
   border-radius: 4px;
@@ -759,10 +925,20 @@ input[type="submit"].school-blue:hover:not([disabled]),
 input[type="submit"].school-blue:focus:not([disabled]),
 .boton.school-blue:hover:not([disabled]),
 .boton.school-blue:focus:not([disabled]) {
-  border-color: #acbfff;
-  box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
   color: #acbfff;
   text-shadow: 0 0 3px #3060ff;
+}
+button.school-blue:hover:not([disabled]):not(.no-border), button.school-blue:focus:not([disabled]):not(.no-border),
+input[type="button"].school-blue:hover:not([disabled]):not(.no-border),
+input[type="button"].school-blue:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-blue:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-blue:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-blue:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-blue:focus:not([disabled]):not(.no-border),
+.boton.school-blue:hover:not([disabled]):not(.no-border),
+.boton.school-blue:focus:not([disabled]):not(.no-border) {
+  border-color: #acbfff;
+  box-shadow: inset 0 0 3px 1px rgba(48, 96, 255, 0.6), 0 0 3px 1px rgba(48, 96, 255, 0.6);
 }
 button.school-blue:active:not([disabled]),
 input[type="button"].school-blue:active:not([disabled]),
@@ -771,6 +947,12 @@ input[type="submit"].school-blue:active:not([disabled]),
 .boton.school-blue:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #3060ff, 0 0 4px rgba(48, 96, 255, 0.7);
+}
+button.school-blue:active:not([disabled]):not(.no-border),
+input[type="button"].school-blue:active:not([disabled]):not(.no-border),
+input[type="reset"].school-blue:active:not([disabled]):not(.no-border),
+input[type="submit"].school-blue:active:not([disabled]):not(.no-border),
+.boton.school-blue:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
@@ -815,6 +997,26 @@ a.box.school-blue:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
+.school-blue.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: #3060FF;
+}
+.school-blue.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid #3060ff;
+  border-radius: 2px;
+  color: #acbfff;
+  text-shadow: 0 0 2px rgba(172, 191, 255, 0.6);
+  background-color: rgba(48, 96, 255, 0);
+}
+.school-blue.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
+  background-color: rgba(48, 96, 255, 0.5);
+}
+.school-blue.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px #acbfff, 0 0 4px rgba(172, 191, 255, 0.7);
+}
 .school-blue.portal, .school-blue.portal::before, .school-blue.portal::after {
   border: 1px solid #3060FF;
 }
@@ -858,6 +1060,12 @@ input[type="submit"].school-green,
 .boton.school-green {
   color: green;
   text-shadow: 0 0 2px rgba(0, 128, 0, 0.6);
+}
+button.school-green:not(.no-border),
+input[type="button"].school-green:not(.no-border),
+input[type="reset"].school-green:not(.no-border),
+input[type="submit"].school-green:not(.no-border),
+.boton.school-green:not(.no-border) {
   background: none;
   border: 2px solid green;
   border-radius: 4px;
@@ -879,10 +1087,20 @@ input[type="submit"].school-green:hover:not([disabled]),
 input[type="submit"].school-green:focus:not([disabled]),
 .boton.school-green:hover:not([disabled]),
 .boton.school-green:focus:not([disabled]) {
-  border-color: #99cc99;
-  box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
   color: #99cc99;
   text-shadow: 0 0 3px green;
+}
+button.school-green:hover:not([disabled]):not(.no-border), button.school-green:focus:not([disabled]):not(.no-border),
+input[type="button"].school-green:hover:not([disabled]):not(.no-border),
+input[type="button"].school-green:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-green:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-green:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-green:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-green:focus:not([disabled]):not(.no-border),
+.boton.school-green:hover:not([disabled]):not(.no-border),
+.boton.school-green:focus:not([disabled]):not(.no-border) {
+  border-color: #99cc99;
+  box-shadow: inset 0 0 3px 1px rgba(0, 128, 0, 0.6), 0 0 3px 1px rgba(0, 128, 0, 0.6);
 }
 button.school-green:active:not([disabled]),
 input[type="button"].school-green:active:not([disabled]),
@@ -891,6 +1109,12 @@ input[type="submit"].school-green:active:not([disabled]),
 .boton.school-green:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px green, 0 0 4px rgba(0, 128, 0, 0.7);
+}
+button.school-green:active:not([disabled]):not(.no-border),
+input[type="button"].school-green:active:not([disabled]):not(.no-border),
+input[type="reset"].school-green:active:not([disabled]):not(.no-border),
+input[type="submit"].school-green:active:not([disabled]):not(.no-border),
+.boton.school-green:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
 }
@@ -935,6 +1159,26 @@ a.box.school-green:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
 }
+.school-green.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: green;
+}
+.school-green.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid green;
+  border-radius: 2px;
+  color: #99cc99;
+  text-shadow: 0 0 2px rgba(153, 204, 153, 0.6);
+  background-color: rgba(0, 128, 0, 0);
+}
+.school-green.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+.school-green.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px #99cc99, 0 0 4px rgba(153, 204, 153, 0.7);
+}
 .school-green.portal, .school-green.portal::before, .school-green.portal::after {
   border: 1px solid green;
 }
@@ -978,6 +1222,12 @@ input[type="submit"].school-orange,
 .boton.school-orange {
   color: #ff9933;
   text-shadow: 0 0 2px rgba(255, 153, 51, 0.6);
+}
+button.school-orange:not(.no-border),
+input[type="button"].school-orange:not(.no-border),
+input[type="reset"].school-orange:not(.no-border),
+input[type="submit"].school-orange:not(.no-border),
+.boton.school-orange:not(.no-border) {
   background: none;
   border: 2px solid #ff9933;
   border-radius: 4px;
@@ -999,10 +1249,20 @@ input[type="submit"].school-orange:hover:not([disabled]),
 input[type="submit"].school-orange:focus:not([disabled]),
 .boton.school-orange:hover:not([disabled]),
 .boton.school-orange:focus:not([disabled]) {
-  border-color: #ffd6ad;
-  box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
   color: #ffd6ad;
   text-shadow: 0 0 3px #ff9933;
+}
+button.school-orange:hover:not([disabled]):not(.no-border), button.school-orange:focus:not([disabled]):not(.no-border),
+input[type="button"].school-orange:hover:not([disabled]):not(.no-border),
+input[type="button"].school-orange:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-orange:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-orange:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-orange:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-orange:focus:not([disabled]):not(.no-border),
+.boton.school-orange:hover:not([disabled]):not(.no-border),
+.boton.school-orange:focus:not([disabled]):not(.no-border) {
+  border-color: #ffd6ad;
+  box-shadow: inset 0 0 3px 1px rgba(255, 153, 51, 0.6), 0 0 3px 1px rgba(255, 153, 51, 0.6);
 }
 button.school-orange:active:not([disabled]),
 input[type="button"].school-orange:active:not([disabled]),
@@ -1011,6 +1271,12 @@ input[type="submit"].school-orange:active:not([disabled]),
 .boton.school-orange:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff9933, 0 0 4px rgba(255, 153, 51, 0.7);
+}
+button.school-orange:active:not([disabled]):not(.no-border),
+input[type="button"].school-orange:active:not([disabled]):not(.no-border),
+input[type="reset"].school-orange:active:not([disabled]):not(.no-border),
+input[type="submit"].school-orange:active:not([disabled]):not(.no-border),
+.boton.school-orange:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
@@ -1055,6 +1321,26 @@ a.box.school-orange:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
+.school-orange.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: #FF9933;
+}
+.school-orange.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid #ff9933;
+  border-radius: 2px;
+  color: #ffd6ad;
+  text-shadow: 0 0 2px rgba(255, 214, 173, 0.6);
+  background-color: rgba(255, 153, 51, 0);
+}
+.school-orange.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
+  background-color: rgba(255, 153, 51, 0.5);
+}
+.school-orange.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px #ffd6ad, 0 0 4px rgba(255, 214, 173, 0.7);
+}
 .school-orange.portal, .school-orange.portal::before, .school-orange.portal::after {
   border: 1px solid #FF9933;
 }
@@ -1098,6 +1384,12 @@ input[type="submit"].school-danger,
 .boton.school-danger {
   color: #ff6c00;
   text-shadow: 0 0 2px rgba(255, 108, 0, 0.6);
+}
+button.school-danger:not(.no-border),
+input[type="button"].school-danger:not(.no-border),
+input[type="reset"].school-danger:not(.no-border),
+input[type="submit"].school-danger:not(.no-border),
+.boton.school-danger:not(.no-border) {
   background: none;
   border: 2px solid #ff6c00;
   border-radius: 4px;
@@ -1119,10 +1411,20 @@ input[type="submit"].school-danger:hover:not([disabled]),
 input[type="submit"].school-danger:focus:not([disabled]),
 .boton.school-danger:hover:not([disabled]),
 .boton.school-danger:focus:not([disabled]) {
-  border-color: #ffc499;
-  box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
   color: #ffc499;
   text-shadow: 0 0 3px #ff6c00;
+}
+button.school-danger:hover:not([disabled]):not(.no-border), button.school-danger:focus:not([disabled]):not(.no-border),
+input[type="button"].school-danger:hover:not([disabled]):not(.no-border),
+input[type="button"].school-danger:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-danger:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-danger:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-danger:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-danger:focus:not([disabled]):not(.no-border),
+.boton.school-danger:hover:not([disabled]):not(.no-border),
+.boton.school-danger:focus:not([disabled]):not(.no-border) {
+  border-color: #ffc499;
+  box-shadow: inset 0 0 3px 1px rgba(255, 108, 0, 0.6), 0 0 3px 1px rgba(255, 108, 0, 0.6);
 }
 button.school-danger:active:not([disabled]),
 input[type="button"].school-danger:active:not([disabled]),
@@ -1131,6 +1433,12 @@ input[type="submit"].school-danger:active:not([disabled]),
 .boton.school-danger:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px #ff6c00, 0 0 4px rgba(255, 108, 0, 0.7);
+}
+button.school-danger:active:not([disabled]):not(.no-border),
+input[type="button"].school-danger:active:not([disabled]):not(.no-border),
+input[type="reset"].school-danger:active:not([disabled]):not(.no-border),
+input[type="submit"].school-danger:active:not([disabled]):not(.no-border),
+.boton.school-danger:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
 }
@@ -1175,6 +1483,26 @@ a.box.school-danger:active {
   border-color: white;
   box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
 }
+.school-danger.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: #FF6C00;
+}
+.school-danger.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid #ff6c00;
+  border-radius: 2px;
+  color: #ffc499;
+  text-shadow: 0 0 2px rgba(255, 196, 153, 0.6);
+  background-color: rgba(255, 108, 0, 0);
+}
+.school-danger.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
+  background-color: rgba(255, 108, 0, 0.5);
+}
+.school-danger.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px #ffc499, 0 0 4px rgba(255, 196, 153, 0.7);
+}
 .school-danger.portal, .school-danger.portal::before, .school-danger.portal::after {
   border: 1px solid #FF6C00;
 }
@@ -1218,6 +1546,12 @@ input[type="submit"].school-nav,
 .boton.school-nav {
   color: white;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+button.school-nav:not(.no-border),
+input[type="button"].school-nav:not(.no-border),
+input[type="reset"].school-nav:not(.no-border),
+input[type="submit"].school-nav:not(.no-border),
+.boton.school-nav:not(.no-border) {
   background: none;
   border: 2px solid white;
   border-radius: 4px;
@@ -1239,10 +1573,20 @@ input[type="submit"].school-nav:hover:not([disabled]),
 input[type="submit"].school-nav:focus:not([disabled]),
 .boton.school-nav:hover:not([disabled]),
 .boton.school-nav:focus:not([disabled]) {
-  border-color: white;
-  box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
   color: white;
   text-shadow: 0 0 3px white;
+}
+button.school-nav:hover:not([disabled]):not(.no-border), button.school-nav:focus:not([disabled]):not(.no-border),
+input[type="button"].school-nav:hover:not([disabled]):not(.no-border),
+input[type="button"].school-nav:focus:not([disabled]):not(.no-border),
+input[type="reset"].school-nav:hover:not([disabled]):not(.no-border),
+input[type="reset"].school-nav:focus:not([disabled]):not(.no-border),
+input[type="submit"].school-nav:hover:not([disabled]):not(.no-border),
+input[type="submit"].school-nav:focus:not([disabled]):not(.no-border),
+.boton.school-nav:hover:not([disabled]):not(.no-border),
+.boton.school-nav:focus:not([disabled]):not(.no-border) {
+  border-color: white;
+  box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
 }
 button.school-nav:active:not([disabled]),
 input[type="button"].school-nav:active:not([disabled]),
@@ -1251,6 +1595,12 @@ input[type="submit"].school-nav:active:not([disabled]),
 .boton.school-nav:active:not([disabled]) {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
+}
+button.school-nav:active:not([disabled]):not(.no-border),
+input[type="button"].school-nav:active:not([disabled]):not(.no-border),
+input[type="reset"].school-nav:active:not([disabled]):not(.no-border),
+input[type="submit"].school-nav:active:not([disabled]):not(.no-border),
+.boton.school-nav:active:not([disabled]):not(.no-border) {
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
@@ -1294,6 +1644,26 @@ a.box.school-nav:active {
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
   border-color: white;
   box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
+}
+.school-nav.arcane-tabs > .tab-list > li .bolt-blurred {
+  stroke: white;
+}
+.school-nav.arcane-tabs > .pannus {
+  background: none;
+  border: 1px solid white;
+  border-radius: 2px;
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0);
+}
+.school-nav.arcane-tabs > .pannus.switching {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.school-nav.arcane-tabs > .pannus.switching > .tab-content.selected {
+  color: white;
+  text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
 .school-nav.portal, .school-nav.portal::before, .school-nav.portal::after {
   border: 1px solid white;

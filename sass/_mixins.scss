@@ -50,14 +50,14 @@
 
 @mixin transition-anim($duration:$transition-duration)
 {
-    transition: transform   $duration,
-                color       $duration,
-                opacity     $duration,
-                border      $duration,
-                text-shadow $duration,
-                box-shadow  $duration;
+    transition: transform        $duration,
+                color            $duration,
+                background-color $duration,
+                opacity          $duration,
+                border           $duration,
+                text-shadow      $duration,
+                box-shadow       $duration;
 }
-
 @mixin transition-anim-psuedo($duration:$transition-duration)
 {
     @include transition-anim($duration);
@@ -66,6 +66,18 @@
     {
         @include transition-anim($duration);
     }
+}
+@mixin transition-anim-size($duration:$transition-duration)
+{
+    transition: transform        $duration,
+                color            $duration,
+                background-color $duration,
+                opacity          $duration,
+                border           $duration,
+                text-shadow      $duration,
+                box-shadow       $duration,
+                width            $duration,
+                height           $duration;
 }
 
 @mixin text-shadow-uniform()
