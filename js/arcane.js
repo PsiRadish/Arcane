@@ -32,13 +32,14 @@ function arcaneResize()
 //     $elem.height($elem.outerHeight(false));
 // }
 
-// load SVG lightning bolt for later use
+//* load SVG lightning bolt for later use
 var svgBolt = null;
 jQuery.get("/img/bolt.svg", function(data)
 {
     // Get the SVG tag, ignore the rest
     svgBolt = jQuery(data).find('svg');
 }, 'xml');
+//*/
 
 $(document).ready(function()
 {
@@ -85,11 +86,6 @@ $(document).ready(function()
             }
             
             $(this).css('width', liWidth + "%");
-            
-            // if (index == listLength-1) // last li
-            // {   // to ensure it fits, set its width to whatever space is left
-            //     $(this).css('width', 100 - (liWidth * (listLength-1)) + "%");
-            // }
         });
     });
     

@@ -118,6 +118,11 @@ $alert-schools:
             > .tab-content.selected
             {
                 @include glow-strong-text(mix($color, $text-color, 40%));
+                
+                img
+                {
+                    @include glow-strong-border($color);
+                }
             }
         }
     }

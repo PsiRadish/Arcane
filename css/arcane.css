@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* © Kyle Fiegener */
 @import url(https://fonts.googleapis.com/css?family=Almendra:400,700,400italic,700italic|Metamorphous);
 /* • "Nerd" Theme
 // h1–h3
@@ -26,6 +27,14 @@ $font-size-h1               : ($font-size-base * 2.2);
 
 .center-text {
   text-align: center !important;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -168,6 +177,12 @@ body, #arcane, .arcane {
 *:not(a) > .h1:first-child, *:not(a) > .h2:first-child, *:not(a) > .h3:first-child, *:not(a) > .h4:first-child, *:not(a) > .h5:first-child, *:not(a) > .h6:first-child, *:not(a) > h1:first-child, *:not(a) > h2:first-child, *:not(a) > h3:first-child, *:not(a) > h4:first-child, *:not(a) > h5:first-child, *:not(a) > h6:first-child {
   margin-top: 0.25em;
 }
+header > .h1, header > .h2, header > .h3, header > .h4, header > .h5, header > .h6, header > h1, header > h2, header > h3, header > h4, header > h5, header > h6 {
+  margin-top: 0.25em;
+}
+header > .h1:not(:last-child), header > .h2:not(:last-child), header > .h3:not(:last-child), header > .h4:not(:last-child), header > .h5:not(:last-child), header > .h6:not(:last-child), header > h1:not(:last-child), header > h2:not(:last-child), header > h3:not(:last-child), header > h4:not(:last-child), header > h5:not(:last-child), header > h6:not(:last-child) {
+  margin-bottom: 0;
+}
 
 .h1, .h2, .h3, h1, h2, h3 {
   font-family: Metamorphous, Avdira, Nogard, Dragon Text;
@@ -202,13 +217,21 @@ body, #arcane, .arcane {
 }
 
 p, blockquote {
-  margin: 0.5em 0;
+  margin: 0.65em 0;
 }
-p:first-child, blockquote:first-child {
+p:first-child, p.fyrst, blockquote:first-child, blockquote.fyrst {
   margin-top: 0;
 }
-p:last-child, blockquote:last-child {
+p:last-child, p.laetest, blockquote:last-child, blockquote.laetest {
   margin-bottom: 0;
+}
+
+figure {
+  margin-bottom: 0.65em;
+  /* &:last-child, &.laetest
+  {
+      margin-bottom: 0;
+  } */
 }
 
 blockquote {
@@ -246,6 +269,11 @@ blockquote cite::before {
   content: "―";
 }
 
+figcaption {
+  font-size: 70%;
+  line-height: 1.1;
+}
+
 hr {
   width: 85%;
   background: none;
@@ -253,6 +281,7 @@ hr {
   border-radius: 2px;
   border-color: white;
   box-shadow: inset 0 0 3px 1px rgba(255, 255, 255, 0.6), 0 0 3px 1px rgba(255, 255, 255, 0.6);
+  transform: scaleY(0.5);
   margin: 1em auto;
 }
 
@@ -287,6 +316,18 @@ ul.inline-spread > li:last-child, ol.inline-spread > li:last-child {
 }
 ul.inline-spread > li:not(:first-child):not(:last-child), ol.inline-spread > li:not(:first-child):not(:last-child) {
   text-align: center;
+}
+
+/* For spans with on-hover easter-egg text. */
+span.egg {
+  color: #fffae0;
+  text-shadow: 0 0 2px rgba(255, 250, 224, 0.6);
+  cursor: default;
+}
+
+span.egg:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 a {
@@ -652,6 +693,7 @@ select, option {
   position: absolute;
   top: 12px;
   left: 12px;
+  width: calc(100% - 24px);
   /* &.switching.test // DEBUG
   {
       position: absolute; // so it no longer influences height of container
@@ -682,6 +724,10 @@ select, option {
 .arcane-tabs > .pannus.switching > .tab-content.selected {
   color: white;
   text-shadow: 0 0 4px #acbfff, 0 0 4px rgba(172, 191, 255, 0.7);
+}
+.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
 .arcane-tabs > .pannus.no-tab-selected {
   opacity: 0.6;
@@ -855,6 +901,10 @@ a.box.school-white:active {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
 }
+.school-white.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
+}
 .school-white.portal, .school-white.portal::before, .school-white.portal::after {
   border: 1px solid white;
 }
@@ -1016,6 +1066,10 @@ a.box.school-blue:active {
 .school-blue.arcane-tabs > .pannus.switching > .tab-content.selected {
   color: white;
   text-shadow: 0 0 4px #acbfff, 0 0 4px rgba(172, 191, 255, 0.7);
+}
+.school-blue.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #3060ff, 0 0 4px 1px #3060ff;
 }
 .school-blue.portal, .school-blue.portal::before, .school-blue.portal::after {
   border: 1px solid #3060FF;
@@ -1179,6 +1233,10 @@ a.box.school-green:active {
   color: white;
   text-shadow: 0 0 4px #99cc99, 0 0 4px rgba(153, 204, 153, 0.7);
 }
+.school-green.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px green, 0 0 4px 1px green;
+}
 .school-green.portal, .school-green.portal::before, .school-green.portal::after {
   border: 1px solid green;
 }
@@ -1340,6 +1398,10 @@ a.box.school-orange:active {
 .school-orange.arcane-tabs > .pannus.switching > .tab-content.selected {
   color: white;
   text-shadow: 0 0 4px #ffd6ad, 0 0 4px rgba(255, 214, 173, 0.7);
+}
+.school-orange.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #ff9933, 0 0 4px 1px #ff9933;
 }
 .school-orange.portal, .school-orange.portal::before, .school-orange.portal::after {
   border: 1px solid #FF9933;
@@ -1503,6 +1565,10 @@ a.box.school-danger:active {
   color: white;
   text-shadow: 0 0 4px #ffc499, 0 0 4px rgba(255, 196, 153, 0.7);
 }
+.school-danger.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px #ff6c00, 0 0 4px 1px #ff6c00;
+}
 .school-danger.portal, .school-danger.portal::before, .school-danger.portal::after {
   border: 1px solid #FF6C00;
 }
@@ -1664,6 +1730,10 @@ a.box.school-nav:active {
 .school-nav.arcane-tabs > .pannus.switching > .tab-content.selected {
   color: white;
   text-shadow: 0 0 4px white, 0 0 4px rgba(255, 255, 255, 0.7);
+}
+.school-nav.arcane-tabs > .pannus.switching > .tab-content.selected img {
+  border-color: white;
+  box-shadow: inset 0 0 4px 1px white, 0 0 4px 1px white;
 }
 .school-nav.portal, .school-nav.portal::before, .school-nav.portal::after {
   border: 1px solid white;
