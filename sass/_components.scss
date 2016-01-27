@@ -220,8 +220,8 @@ span.egg
 }
 span.egg:hover
 {
-    text-decoration: underline;
-    text-decoration-style: dotted;
+    border-bottom: 1px dotted mix($text-color, $link-color, 88%);
+    margin-bottom: -1px;
 }
 
 a
@@ -592,6 +592,11 @@ select, option
             left: ($box-padding * 2);
             width: calc(100% - #{$box-padding * 4});
             
+            img
+            {
+                transition: box-shadow $transition-duration-tabs;
+            }
+            
             &.selected // selected content to be shown
             {
                 opacity: 1;
@@ -599,23 +604,9 @@ select, option
             
             &.switching // formerly selected content that's fading out
             {
-                // position: absolute; // so it no longer influences height of container
-                // top: $box-padding * 2;
-                // left: $box-padding * 2;
-                
                 opacity: 0;
                 text-shadow: none;
             }
-            
-            /* &.switching.test // DEBUG
-            {
-                position: absolute; // so it no longer influences height of container
-                // top: $box-padding * 2;
-                // left: $box-padding * 2;
-                
-                opacity: 1;
-                text-shadow: none;
-            } */
             
             &:not(.selected):not(.switching) // completely undisplayed content
             {
@@ -624,6 +615,13 @@ select, option
                 opacity: 0;
                 text-shadow: none;
             }
+        }
+    }
+    > .pannus:not(.switching)
+    {
+        img
+        {
+            box-shadow: none;
         }
     }
     > .pannus.switching

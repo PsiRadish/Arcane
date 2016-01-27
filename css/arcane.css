@@ -326,8 +326,8 @@ span.egg {
 }
 
 span.egg:hover {
-  text-decoration: underline;
-  text-decoration-style: dotted;
+  border-bottom: 1px dotted #fffae0;
+  margin-bottom: -1px;
 }
 
 a {
@@ -694,15 +694,9 @@ select, option {
   top: 12px;
   left: 12px;
   width: calc(100% - 24px);
-  /* &.switching.test // DEBUG
-  {
-      position: absolute; // so it no longer influences height of container
-      // top: $box-padding * 2;
-      // left: $box-padding * 2;
-      
-      opacity: 1;
-      text-shadow: none;
-  } */
+}
+.arcane-tabs > .pannus > .tab-content img {
+  transition: box-shadow 0.3s;
 }
 .arcane-tabs > .pannus > .tab-content.selected {
   opacity: 1;
@@ -715,6 +709,9 @@ select, option {
   display: none;
   opacity: 0;
   text-shadow: none;
+}
+.arcane-tabs > .pannus:not(.switching) img {
+  box-shadow: none;
 }
 .arcane-tabs > .pannus.switching {
   border-color: white;
